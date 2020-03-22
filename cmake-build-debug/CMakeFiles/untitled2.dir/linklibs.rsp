@@ -1,0 +1,1 @@
+-lglfw3 C:/msys64/mingw64/lib/libglew32.dll.a -lopengl32 C:/msys64/mingw64/lib/libfreetype.dll.a C:/msys64/mingw64/lib/libSDL_image.dll.a -lglu32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

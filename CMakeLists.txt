@@ -1,0 +1,38 @@
+cmake_minimum_required(VERSION 3.14)
+project(untitled2)
+
+set(CMAKE_CXX_STANDARD 17)
+
+find_path(GLEW_INCLUDE_DIR GL/glew.h)
+find_library(GLEW_LIBRARY NAMES GLEW glew32 glew glew32s PATH_SUFFIXES lib64)
+
+find_package(Freetype REQUIRED)
+find_package(OpenGL REQUIRED)
+find_package(GLEW REQUIRED)
+find_package(glfw3 3.3 REQUIRED)
+find_package(SDL_image REQUIRED)
+
+include_directories(${OPENGL_INCLUDE_DIR})
+include_directories(${GLFW_INCLUDE_DIRS})
+include_directories(${GLEW_INCLUDE_DIRS})
+include_directories(${FREETYPE_INCLUDE_DIRS})
+include_directories(${SDL2_INCLUDE_DIRS})
+link_libraries(${GLEW_LIBRARIES})
+
+macro(add_res srcDir destDir)
+    file(REMOVE_RECURSE ${destDir})
+    file(COPY ${srcDir} DESTINATION ${destDir})
+    message("Resources updated.")
+endmacro(add_res)
+
+add_executable(untitled2
+        main.cpp
+        graphics/window.cpp
+        observable.h)
+
+target_link_libraries(untitled2 glfw3 GLEW::GLEW opengl32 ${FREETYPE_LIBRARIES} ${SDL_IMAGE_LIBRARIES})
+add_res(${CMAKE_SOURCE_DIR}/res ${CMAKE_CURRENT_BINARY_DIR})
+
+#find_package(PkgConfig REQUIRED)
+#pkg_search_module(GLFW REQUIRED glfw3)
+#target_link_libraries(untitled ${OPENGL_gl_LIBRARY} ${GLFW3_LIBRARY})
