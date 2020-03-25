@@ -84,16 +84,43 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/window.cpp">
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw.cpp">
 			<Option target="untitled2"/>
 		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/window.h">
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw.h">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_image.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_image.h">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_square.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_square.h">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_text.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_text.h">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/shader_util.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/shader_util.h">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/texture_load.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/texture_load.h">
 			<Option target="untitled2"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/main.cpp">
-			<Option target="untitled2"/>
-		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/observable.h">
 			<Option target="untitled2"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/CMakeLists.txt">

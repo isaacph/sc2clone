@@ -1,5 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/untitled2.dir/graphics/window.cpp.obj"
+  "CMakeFiles/untitled2.dir/graphics/draw.cpp.obj"
+  "CMakeFiles/untitled2.dir/graphics/draw_image.cpp.obj"
+  "CMakeFiles/untitled2.dir/graphics/draw_square.cpp.obj"
+  "CMakeFiles/untitled2.dir/graphics/draw_text.cpp.obj"
+  "CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj"
+  "CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj"
   "CMakeFiles/untitled2.dir/main.cpp.obj"
   "libuntitled2.dll.a"
   "untitled2.exe"

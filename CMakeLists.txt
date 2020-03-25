@@ -27,8 +27,12 @@ endmacro(add_res)
 
 add_executable(untitled2
         main.cpp
-        graphics/window.cpp
-        observable.h)
+        graphics/draw.cpp
+        graphics/draw_square.cpp
+        graphics/draw_text.cpp
+        graphics/draw_image.cpp
+        graphics/texture_load.cpp
+        graphics/shader_util.cpp)
 
 target_link_libraries(untitled2 glfw3 GLEW::GLEW opengl32 ${FREETYPE_LIBRARIES} ${SDL_IMAGE_LIBRARIES})
 add_res(${CMAKE_SOURCE_DIR}/res ${CMAKE_CURRENT_BINARY_DIR})

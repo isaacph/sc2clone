@@ -11,7 +11,58 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fe7bb29-9ede-4c4d-9be6-ad06a9f6cfeb" name="Default Changelist" comment="" />
+    <list default="true" id="2fe7bb29-9ede-4c4d-9be6-ad06a9f6cfeb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphics/draw_image.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphics/draw_square.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphics/draw_text.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphics/gl_config.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphics/shader_util.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphics/texture_load.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphics/texture_load.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/math_util.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/Box.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/Box.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/Convex.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/MovingBox.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/MovingBox.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/Primitives.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/Resolution.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/Resolution.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/RigidBody.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/RotatedBox.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/RotatedBox.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/Simulation.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/physics/Simulation.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/graphics/window.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/main.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/objects1.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/untitled2.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/untitled2.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/untitled2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/untitled2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphics/draw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/draw.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphics/draw.h" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/draw.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphics/draw_image.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/draw_image.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphics/draw_square.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/draw_square.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphics/draw_text.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/draw_text.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphics/shader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/shader_util.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphics/window.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphics/window.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/observable.h" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,16 +72,25 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/graphics/draw.cpp" root0="SKIP_INSPECTION" />
+  </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectId" id="1USL7Oejw0jAcZF6K37Amvd7iHx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -79,6 +139,10 @@
       <workItem from="1578793206589" duration="600000" />
       <workItem from="1579134361291" duration="37000" />
       <workItem from="1579134589920" duration="38000" />
+      <workItem from="1584895797079" duration="2793000" />
+      <workItem from="1584902938117" duration="2606000" />
+      <workItem from="1585002024384" duration="43000" />
+      <workItem from="1585100874926" duration="1014000" />
     </task>
     <servers />
   </component>
@@ -86,9 +150,77 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1579134593496">
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584851191970">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579134593496" />
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1584851191970" />
+    <state width="1493" height="221" key="GridCell.Tab.0.bottom" timestamp="1585101895482">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="221" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585101895482" />
+    <state width="1493" height="221" key="GridCell.Tab.0.center" timestamp="1585101895482">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="221" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585101895482" />
+    <state width="1493" height="221" key="GridCell.Tab.0.left" timestamp="1585101895482">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="221" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585101895482" />
+    <state width="1493" height="221" key="GridCell.Tab.0.right" timestamp="1585101895482">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="221" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585101895482" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1584856489805">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584856489804" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1584856489804">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1584856489804" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1584856489804">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1584856489804" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1584856489804">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1584856489804" />
+    <state x="277" y="56" key="SettingsEditor" timestamp="1584851526949">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584851526949" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1585100885856">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585100885856" />
+    <state width="356" height="188" key="javadoc.popup.new" timestamp="1584906525857">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="356" height="188" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1584906525857" />
+    <state x="455" y="260" width="705" height="304" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1584851446182">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="455" y="260" width="705" height="304" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1536.824@0.0.1536.824" timestamp="1584851446182" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1584903916520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584903916520" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>51</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/graphics/shader_util.cpp</url>
+          <line>51</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

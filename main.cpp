@@ -1,66 +1,85 @@
 #include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
 #include "graphics/draw.h"
-#include "observable.h"
-#include "graphics/window.h"
+//#include "physics/RigidBody.h"
+
+struct Game {
+    GLFWwindow* window = nullptr;
+    Graphics graphics;
+    glm::mat4 proj{};
+    int width{}, height{};
+
+    explicit Game(GLFWwindow* window) : window(window) {
+        glfwSetWindowUserPointer(window, this);
+        glfwSetWindowSizeCallback(window, [](GLFWwindow* win, int new_width, int new_height) {
+            ((Game*) glfwGetWindowUserPointer(win))->windowSize(new_width, new_height);
+        });
+    }
+
+    void windowSize(int new_width, int new_height) {
+        proj = glm::ortho<float>(0.0f, new_width, 0.0f, new_height, 0.0f, 1.0f);
+        width = new_width;
+        height = new_height;
+    }
+
+    void run() {
+        Graphics::Text text = graphics.initText("arial", 16);
+        text.matrix = proj * glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 100.0f, 0.0f));
+        text.text = "testing test 1213";
+        text.color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
+
+        Graphics::Rectangle rectangle = graphics.initRectangle();
+        rectangle.color = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+        rectangle.matrix = proj * glm::scale(glm::translate(glm::mat4(1.0f), glm::vec3(300, 300, 0)), glm::vec3(100, 100, 0));
+
+        Graphics::Image image = graphics.initImage();
+        image.color = glm::vec4(1.0f, 1.0f, 0.5f, 1.0f);
+        image.matrix = proj * glm::scale(glm::translate(glm::mat4(1.0f), glm::vec3(300, 300, 0)), glm::vec3(100, 100, 0));
+        image.image = "res/animation/stickman.png";
+
+        while(!glfwWindowShouldClose(window)) {
+            rectangle.draw();
+            text.draw();
+            image.draw();
+
+            glfwPollEvents();
+            glfwSwapBuffers(window);
+        }
+    }
+};
 
 int main() {
-    initGLFW();
-    std::unique_ptr<WindowProperties> windowProperties = createWindow("Window", 800, 600);
-    Subscription windowSub = windowProperties->callbacks.mouseButton.subscribe([&](WindowProperties::MouseButton b) {
-        std::cout << b.button << std::endl;
-    });
-    windowSub += windowProperties->callbacks.windowClose.subscribe([&](auto) {
-        std::cout << "CLOSE" << std::endl;
-    });
+    const glm::ivec2 STARTING_WINDOW_SIZE(800, 600);
 
-    while(!glfwWindowShouldClose(windowProperties->window)) {
-        glfwPollEvents();
-        glfwSwapBuffers(windowProperties->window);
-    }
+    glfwInit();
 
-    glfwTerminate();
-    return 0;
-    /*
-    createGLFW();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-    std::unique_ptr<WindowContext> context = createWindow("Window", 800, 600);
-    auto window = context->window;
+    glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
+    GLFWwindow* window = glfwCreateWindow(STARTING_WINDOW_SIZE.x, STARTING_WINDOW_SIZE.y, "Render Engine",
+                                          nullptr, nullptr);
 
-    draw::init();
-    draw::initFont("arial", 32);
-    draw::initTexture("res/animation/stickman.png", {});
+    glfwMakeContextCurrent(window);
 
-    glm::mat4 ortho;
+    // enable VSYNC
+    glfwSwapInterval(1);
 
-    context->sizeChange = [&](GLFWwindow *win, int w, int h) {
-        glViewport(0, 0, w, h);
-        ortho = glm::ortho<double>(0, w, 0, h);
-    };
-    context->sizeChange(window, 800, 600);
+    // init GL
+    glewExperimental = GL_TRUE;
+    GLenum glewStatus = glewInit();
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glClearColor(0, 0, 0, 0);
+    errorCheckGl("draw pre-init");
 
-    glm::mat4 sq = glm::translate(glm::mat4(1.0f), glm::vec3(150, 200, 0));
-    sq = glm::scale(sq, glm::vec3(200, 300, 0));
-    glm::mat4 man = glm::translate(glm::mat4(1.0f), glm::vec3(150, 200, 0));
-    man = glm::scale(man, glm::vec3(200, 200, 0));
+    Game game(window);
+    game.windowSize(STARTING_WINDOW_SIZE.x, STARTING_WINDOW_SIZE.y);
+    game.run();
 
-    while(!glfwWindowShouldClose(window)) {
-
-        glClear(GL_COLOR_BUFFER_BIT);
-        draw::square(ortho * sq);
-        draw::text("arial", 32, "Hello world!", glm::translate(ortho, glm::vec3(300, 300, 0)));
-        draw::bindTexture("res/animation/stickman.png");
-        draw::image(ortho * man);
-
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
-
-    std::cout << "Hello, World!" << std::endl;
-
-    draw::destroy();
     glfwTerminate();
 
     return 0;
-     */
 }

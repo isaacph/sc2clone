@@ -70,30 +70,110 @@ CMakeFiles/untitled2.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/main.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\main.cpp -o CMakeFiles\untitled2.dir\main.cpp.s
 
-CMakeFiles/untitled2.dir/graphics/window.cpp.obj: CMakeFiles/untitled2.dir/flags.make
-CMakeFiles/untitled2.dir/graphics/window.cpp.obj: CMakeFiles/untitled2.dir/includes_CXX.rsp
-CMakeFiles/untitled2.dir/graphics/window.cpp.obj: ../graphics/window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/untitled2.dir/graphics/window.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\untitled2.dir\graphics\window.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\graphics\window.cpp
+CMakeFiles/untitled2.dir/graphics/draw.cpp.obj: CMakeFiles/untitled2.dir/flags.make
+CMakeFiles/untitled2.dir/graphics/draw.cpp.obj: CMakeFiles/untitled2.dir/includes_CXX.rsp
+CMakeFiles/untitled2.dir/graphics/draw.cpp.obj: ../graphics/draw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/untitled2.dir/graphics/draw.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\untitled2.dir\graphics\draw.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\graphics\draw.cpp
 
-CMakeFiles/untitled2.dir/graphics/window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled2.dir/graphics/window.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\graphics\window.cpp > CMakeFiles\untitled2.dir\graphics\window.cpp.i
+CMakeFiles/untitled2.dir/graphics/draw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled2.dir/graphics/draw.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\graphics\draw.cpp > CMakeFiles\untitled2.dir\graphics\draw.cpp.i
 
-CMakeFiles/untitled2.dir/graphics/window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/graphics/window.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\graphics\window.cpp -o CMakeFiles\untitled2.dir\graphics\window.cpp.s
+CMakeFiles/untitled2.dir/graphics/draw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/graphics/draw.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\graphics\draw.cpp -o CMakeFiles\untitled2.dir\graphics\draw.cpp.s
+
+CMakeFiles/untitled2.dir/graphics/draw_square.cpp.obj: CMakeFiles/untitled2.dir/flags.make
+CMakeFiles/untitled2.dir/graphics/draw_square.cpp.obj: CMakeFiles/untitled2.dir/includes_CXX.rsp
+CMakeFiles/untitled2.dir/graphics/draw_square.cpp.obj: ../graphics/draw_square.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/untitled2.dir/graphics/draw_square.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\untitled2.dir\graphics\draw_square.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\graphics\draw_square.cpp
+
+CMakeFiles/untitled2.dir/graphics/draw_square.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled2.dir/graphics/draw_square.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\graphics\draw_square.cpp > CMakeFiles\untitled2.dir\graphics\draw_square.cpp.i
+
+CMakeFiles/untitled2.dir/graphics/draw_square.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/graphics/draw_square.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\graphics\draw_square.cpp -o CMakeFiles\untitled2.dir\graphics\draw_square.cpp.s
+
+CMakeFiles/untitled2.dir/graphics/draw_text.cpp.obj: CMakeFiles/untitled2.dir/flags.make
+CMakeFiles/untitled2.dir/graphics/draw_text.cpp.obj: CMakeFiles/untitled2.dir/includes_CXX.rsp
+CMakeFiles/untitled2.dir/graphics/draw_text.cpp.obj: ../graphics/draw_text.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/untitled2.dir/graphics/draw_text.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\untitled2.dir\graphics\draw_text.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\graphics\draw_text.cpp
+
+CMakeFiles/untitled2.dir/graphics/draw_text.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled2.dir/graphics/draw_text.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\graphics\draw_text.cpp > CMakeFiles\untitled2.dir\graphics\draw_text.cpp.i
+
+CMakeFiles/untitled2.dir/graphics/draw_text.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/graphics/draw_text.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\graphics\draw_text.cpp -o CMakeFiles\untitled2.dir\graphics\draw_text.cpp.s
+
+CMakeFiles/untitled2.dir/graphics/draw_image.cpp.obj: CMakeFiles/untitled2.dir/flags.make
+CMakeFiles/untitled2.dir/graphics/draw_image.cpp.obj: CMakeFiles/untitled2.dir/includes_CXX.rsp
+CMakeFiles/untitled2.dir/graphics/draw_image.cpp.obj: ../graphics/draw_image.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/untitled2.dir/graphics/draw_image.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\untitled2.dir\graphics\draw_image.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\graphics\draw_image.cpp
+
+CMakeFiles/untitled2.dir/graphics/draw_image.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled2.dir/graphics/draw_image.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\graphics\draw_image.cpp > CMakeFiles\untitled2.dir\graphics\draw_image.cpp.i
+
+CMakeFiles/untitled2.dir/graphics/draw_image.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/graphics/draw_image.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\graphics\draw_image.cpp -o CMakeFiles\untitled2.dir\graphics\draw_image.cpp.s
+
+CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj: CMakeFiles/untitled2.dir/flags.make
+CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj: CMakeFiles/untitled2.dir/includes_CXX.rsp
+CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj: ../graphics/texture_load.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\untitled2.dir\graphics\texture_load.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\graphics\texture_load.cpp
+
+CMakeFiles/untitled2.dir/graphics/texture_load.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled2.dir/graphics/texture_load.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\graphics\texture_load.cpp > CMakeFiles\untitled2.dir\graphics\texture_load.cpp.i
+
+CMakeFiles/untitled2.dir/graphics/texture_load.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/graphics/texture_load.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\graphics\texture_load.cpp -o CMakeFiles\untitled2.dir\graphics\texture_load.cpp.s
+
+CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj: CMakeFiles/untitled2.dir/flags.make
+CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj: CMakeFiles/untitled2.dir/includes_CXX.rsp
+CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj: ../graphics/shader_util.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\untitled2.dir\graphics\shader_util.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\graphics\shader_util.cpp
+
+CMakeFiles/untitled2.dir/graphics/shader_util.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled2.dir/graphics/shader_util.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\graphics\shader_util.cpp > CMakeFiles\untitled2.dir\graphics\shader_util.cpp.i
+
+CMakeFiles/untitled2.dir/graphics/shader_util.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/graphics/shader_util.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\graphics\shader_util.cpp -o CMakeFiles\untitled2.dir\graphics\shader_util.cpp.s
 
 # Object files for target untitled2
 untitled2_OBJECTS = \
 "CMakeFiles/untitled2.dir/main.cpp.obj" \
-"CMakeFiles/untitled2.dir/graphics/window.cpp.obj"
+"CMakeFiles/untitled2.dir/graphics/draw.cpp.obj" \
+"CMakeFiles/untitled2.dir/graphics/draw_square.cpp.obj" \
+"CMakeFiles/untitled2.dir/graphics/draw_text.cpp.obj" \
+"CMakeFiles/untitled2.dir/graphics/draw_image.cpp.obj" \
+"CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj" \
+"CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj"
 
 # External object files for target untitled2
 untitled2_EXTERNAL_OBJECTS =
 
 untitled2.exe: CMakeFiles/untitled2.dir/main.cpp.obj
-untitled2.exe: CMakeFiles/untitled2.dir/graphics/window.cpp.obj
+untitled2.exe: CMakeFiles/untitled2.dir/graphics/draw.cpp.obj
+untitled2.exe: CMakeFiles/untitled2.dir/graphics/draw_square.cpp.obj
+untitled2.exe: CMakeFiles/untitled2.dir/graphics/draw_text.cpp.obj
+untitled2.exe: CMakeFiles/untitled2.dir/graphics/draw_image.cpp.obj
+untitled2.exe: CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj
+untitled2.exe: CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj
 untitled2.exe: CMakeFiles/untitled2.dir/build.make
 untitled2.exe: C:/msys64/mingw64/lib/libglew32.dll.a
 untitled2.exe: C:/msys64/mingw64/lib/libfreetype.dll.a
@@ -101,7 +181,7 @@ untitled2.exe: C:/msys64/mingw64/lib/libSDL_image.dll.a
 untitled2.exe: CMakeFiles/untitled2.dir/linklibs.rsp
 untitled2.exe: CMakeFiles/untitled2.dir/objects1.rsp
 untitled2.exe: CMakeFiles/untitled2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable untitled2.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable untitled2.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\untitled2.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

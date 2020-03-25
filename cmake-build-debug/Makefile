@@ -122,32 +122,167 @@ untitled2/fast:
 	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/build
 .PHONY : untitled2/fast
 
-graphics/window.obj: graphics/window.cpp.obj
+graphics/draw.obj: graphics/draw.cpp.obj
 
-.PHONY : graphics/window.obj
+.PHONY : graphics/draw.obj
 
 # target to build an object file
-graphics/window.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/window.cpp.obj
-.PHONY : graphics/window.cpp.obj
+graphics/draw.cpp.obj:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw.cpp.obj
+.PHONY : graphics/draw.cpp.obj
 
-graphics/window.i: graphics/window.cpp.i
+graphics/draw.i: graphics/draw.cpp.i
 
-.PHONY : graphics/window.i
+.PHONY : graphics/draw.i
 
 # target to preprocess a source file
-graphics/window.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/window.cpp.i
-.PHONY : graphics/window.cpp.i
+graphics/draw.cpp.i:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw.cpp.i
+.PHONY : graphics/draw.cpp.i
 
-graphics/window.s: graphics/window.cpp.s
+graphics/draw.s: graphics/draw.cpp.s
 
-.PHONY : graphics/window.s
+.PHONY : graphics/draw.s
 
 # target to generate assembly for a file
-graphics/window.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/window.cpp.s
-.PHONY : graphics/window.cpp.s
+graphics/draw.cpp.s:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw.cpp.s
+.PHONY : graphics/draw.cpp.s
+
+graphics/draw_image.obj: graphics/draw_image.cpp.obj
+
+.PHONY : graphics/draw_image.obj
+
+# target to build an object file
+graphics/draw_image.cpp.obj:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_image.cpp.obj
+.PHONY : graphics/draw_image.cpp.obj
+
+graphics/draw_image.i: graphics/draw_image.cpp.i
+
+.PHONY : graphics/draw_image.i
+
+# target to preprocess a source file
+graphics/draw_image.cpp.i:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_image.cpp.i
+.PHONY : graphics/draw_image.cpp.i
+
+graphics/draw_image.s: graphics/draw_image.cpp.s
+
+.PHONY : graphics/draw_image.s
+
+# target to generate assembly for a file
+graphics/draw_image.cpp.s:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_image.cpp.s
+.PHONY : graphics/draw_image.cpp.s
+
+graphics/draw_square.obj: graphics/draw_square.cpp.obj
+
+.PHONY : graphics/draw_square.obj
+
+# target to build an object file
+graphics/draw_square.cpp.obj:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_square.cpp.obj
+.PHONY : graphics/draw_square.cpp.obj
+
+graphics/draw_square.i: graphics/draw_square.cpp.i
+
+.PHONY : graphics/draw_square.i
+
+# target to preprocess a source file
+graphics/draw_square.cpp.i:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_square.cpp.i
+.PHONY : graphics/draw_square.cpp.i
+
+graphics/draw_square.s: graphics/draw_square.cpp.s
+
+.PHONY : graphics/draw_square.s
+
+# target to generate assembly for a file
+graphics/draw_square.cpp.s:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_square.cpp.s
+.PHONY : graphics/draw_square.cpp.s
+
+graphics/draw_text.obj: graphics/draw_text.cpp.obj
+
+.PHONY : graphics/draw_text.obj
+
+# target to build an object file
+graphics/draw_text.cpp.obj:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_text.cpp.obj
+.PHONY : graphics/draw_text.cpp.obj
+
+graphics/draw_text.i: graphics/draw_text.cpp.i
+
+.PHONY : graphics/draw_text.i
+
+# target to preprocess a source file
+graphics/draw_text.cpp.i:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_text.cpp.i
+.PHONY : graphics/draw_text.cpp.i
+
+graphics/draw_text.s: graphics/draw_text.cpp.s
+
+.PHONY : graphics/draw_text.s
+
+# target to generate assembly for a file
+graphics/draw_text.cpp.s:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_text.cpp.s
+.PHONY : graphics/draw_text.cpp.s
+
+graphics/shader_util.obj: graphics/shader_util.cpp.obj
+
+.PHONY : graphics/shader_util.obj
+
+# target to build an object file
+graphics/shader_util.cpp.obj:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj
+.PHONY : graphics/shader_util.cpp.obj
+
+graphics/shader_util.i: graphics/shader_util.cpp.i
+
+.PHONY : graphics/shader_util.i
+
+# target to preprocess a source file
+graphics/shader_util.cpp.i:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/shader_util.cpp.i
+.PHONY : graphics/shader_util.cpp.i
+
+graphics/shader_util.s: graphics/shader_util.cpp.s
+
+.PHONY : graphics/shader_util.s
+
+# target to generate assembly for a file
+graphics/shader_util.cpp.s:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/shader_util.cpp.s
+.PHONY : graphics/shader_util.cpp.s
+
+graphics/texture_load.obj: graphics/texture_load.cpp.obj
+
+.PHONY : graphics/texture_load.obj
+
+# target to build an object file
+graphics/texture_load.cpp.obj:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj
+.PHONY : graphics/texture_load.cpp.obj
+
+graphics/texture_load.i: graphics/texture_load.cpp.i
+
+.PHONY : graphics/texture_load.i
+
+# target to preprocess a source file
+graphics/texture_load.cpp.i:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/texture_load.cpp.i
+.PHONY : graphics/texture_load.cpp.i
+
+graphics/texture_load.s: graphics/texture_load.cpp.s
+
+.PHONY : graphics/texture_load.s
+
+# target to generate assembly for a file
+graphics/texture_load.cpp.s:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/texture_load.cpp.s
+.PHONY : graphics/texture_load.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -185,9 +320,24 @@ help:
 	@echo ... untitled2
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... graphics/window.obj
-	@echo ... graphics/window.i
-	@echo ... graphics/window.s
+	@echo ... graphics/draw.obj
+	@echo ... graphics/draw.i
+	@echo ... graphics/draw.s
+	@echo ... graphics/draw_image.obj
+	@echo ... graphics/draw_image.i
+	@echo ... graphics/draw_image.s
+	@echo ... graphics/draw_square.obj
+	@echo ... graphics/draw_square.i
+	@echo ... graphics/draw_square.s
+	@echo ... graphics/draw_text.obj
+	@echo ... graphics/draw_text.i
+	@echo ... graphics/draw_text.s
+	@echo ... graphics/shader_util.obj
+	@echo ... graphics/shader_util.i
+	@echo ... graphics/shader_util.s
+	@echo ... graphics/texture_load.obj
+	@echo ... graphics/texture_load.i
+	@echo ... graphics/texture_load.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

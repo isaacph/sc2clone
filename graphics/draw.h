@@ -7,14 +7,77 @@
 #include <glm/glm.hpp>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <utility>
 #include <vector>
 #include <string>
 #include <map>
 #include <functional>
 #include <memory>
-#include "../observable.h"
+#include "draw_square.h"
+#include "draw_text.h"
+#include "draw_image.h"
+#include "texture_load.h"
 
-#ifndef RENDER_1
+#define RENDER_2
+#ifdef RENDER_2
+
+class Graphics;
+
+class Graphics {
+public:
+    class Object {
+        virtual void draw() = 0;
+    protected:
+        Graphics& graphics;
+        explicit Object(Graphics& graphics);
+    };
+
+    struct Rectangle : public Object {
+        glm::mat4 matrix = glm::mat4(1.0f);
+        glm::vec4 color = glm::vec4(1.0f);
+        void draw() override;
+    private:
+        explicit Rectangle(Graphics& graphics);
+        friend class Graphics;
+    };
+
+    struct Text : public Object {
+        glm::mat4 matrix = glm::mat4(1.0f);
+        glm::vec4 color = glm::vec4(1.0f);
+        std::string text = "";
+        void draw() override;
+        float width();
+        const std::string font;
+        const int size;
+    private:
+        explicit Text(Graphics& graphics, std::string font, int size);
+        friend class Graphics;
+    };
+
+    struct Image : public Object {
+        glm::mat4 matrix = glm::mat4(1.0f);
+        glm::vec4 color = glm::vec4(1.0f);
+        std::string image;
+        void draw() override;
+    private:
+        explicit Image(Graphics& graphics);
+        friend class Graphics;
+    };
+
+    Rectangle initRectangle();
+    Text initText(const std::string& font, int size);
+    Image initImage();
+    Graphics();
+    ~Graphics();
+private:
+    DrawSquare drawSquare;
+    DrawText drawText;
+    DrawImage drawImage;
+    TextureLibrary textureLibrary;
+};
+#endif
+
+#ifdef RENDER_1
 
 class Model;
 class Graphics {
@@ -149,5 +212,14 @@ void createGLFW();
 std::unique_ptr<WindowContext> createWindow(const std::string &title, int width, int height);
 GLint createShaderProgram(const std::string &vsrcFile, const std::string &fsrcFile, const std::string &gsrcFile, const std::vector<std::string> &attributes);
 #endif
+
+#include <iostream>
+
+inline void errorCheckGl(const std::string &err) {
+    GLenum e = glGetError();
+    if(e) {
+        std::cerr << "GL Error Code: " << e << ", " << err << std::endl;
+    }
+}
 
 #endif //UNTITLED_DRAW_H
