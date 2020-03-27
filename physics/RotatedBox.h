@@ -4,16 +4,17 @@
 
 #ifndef UNTITLED_ROTATEDBOX_H
 #define UNTITLED_ROTATEDBOX_H
-#include "MovingBox.h"
+#include "Box.h"
 
-struct RotatedBox : public MovingBox {
+struct RotatedBox : public Box {
 public:
     RotatedBox(glm::vec2 position, glm::vec2 scale, double rotation = 0);
     double rotation;
     [[nodiscard]] glm::mat4 toMatrix() const override;
-    [[nodiscard]] std::pair<double, double> shadow(glm::vec2 start, glm::vec2 dir) const override;
-    [[nodiscard]] int axes() const override;
-    [[nodiscard]] glm::vec2 axis(int n) const override;
+    [[nodiscard]] MovingShadow getShadowX() const override;
+    [[nodiscard]] MovingShadow getShadowY() const override;
+    [[nodiscard]] MovingShadow getShadowAxis(const glm::vec2& dir) const override;
+    [[nodiscard]] std::set<SortVec> getAxes() const override;
 };
 
 #endif //UNTITLED_ROTATEDBOX_H

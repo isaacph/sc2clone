@@ -11,6 +11,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/isaac/CLionProjects/untitled2/graphics/shader_util.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/graphics/texture_load.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/main.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/untitled2.dir/main.cpp.obj"
+  "C:/Users/isaac/CLionProjects/untitled2/physics/Box.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/untitled2.dir/physics/Box.cpp.obj"
+  "C:/Users/isaac/CLionProjects/untitled2/physics/RotatedBox.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj"
+  "C:/Users/isaac/CLionProjects/untitled2/test/DragonCurve.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

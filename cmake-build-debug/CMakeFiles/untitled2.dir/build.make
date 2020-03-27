@@ -154,6 +154,48 @@ CMakeFiles/untitled2.dir/graphics/shader_util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/graphics/shader_util.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\graphics\shader_util.cpp -o CMakeFiles\untitled2.dir\graphics\shader_util.cpp.s
 
+CMakeFiles/untitled2.dir/physics/Box.cpp.obj: CMakeFiles/untitled2.dir/flags.make
+CMakeFiles/untitled2.dir/physics/Box.cpp.obj: CMakeFiles/untitled2.dir/includes_CXX.rsp
+CMakeFiles/untitled2.dir/physics/Box.cpp.obj: ../physics/Box.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/untitled2.dir/physics/Box.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\untitled2.dir\physics\Box.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\physics\Box.cpp
+
+CMakeFiles/untitled2.dir/physics/Box.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled2.dir/physics/Box.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\physics\Box.cpp > CMakeFiles\untitled2.dir\physics\Box.cpp.i
+
+CMakeFiles/untitled2.dir/physics/Box.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/physics/Box.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\physics\Box.cpp -o CMakeFiles\untitled2.dir\physics\Box.cpp.s
+
+CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj: CMakeFiles/untitled2.dir/flags.make
+CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj: CMakeFiles/untitled2.dir/includes_CXX.rsp
+CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj: ../physics/RotatedBox.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\untitled2.dir\physics\RotatedBox.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\physics\RotatedBox.cpp
+
+CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\physics\RotatedBox.cpp > CMakeFiles\untitled2.dir\physics\RotatedBox.cpp.i
+
+CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\physics\RotatedBox.cpp -o CMakeFiles\untitled2.dir\physics\RotatedBox.cpp.s
+
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: CMakeFiles/untitled2.dir/flags.make
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: CMakeFiles/untitled2.dir/includes_CXX.rsp
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: ../test/DragonCurve.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\untitled2.dir\test\DragonCurve.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\test\DragonCurve.cpp
+
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled2.dir/test/DragonCurve.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\test\DragonCurve.cpp > CMakeFiles\untitled2.dir\test\DragonCurve.cpp.i
+
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled2.dir/test/DragonCurve.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\test\DragonCurve.cpp -o CMakeFiles\untitled2.dir\test\DragonCurve.cpp.s
+
 # Object files for target untitled2
 untitled2_OBJECTS = \
 "CMakeFiles/untitled2.dir/main.cpp.obj" \
@@ -162,7 +204,10 @@ untitled2_OBJECTS = \
 "CMakeFiles/untitled2.dir/graphics/draw_text.cpp.obj" \
 "CMakeFiles/untitled2.dir/graphics/draw_image.cpp.obj" \
 "CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj" \
-"CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj"
+"CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj" \
+"CMakeFiles/untitled2.dir/physics/Box.cpp.obj" \
+"CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj" \
+"CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj"
 
 # External object files for target untitled2
 untitled2_EXTERNAL_OBJECTS =
@@ -174,6 +219,9 @@ untitled2.exe: CMakeFiles/untitled2.dir/graphics/draw_text.cpp.obj
 untitled2.exe: CMakeFiles/untitled2.dir/graphics/draw_image.cpp.obj
 untitled2.exe: CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj
 untitled2.exe: CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj
+untitled2.exe: CMakeFiles/untitled2.dir/physics/Box.cpp.obj
+untitled2.exe: CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj
+untitled2.exe: CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj
 untitled2.exe: CMakeFiles/untitled2.dir/build.make
 untitled2.exe: C:/msys64/mingw64/lib/libglew32.dll.a
 untitled2.exe: C:/msys64/mingw64/lib/libfreetype.dll.a
@@ -181,7 +229,7 @@ untitled2.exe: C:/msys64/mingw64/lib/libSDL_image.dll.a
 untitled2.exe: CMakeFiles/untitled2.dir/linklibs.rsp
 untitled2.exe: CMakeFiles/untitled2.dir/objects1.rsp
 untitled2.exe: CMakeFiles/untitled2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable untitled2.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable untitled2.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\untitled2.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

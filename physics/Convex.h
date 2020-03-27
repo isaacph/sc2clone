@@ -4,16 +4,15 @@
 
 #ifndef UNTITLED_CONVEX_H
 #define UNTITLED_CONVEX_H
-#include "RigidBody.h"
 #include "Primitives.h"
 #include <set>
 
 class Convex {
 public:
-    [[nodiscard]] virtual RotatingShadow getShadowX() const = 0;
-    [[nodiscard]] virtual RotatingShadow getShadowY() const = 0;
-    [[nodiscard]] virtual RotatingShadow getShadowAxis(const glm::vec2& dir) const = 0;
-    [[nodiscard]] virtual std::set<glm::vec2> getAxes() const = 0;
+    [[nodiscard]] virtual MovingShadow getShadowX() const = 0;
+    [[nodiscard]] virtual MovingShadow getShadowY() const = 0;
+    [[nodiscard]] virtual MovingShadow getShadowAxis(const glm::vec2& dir) const = 0;
+    [[nodiscard]] virtual std::set<SortVec> getAxes() const = 0;
 };
 
 

@@ -71,6 +71,12 @@ glm/gtc/matrix_transform.hpp
 -
 graphics/draw.h
 C:/Users/isaac/CLionProjects/untitled2/graphics/draw.h
+test/DragonCurve.h
+C:/Users/isaac/CLionProjects/untitled2/test/DragonCurve.h
+
+C:/Users/isaac/CLionProjects/untitled2/test/DragonCurve.h
+../graphics/draw.h
+C:/Users/isaac/CLionProjects/untitled2/graphics/draw.h
 
 C:/msys64/mingw64/include/freetype2/freetype/config/ftheader.h
 

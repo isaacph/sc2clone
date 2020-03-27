@@ -311,6 +311,87 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+physics/Box.obj: physics/Box.cpp.obj
+
+.PHONY : physics/Box.obj
+
+# target to build an object file
+physics/Box.cpp.obj:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/Box.cpp.obj
+.PHONY : physics/Box.cpp.obj
+
+physics/Box.i: physics/Box.cpp.i
+
+.PHONY : physics/Box.i
+
+# target to preprocess a source file
+physics/Box.cpp.i:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/Box.cpp.i
+.PHONY : physics/Box.cpp.i
+
+physics/Box.s: physics/Box.cpp.s
+
+.PHONY : physics/Box.s
+
+# target to generate assembly for a file
+physics/Box.cpp.s:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/Box.cpp.s
+.PHONY : physics/Box.cpp.s
+
+physics/RotatedBox.obj: physics/RotatedBox.cpp.obj
+
+.PHONY : physics/RotatedBox.obj
+
+# target to build an object file
+physics/RotatedBox.cpp.obj:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj
+.PHONY : physics/RotatedBox.cpp.obj
+
+physics/RotatedBox.i: physics/RotatedBox.cpp.i
+
+.PHONY : physics/RotatedBox.i
+
+# target to preprocess a source file
+physics/RotatedBox.cpp.i:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.i
+.PHONY : physics/RotatedBox.cpp.i
+
+physics/RotatedBox.s: physics/RotatedBox.cpp.s
+
+.PHONY : physics/RotatedBox.s
+
+# target to generate assembly for a file
+physics/RotatedBox.cpp.s:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.s
+.PHONY : physics/RotatedBox.cpp.s
+
+test/DragonCurve.obj: test/DragonCurve.cpp.obj
+
+.PHONY : test/DragonCurve.obj
+
+# target to build an object file
+test/DragonCurve.cpp.obj:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj
+.PHONY : test/DragonCurve.cpp.obj
+
+test/DragonCurve.i: test/DragonCurve.cpp.i
+
+.PHONY : test/DragonCurve.i
+
+# target to preprocess a source file
+test/DragonCurve.cpp.i:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/DragonCurve.cpp.i
+.PHONY : test/DragonCurve.cpp.i
+
+test/DragonCurve.s: test/DragonCurve.cpp.s
+
+.PHONY : test/DragonCurve.s
+
+# target to generate assembly for a file
+test/DragonCurve.cpp.s:
+	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/DragonCurve.cpp.s
+.PHONY : test/DragonCurve.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -341,6 +422,15 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... physics/Box.obj
+	@echo ... physics/Box.i
+	@echo ... physics/Box.s
+	@echo ... physics/RotatedBox.obj
+	@echo ... physics/RotatedBox.i
+	@echo ... physics/RotatedBox.s
+	@echo ... test/DragonCurve.obj
+	@echo ... test/DragonCurve.i
+	@echo ... test/DragonCurve.s
 .PHONY : help
 
 

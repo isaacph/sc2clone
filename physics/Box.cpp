@@ -3,39 +3,47 @@
 //
 
 #include "Box.h"
+#include <limits>
 
-Box::Box(glm::vec2 position, glm::vec2 scale) : position(position), scale(scale) {
+Box::Box(glm::vec2 position, glm::vec2 scale) : position(position), scale(scale), velocity(0) {
 
 }
 
-glm::vec2 Box::max() const {
-    return position + scale / 2;
+MovingShadow Box::getShadowX() const {
+    return {{position.x - scale.x / 2, position.x + scale.x / 2},
+            {velocity.x, velocity.x}};
 }
 
-glm::vec2 Box::min() const {
-    return position - scale / 2;
+MovingShadow Box::getShadowY() const {
+    return {{position.y - scale.y / 2, position.y + scale.y / 2},
+            {velocity.y, velocity.y}};
+}
+
+MovingShadow Box::getShadowAxis(const glm::vec2 &dir) const {
+    const glm::vec2 center = position;
+    const glm::vec2 rel_corners[] = {
+            {+0.5f, +0.5f},
+            {-0.5f, +0.5f},
+            {-0.5f, -0.5f},
+            {+0.5f, -0.5f}
+    };
+    auto axis_max = -DBL_MAX, axis_min = DBL_MAX;
+    for(auto rel : rel_corners) {
+        glm::vec2 corner = rel * scale + center;
+        double val = glm::dot(dir, corner);
+        axis_max = std::max(axis_max, val);
+        axis_min = std::min(axis_min, val);
+    }
+    double axis_vel = glm::dot(dir, velocity);
+
+    return {{axis_min, axis_max}, {axis_vel, axis_vel}};
+}
+
+std::set<SortVec> Box::getAxes() const {
+    return {{{0, 1}}, {{1, 0}}};
 }
 
 glm::mat4 Box::toMatrix() const {
     return glm::scale(glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, 0)),
                       glm::vec3(scale.x, scale.y, 0));
-}
-
-std::pair<double, double> Box::shadow(glm::vec2 start, glm::vec2 dir) const {
-    double max = glm::dot(position - scale / 2 - start, dir), min = max;
-    for(int n = 1; n < 4; n++) {
-        double val = glm::dot(glm::vec2(n % 2 == 0 ? position.x - scale.x / 2 : position.x + scale.x / 2,
-                                        n > 1 ? position.y + scale.y / 2 : position.y - scale.y / 2) - start, dir);
-        max = std::max(max, val);
-        min = std::min(min, val);
-    }
-    return {min, max};
-}
-
-int Box::axes() const {
-    return 2;
-}
-
-glm::vec2 Box::axis(int n) const {
-    return n == 0 ? glm::vec2(1, 0) : glm::vec2(0, 1);
 }

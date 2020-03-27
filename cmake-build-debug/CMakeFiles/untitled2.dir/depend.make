@@ -50,6 +50,30 @@ CMakeFiles/untitled2.dir/main.cpp.obj: ../graphics/draw_square.h
 CMakeFiles/untitled2.dir/main.cpp.obj: ../graphics/draw_text.h
 CMakeFiles/untitled2.dir/main.cpp.obj: ../graphics/texture_load.h
 CMakeFiles/untitled2.dir/main.cpp.obj: ../main.cpp
+CMakeFiles/untitled2.dir/main.cpp.obj: ../test/DragonCurve.h
 CMakeFiles/untitled2.dir/main.cpp.obj: C:/msys64/mingw64/include/freetype2/freetype/config/ftheader.h
 CMakeFiles/untitled2.dir/main.cpp.obj: C:/msys64/mingw64/include/freetype2/ft2build.h
+
+CMakeFiles/untitled2.dir/physics/Box.cpp.obj: ../math_util.h
+CMakeFiles/untitled2.dir/physics/Box.cpp.obj: ../physics/Box.cpp
+CMakeFiles/untitled2.dir/physics/Box.cpp.obj: ../physics/Box.h
+CMakeFiles/untitled2.dir/physics/Box.cpp.obj: ../physics/Convex.h
+CMakeFiles/untitled2.dir/physics/Box.cpp.obj: ../physics/Primitives.h
+
+CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj: ../math_util.h
+CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj: ../physics/Box.h
+CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj: ../physics/Convex.h
+CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj: ../physics/Primitives.h
+CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj: ../physics/RotatedBox.cpp
+CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj: ../physics/RotatedBox.h
+
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: ../graphics/draw.h
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: ../graphics/draw_image.h
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: ../graphics/draw_square.h
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: ../graphics/draw_text.h
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: ../graphics/texture_load.h
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: ../test/DragonCurve.cpp
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: ../test/DragonCurve.h
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: C:/msys64/mingw64/include/freetype2/freetype/config/ftheader.h
+CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj: C:/msys64/mingw64/include/freetype2/ft2build.h
 

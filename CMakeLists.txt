@@ -32,7 +32,11 @@ add_executable(untitled2
         graphics/draw_text.cpp
         graphics/draw_image.cpp
         graphics/texture_load.cpp
-        graphics/shader_util.cpp)
+        graphics/shader_util.cpp
+        physics/Box.cpp
+        physics/RotatedBox.cpp
+        test/DragonCurve.cpp
+        )
 
 target_link_libraries(untitled2 glfw3 GLEW::GLEW opengl32 ${FREETYPE_LIBRARIES} ${SDL_IMAGE_LIBRARIES})
 add_res(${CMAKE_SOURCE_DIR}/res ${CMAKE_CURRENT_BINARY_DIR})

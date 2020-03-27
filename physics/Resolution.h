@@ -8,6 +8,9 @@
 #include <ostream>
 #include "Primitives.h"
 
+
+
+/*
 class Convex {
 public:
     [[nodiscard]] virtual RotatingShadow getShadowX() const = 0;
@@ -26,6 +29,7 @@ bool between(double a, double b, double between);
 
 std::ostream& operator<<(std::ostream& os, const Duration& duration);
 
+ */
 /*
 bool shadowIntersect(const std::pair<double, double>& a, const std::pair<double, double>& b);
 double shadowResolve(const std::pair<double, double>& a, const std::pair<double, double>& b);

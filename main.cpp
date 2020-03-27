@@ -1,13 +1,13 @@
 #include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
 #include "graphics/draw.h"
-//#include "physics/RigidBody.h"
+#include "test/DragonCurve.h"
 
 struct Game {
     GLFWwindow* window = nullptr;
     Graphics graphics;
-    glm::mat4 proj{};
-    int width{}, height{};
+    glm::mat4 proj = glm::mat4(1.0f), view = glm::mat4(1.0f);
+    int width = 0, height = 0;
 
     explicit Game(GLFWwindow* window) : window(window) {
         glfwSetWindowUserPointer(window, this);
@@ -17,30 +17,32 @@ struct Game {
     }
 
     void windowSize(int new_width, int new_height) {
+        glViewport(0, 0, new_width, new_height);
         proj = glm::ortho<float>(0.0f, new_width, 0.0f, new_height, 0.0f, 1.0f);
         width = new_width;
         height = new_height;
     }
 
     void run() {
-        Graphics::Text text = graphics.initText("arial", 16);
-        text.matrix = proj * glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 100.0f, 0.0f));
-        text.text = "testing test 1213";
+        Graphics::Text text = graphics.initText("arial", 20);
+        text.text = "Isaac Huffman";
         text.color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
 
-        Graphics::Rectangle rectangle = graphics.initRectangle();
-        rectangle.color = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
-        rectangle.matrix = proj * glm::scale(glm::translate(glm::mat4(1.0f), glm::vec3(300, 300, 0)), glm::vec3(100, 100, 0));
+        //view = glm::translate(glm::scale(glm::mat4(1.0f), glm::vec3(100, 100, 0)), glm::vec3(3, 3, 0));
+        DragonCurve dragonCurve(graphics);
 
-        Graphics::Image image = graphics.initImage();
-        image.color = glm::vec4(1.0f, 1.0f, 0.5f, 1.0f);
-        image.matrix = proj * glm::scale(glm::translate(glm::mat4(1.0f), glm::vec3(300, 300, 0)), glm::vec3(100, 100, 0));
-        image.image = "res/animation/stickman.png";
 
+        double current_time = glfwGetTime();
+        double last_time = current_time;
         while(!glfwWindowShouldClose(window)) {
-            rectangle.draw();
+            glClear(GL_COLOR_BUFFER_BIT);
+            current_time = glfwGetTime();
+            double delta = current_time - last_time;
+            last_time = current_time;
+            text.matrix = proj * glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 100.0f, 0.0f));
+
             text.draw();
-            image.draw();
+            dragonCurve.draw(proj * view);
 
             glfwPollEvents();
             glfwSwapBuffers(window);
@@ -69,7 +71,7 @@ int main() {
 
     // init GL
     glewExperimental = GL_TRUE;
-    GLenum glewStatus = glewInit();
+    glewInit();
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glClearColor(0, 0, 0, 0);

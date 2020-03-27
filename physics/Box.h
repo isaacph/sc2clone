@@ -6,18 +6,19 @@
 #define UNTITLED_BOX_H
 #include "../math_util.h"
 #include "Convex.h"
+#include <set>
 
 class Box : public Convex {
 public:
     Box(glm::vec2 position, glm::vec2 scale);
     glm::vec2 position;
     glm::vec2 scale;
-    [[nodiscard]] glm::vec2 max() const;
-    [[nodiscard]] glm::vec2 min() const;
+    glm::vec2 velocity;
     [[nodiscard]] virtual glm::mat4 toMatrix() const;
-    [[nodiscard]] std::pair<double, double> shadow(glm::vec2 start, glm::vec2 dir) const override;
-    [[nodiscard]] int axes() const override;
-    [[nodiscard]] glm::vec2 axis(int n) const override;
+    [[nodiscard]] MovingShadow getShadowX() const override;
+    [[nodiscard]] MovingShadow getShadowY() const override;
+    [[nodiscard]] MovingShadow getShadowAxis(const glm::vec2& dir) const override;
+    [[nodiscard]] std::set<SortVec> getAxes() const override;
 };
 
 #endif //UNTITLED_BOX_H
