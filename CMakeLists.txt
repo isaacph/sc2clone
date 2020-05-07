@@ -27,6 +27,7 @@ endmacro(add_res)
 
 add_executable(untitled2
         main.cpp
+        #main_testers/dragon_curve.cpp
         graphics/draw.cpp
         graphics/draw_square.cpp
         graphics/draw_text.cpp
@@ -36,6 +37,13 @@ add_executable(untitled2
         physics/Box.cpp
         physics/RotatedBox.cpp
         test/DragonCurve.cpp
+        test/DragCamera.cpp
+        graphics/load_obj.cpp
+        graphics/draw_model.cpp
+        graphics/draw_model_textured.cpp
+        test/FlyCamera.cpp
+        test/OverheadCamera.cpp
+        math_util.cpp
         )
 
 target_link_libraries(untitled2 glfw3 GLEW::GLEW opengl32 ${FREETYPE_LIBRARIES} ${SDL_IMAGE_LIBRARIES})

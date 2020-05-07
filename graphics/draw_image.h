@@ -7,14 +7,20 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <string>
+#include "constants.h"
 
 class DrawImage {
 public:
     DrawImage();
     void draw(const glm::mat4& matrix, const glm::vec4& color, int texture_index);
     ~DrawImage();
+#ifndef USE_EXTERNAL_FOLDER_RESOURCES
     const std::string VERTEX_SHADER = "res/shaders/texture_v.glsl";
     const std::string FRAGMENT_SHADER = "res/shaders/texture_f.glsl";
+#else
+    const std::string VERTEX_SHADER = "../res/shaders/texture_v.glsl";
+    const std::string FRAGMENT_SHADER = "../res/shaders/texture_f.glsl";
+#endif
 
 private:
 

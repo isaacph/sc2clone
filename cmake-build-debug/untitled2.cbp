@@ -96,6 +96,18 @@
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_image.h">
 			<Option target="untitled2"/>
 		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_model.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_model.h">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_model_textured.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_model_textured.h">
+			<Option target="untitled2"/>
+		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_square.cpp">
 			<Option target="untitled2"/>
 		</Unit>
@@ -106,6 +118,12 @@
 			<Option target="untitled2"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/draw_text.h">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/load_obj.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/load_obj.h">
 			<Option target="untitled2"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/shader_util.cpp">
@@ -123,6 +141,12 @@
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/main.cpp">
 			<Option target="untitled2"/>
 		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/math_util.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/math_util.h">
+			<Option target="untitled2"/>
+		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/physics/Box.cpp">
 			<Option target="untitled2"/>
 		</Unit>
@@ -135,10 +159,28 @@
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/physics/RotatedBox.h">
 			<Option target="untitled2"/>
 		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/DragCamera.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/DragCamera.h">
+			<Option target="untitled2"/>
+		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/DragonCurve.cpp">
 			<Option target="untitled2"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/DragonCurve.h">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/FlyCamera.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/FlyCamera.h">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/OverheadCamera.cpp">
+			<Option target="untitled2"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/OverheadCamera.h">
 			<Option target="untitled2"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/CMakeLists.txt">

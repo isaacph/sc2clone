@@ -7,6 +7,7 @@
 
 #include <GL/glew.h>
 #include <map>
+#include "constants.h"
 
 // default: GL_NEAREST, GL_CLAMP_TO_BORDER, {0,0,0,0} border color
 struct TextureMode {
@@ -32,11 +33,15 @@ struct TextureMode {
     float border_color[4] = {0, 0, 0, 0};
 
     inline bool operator<(const TextureMode& other) const {
-        return filter == other.filter ? wrap_mode == other.wrap_mode ? border_color[0] == other.border_color[0] ?
-            border_color[1] == other.border_color[1] ? border_color[2] == other.border_color[2] ?
-            border_color[3] == other.border_color[3] : border_color[2] < other.border_color[2] :
-            border_color[1] < other.border_color[1] : border_color[0] < other.border_color[0] :
-            wrap_mode < other.wrap_mode : filter < other.filter;
+        return filter == other.filter ? wrap_mode == other.wrap_mode ?
+            border_color[0] == other.border_color[0] ?
+                border_color[1] == other.border_color[1] ?
+                    border_color[2] == other.border_color[2] ?
+                        border_color[3] == other.border_color[3] ? false : border_color[3] < other.border_color[3]
+                    : border_color[2] < other.border_color[2]
+                : border_color[1] < other.border_color[1]
+            : border_color[0] < other.border_color[0]
+        : wrap_mode < other.wrap_mode : filter < other.filter;
     }
 };
 

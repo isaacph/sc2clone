@@ -70,9 +70,21 @@ GLint createShaderProgram(const std::string &vsrcFile, const std::string &fsrcFi
     glValidateProgram(program);
     glUseProgram(program);
 
+    for(const std::string& attr : attributes) {
+        GLint location = GLOBAL_ATTRIBUTE_LOCATIONS.at(attr);
+        GLint actual_location = glGetAttribLocation(program, attr.c_str());
+        if(actual_location != location) {
+            std::cerr << vsrcFile << ", " << fsrcFile << '\n';
+            std::cerr << "Failed to bind shader attribute '" << attr.c_str() << "' to shader location " << location << '\n';
+            std::cerr << "Currently at location " << actual_location << '\n';
+        }
+    }
+
     glDeleteShader(vshader);
     glDeleteShader(fshader);
     if(geometryShader) glDeleteShader(gshader);
+
+    errorCheckGl("test");
 
     return program;
 }

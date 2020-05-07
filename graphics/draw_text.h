@@ -8,6 +8,7 @@
 #include <GL/glew.h>
 #include <ft2build.h>
 #include FT_FREETYPE_H
+#include "constants.h"
 
 class DrawText {
 public:
@@ -16,8 +17,13 @@ public:
     void drawFont(glm::mat4 matrix, glm::vec4 color, const std::string& name, int size, std::string text);
     float textWidth(const std::string& name, int size, std::string text);
     ~DrawText();
+#ifndef USE_EXTERNAL_FOLDER_RESOURCES
     const std::string VERTEX_SHADER = "res/shaders/text_v.glsl";
     const std::string FRAGMENT_SHADER = "res/shaders/text_f.glsl";
+#else
+    const std::string VERTEX_SHADER = "../res/shaders/text_v.glsl";
+    const std::string FRAGMENT_SHADER = "../res/shaders/text_f.glsl";
+#endif
     const std::string FONT_BASE_PATH = "res/fonts/";
 private:
 

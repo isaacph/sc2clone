@@ -4,6 +4,7 @@
 
 #include <SDL2/SDL_surface.h>
 #include <SDL2/SDL_image.h>
+#include <iostream>
 #include "texture_load.h"
 
 void TextureLibrary::bindTexture(const std::string& path, const TextureMode& params) {
@@ -38,10 +39,15 @@ void TextureLibrary::bindTexture(const std::string& path, const TextureMode& par
                 width = image->w;
                 height = image->h;
                 pixels = image->pixels;
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+                unsigned int bytes = image->format->BytesPerPixel;
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, bytes > 3 ? GL_RGBA : GL_RGB, GL_UNSIGNED_BYTE, pixels);
                 glGenerateMipmap(GL_TEXTURE_2D);
                 texture_loaded = true;
+            } else {
+                std::cerr << "SDL Image loading error: " << path << std::endl;
             }
+            //SDL_FreeSurface(image);
+            delete image;
         }
 
         textures[path][params] = texture;

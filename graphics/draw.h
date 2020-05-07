@@ -13,9 +13,12 @@
 #include <map>
 #include <functional>
 #include <memory>
+#include "constants.h"
 #include "draw_square.h"
 #include "draw_text.h"
 #include "draw_image.h"
+#include "draw_model.h"
+#include "draw_model_textured.h"
 #include "texture_load.h"
 
 #define RENDER_2
@@ -25,14 +28,27 @@ class Graphics;
 
 class Graphics {
 public:
-    class Object {
-        virtual void draw() = 0;
+    class Property {
     protected:
         Graphics& graphics;
+        explicit Property(Graphics& graphics);
+    };
+
+    class Object : public Property {
+        virtual void draw() = 0;
+    protected:
         explicit Object(Graphics& graphics);
     };
 
+    class Model : public Object {
+        virtual const std::vector<Triangle>& getTriangles() const = 0;
+        virtual glm::mat4 getModelMatrix() const = 0;
+    protected:
+        explicit Model(Graphics& graphics);
+    };
+
     struct Rectangle : public Object {
+        glm::mat4 setup = glm::mat4(1.0f);
         glm::mat4 matrix = glm::mat4(1.0f);
         glm::vec4 color = glm::vec4(1.0f);
         void draw() override;
@@ -42,6 +58,7 @@ public:
     };
 
     struct Text : public Object {
+        glm::mat4 setup = glm::mat4(1.0f);
         glm::mat4 matrix = glm::mat4(1.0f);
         glm::vec4 color = glm::vec4(1.0f);
         std::string text = "";
@@ -55,6 +72,7 @@ public:
     };
 
     struct Image : public Object {
+        glm::mat4 setup = glm::mat4(1.0f);
         glm::mat4 matrix = glm::mat4(1.0f);
         glm::vec4 color = glm::vec4(1.0f);
         std::string image;
@@ -64,16 +82,71 @@ public:
         friend class Graphics;
     };
 
+    struct PlainModel : public Model {
+        glm::mat4 setup = glm::mat4(1.0f);
+        glm::vec3 position = glm::vec3(1.0f);
+        glm::vec3 scale = glm::vec3(1.0f);
+        glm::mat4 rotation = glm::mat4(1.0f);
+        glm::vec4 color = glm::vec4(1.0f);
+        float diffusePotency = 0;
+        float baseLightRadius = 0;
+        void draw() override;
+        const std::vector<Triangle>& getTriangles() const override;
+        virtual glm::mat4 getModelMatrix() const;
+        ~PlainModel();
+    private:
+        explicit PlainModel(Graphics& graphics, const std::string& modelPath);
+        DrawModel::ModelRef model;
+        friend class Graphics;
+    };
+
+    struct PlainTextureModel : public Model {
+        glm::mat4 setup = glm::mat4(1.0f);
+        glm::vec3 position = glm::vec3(1.0f);
+        glm::vec3 scale = glm::vec3(1.0f);
+        glm::mat4 rotation = glm::mat4(1.0f);
+        glm::vec4 color = glm::vec4(1.0f);
+        float diffusePotency = 0;
+        float baseLightRadius = 0;
+        std::string image;
+        void draw() override;
+        const std::vector<Triangle>& getTriangles() const override;
+        virtual glm::mat4 getModelMatrix() const;
+        ~PlainTextureModel();
+    private:
+        explicit PlainTextureModel(Graphics& graphics, const std::string& modelPath);
+        DrawTexturedModel::ModelRef model;
+        friend class Graphics;
+    };
+
+    struct Light : public Property {
+        glm::vec3 position;
+        glm::vec3 color;
+        float strength;
+        ~Light();
+    private:
+        explicit Light(Graphics& graphics);
+        friend class Graphics;
+    };
+
     Rectangle initRectangle();
     Text initText(const std::string& font, int size);
     Image initImage();
+    PlainModel initPlainModel(const std::string& modelPath);
+    PlainTextureModel initPlainTextureModel(const std::string& modelPath);
+    Light initLight();
     Graphics();
     ~Graphics();
+
+    glm::vec3 ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
 private:
     DrawSquare drawSquare;
     DrawText drawText;
     DrawImage drawImage;
+    DrawModel drawModel;
+    DrawTexturedModel drawTexturedModel;
     TextureLibrary textureLibrary;
+    std::set<Light*> lights;
 };
 #endif
 

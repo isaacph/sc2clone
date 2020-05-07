@@ -6,11 +6,17 @@
 #define UNTITLED2_DRAW_SQUARE_H
 #include <glm/glm.hpp>
 #include <GL/glew.h>
+#include "constants.h"
 
 class DrawSquare {
 public:
+#ifndef USE_EXTERNAL_FOLDER_RESOURCES
     const std::string VERTEX_SHADER = "res/shaders/simple_v.glsl";
     const std::string FRAGMENT_SHADER = "res/shaders/simple_f.glsl";
+#else
+    const std::string VERTEX_SHADER = "../res/shaders/simple_v.glsl";
+    const std::string FRAGMENT_SHADER = "../res/shaders/simple_f.glsl";
+#endif
     DrawSquare();
     void draw(const glm::mat4 &matrix, const glm::vec4 &color) const;
     ~DrawSquare();
