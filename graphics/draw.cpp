@@ -84,7 +84,7 @@ const std::vector<Triangle>& Graphics::PlainModel::getTriangles() const {
     return model.triangles;
 }
 glm::mat4 Graphics::PlainModel::getModelMatrix() const {
-    return glm::scale(rotation * glm::translate(glm::mat4(1.0f), position), scale);
+    return glm::scale(glm::translate(glm::mat4(1.0f), position) * rotation, scale);
 }
 
 Graphics::PlainTextureModel::PlainTextureModel(Graphics &graphics, const std::string& s) : Model(graphics),
@@ -122,7 +122,7 @@ const std::vector<Triangle>& Graphics::PlainTextureModel::getTriangles() const {
     return model.triangles;
 }
 glm::mat4 Graphics::PlainTextureModel::getModelMatrix() const {
-    return glm::scale(rotation * glm::translate(glm::mat4(1.0f), position), scale);
+    return glm::scale(glm::translate(glm::mat4(1.0f), position) * rotation, scale);
 }
 
 Graphics::Light Graphics::initLight() {

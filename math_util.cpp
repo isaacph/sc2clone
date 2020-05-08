@@ -33,6 +33,16 @@ bool shadow_intersect(float a_min, float a_max, float b_min, float b_max) {
             (b_min <= a_min && a_min <= b_max) || (b_min <= a_max && a_max <= b_max);
 }
 
+glm::vec3 arbitrary_perp(glm::vec3 other) {
+    static const glm::vec3 a(1, 0, 0);
+    static const glm::vec3 b(0, 1, 0);
+    glm::vec3 first = glm::cross(other, a);
+    if(first.x == 0 && first.y == 0 && first.z == 0) {
+        return glm::cross(other, b);
+    }
+    return first;
+}
+
 bool shadow_intersect(glm::vec2 point, glm::vec2 axis, glm::vec2 s1, glm::vec2 s2, glm::vec2 s3) {
     float p = proj_mag(point - point, axis);
     float p1 = proj_mag(s1 - point, axis);
@@ -43,12 +53,33 @@ bool shadow_intersect(glm::vec2 point, glm::vec2 axis, glm::vec2 s1, glm::vec2 s
     return shadow_intersect(p, min, max);
 }
 
-bool line_intersects_triangle(const glm::vec3& line_start, const glm::vec3& line_dir, std::vector<glm::vec3> triangle) {
-    TrianglePlane plane = get_plane(triangle[0], triangle[1], triangle[2]);
-    glm::vec2 int_on_plane = proj_line_plane_2d(line_start, line_dir, plane);
-    std::vector<glm::vec2> axes = get_axes(std::vector<glm::vec2>(plane.points_2d, plane.points_2d + 3));
+bool view_line_intersects_triangle(const glm::vec3 camera_start, const glm::vec3& camera_dir,
+                                   const glm::vec3& line_start, const glm::vec3& line_dir, const std::vector<glm::vec3>& triangle) {
+    if(triangle.size() != 3) {
+        return false;
+    }
+
+    Plane plane = {
+            camera_start + camera_dir * 100.0f,
+            glm::normalize(camera_dir) * -1.0f,
+            glm::normalize(arbitrary_perp(camera_dir))
+    };
+    plane.axis2 = glm::normalize(glm::cross(plane.norm, plane.axis1));
+
+    glm::vec2 point = proj_line_plane_2d(line_start, line_dir, plane);
+    std::vector<glm::vec2> tri;
+    for(auto pt : triangle) {
+        tri.push_back(proj_line_plane_2d(camera_start, glm::normalize(pt - camera_start), plane));
+    }
+
+    std::vector<glm::vec2> axes;
+    std::vector<glm::vec2> axes2 = get_axes(tri);
+    axes.insert(axes.end(), axes2.begin(), axes2.end());
+
     for(auto& axis : axes) {
-        if(!shadow_intersect(int_on_plane, axis, plane.points_2d[0], plane.points_2d[1], plane.points_2d[2])) {
+        float shadow1 = proj_mag(point, axis);
+        std::pair<float, float> shadow2 = shadow_min_max(tri, axis, glm::vec2(0));
+        if(!shadow_intersect(shadow1, shadow2.first, shadow2.second)) {
             return false;
         }
     }
@@ -91,7 +122,7 @@ TrianglePlane get_plane(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3) {
     return {plane_start, plane_norm, plane_axis1, plane_axis2, {p1, p2, p3}, {plane_v0, plane_v1, plane_v2}};
 }
 
-std::vector<glm::vec2> proj_frustum_plane(const glm::vec3& start, const std::vector<glm::vec3>& dirs, const Plane& plane, std::vector<glm::vec2>& neg_t) {
+std::vector<glm::vec2> proj_frustum_plane(const glm::vec3& start, const std::vector<glm::vec3>& dirs, const Plane& plane) {
     std::vector<glm::vec2> points_2d;
     for(auto dir : dirs) {
         float t = glm::dot((plane.start - start), plane.norm) / glm::dot(dir, plane.norm);
@@ -99,9 +130,9 @@ std::vector<glm::vec2> proj_frustum_plane(const glm::vec3& start, const std::vec
         glm::vec2 v2 = {proj_mag(v - plane.start, plane.axis1),
                         proj_mag(v - plane.start, plane.axis2)};
         if(t >= 0) {
-        points_2d.push_back(v2);
+            points_2d.push_back(v2);
         } else {
-            neg_t.push_back(v2);
+            //neg_t.push_back(v2);
         }
     }
     return points_2d;
@@ -125,6 +156,42 @@ std::pair<float, float> shadow_min_max(const std::vector<glm::vec2>& points, con
     return {min, max};
 }
 
+bool view_frustum_intersects_triangle(glm::vec3 camera_start, glm::vec3 camera_dir, glm::vec3 frustum_start, std::vector<glm::vec3> frustum, std::vector<glm::vec3> triangle) {
+    if(frustum.size() != 4 || triangle.size() != 3) {
+        return false;
+    }
+
+    Plane plane = {
+            camera_start + camera_dir * 100.0f,
+            camera_dir * -1.0f,
+            glm::normalize(arbitrary_perp(camera_dir))
+    };
+    plane.axis2 = glm::normalize(glm::cross(plane.norm, plane.axis1));
+
+    std::vector<glm::vec2> quad = proj_frustum_plane(frustum_start, frustum, plane);
+    std::vector<glm::vec2> tri;
+    for(auto pt : triangle) {
+        tri.push_back(proj_line_plane_2d(camera_start, glm::normalize(pt - camera_start), plane));
+    }
+
+    std::vector<glm::vec2> axes;
+    std::vector<glm::vec2> axes1 = get_axes(quad);
+    std::vector<glm::vec2> axes2 = get_axes(tri);
+    axes.insert(axes.end(), axes1.begin(), axes1.end());
+    axes.insert(axes.end(), axes2.begin(), axes2.end());
+
+    for(auto& axis : axes) {
+        std::pair<float, float> shadow1 = shadow_min_max(quad, axis, glm::vec2(0));
+        std::pair<float, float> shadow2 = shadow_min_max(tri, axis, glm::vec2(0));
+        if(!shadow_intersect(shadow1.first, shadow1.second, shadow2.first, shadow2.second)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+/*
 bool frustum_intersects_triangle(glm::vec3 start, std::vector<glm::vec3> frustum, std::vector<glm::vec3> triangle) {
     if(frustum.size() != 4 || triangle.size() != 3) {
         return false;
@@ -184,4 +251,4 @@ bool frustum_intersects_triangle(glm::vec3 start, std::vector<glm::vec3> frustum
     } else {
         return false;
     }
-}
+}*/

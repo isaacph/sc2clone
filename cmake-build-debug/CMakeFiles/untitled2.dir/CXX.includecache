@@ -141,12 +141,8 @@ test/OverheadCamera.h
 C:/Users/isaac/CLionProjects/untitled2/test/OverheadCamera.h
 math_util.h
 C:/Users/isaac/CLionProjects/untitled2/math_util.h
-
-C:/Users/isaac/CLionProjects/untitled2/math_util.cpp
-iostream
+pthread.h
 -
-math_util.h
-C:/Users/isaac/CLionProjects/untitled2/math_util.h
 
 C:/Users/isaac/CLionProjects/untitled2/math_util.h
 vector

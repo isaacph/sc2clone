@@ -6,6 +6,7 @@
 #include "test/FlyCamera.h"
 #include "test/OverheadCamera.h"
 #include "math_util.h"
+#include <pthread.h>
 
 std::ostream& operator<<(std::ostream& os, glm::mat4 mat) {
     for(int j = 0; j < 4; j++) {
@@ -16,6 +17,11 @@ std::ostream& operator<<(std::ostream& os, glm::mat4 mat) {
     }
     os << "]\n";
     return os;
+}
+
+void* test(void* args) {
+    std::cout << "hello from short-lived thread" << std::endl;
+    return NULL;
 }
 
 struct Game {
@@ -36,6 +42,13 @@ struct Game {
 
     Graphics::PlainModel workerModel = graphics.initPlainModel("res/cube.obj");
 
+    struct Command {
+        enum Type {
+            NONE, MOVE
+        } type = NONE;
+        glm::vec2 destination;
+    };
+
     struct Unit {
         enum Type {
             WORKER, BARRACKS, SOLDIER
@@ -45,7 +58,9 @@ struct Game {
         glm::vec2 position;
         float direction = 0;
         float health = 100;
+        float speed = 4.0f;
         bool dead = false;
+        Command command;
     };
 
     std::map<int, Unit> units;
@@ -73,6 +88,8 @@ struct Game {
         });
         flyCamera.disable(window);
         overheadCamera.disable(window);
+        pthread_t thread;
+        pthread_create(&thread, NULL, test, nullptr);
     }
 
     void windowSize(int new_width, int new_height) {
@@ -94,9 +111,11 @@ struct Game {
                 if (unit.type == Unit::WORKER) {
                     bool intersects = false;
                     glm::vec3 cam_pos = overheadCamera.camera_position;
+                    glm::vec3 cam_dir = overheadCamera.camera_focus_point - cam_pos;
                     glm::vec3 dir = mouse_dir;
                     workerModel.position = glm::vec3(unit.position.x, 1, unit.position.y);
                     workerModel.scale = glm::vec3(1);
+                    workerModel.rotation = glm::rotate(glm::mat4(1.0f), unit.direction, glm::vec3(0, 1, 0));
                     const std::vector<Triangle> &triangles = workerModel.getTriangles();
                     for (size_t i = 0; i < triangles.size(); ++i) {
                         const auto &triangle = triangles[i];
@@ -109,7 +128,7 @@ struct Game {
                         glm::vec3 p1 = glm::vec3(p1_4.x / p1_4.w, p1_4.y / p1_4.w, p1_4.z / p1_4.w);
                         glm::vec3 p2 = glm::vec3(p2_4.x / p2_4.w, p2_4.y / p2_4.w, p2_4.z / p2_4.w);
                         glm::vec3 p3 = glm::vec3(p3_4.x / p3_4.w, p3_4.y / p3_4.w, p3_4.z / p3_4.w);
-                        if (line_intersects_triangle(cam_pos, mouse_dir, {p1, p2, p3})) {
+                        if (view_line_intersects_triangle(cam_pos, cam_dir, cam_pos, mouse_dir, {p1, p2, p3})) {
                             intersects = true;
                         }
                     }
@@ -141,6 +160,7 @@ struct Game {
                     if(drag) {
                         drag = false;
                         glm::vec3 cam_pos = overheadCamera.camera_position;
+                        glm::vec3 cam_dir = overheadCamera.camera_focus_point - cam_pos;
                         glm::vec2 p1d = drag_start;
                         glm::vec2 p3d = mouse;
                         glm::vec2 p2d(drag_start.x, mouse.y);
@@ -160,6 +180,7 @@ struct Game {
                                 bool intersects = false;
                                 workerModel.position = glm::vec3(unit.position.x, 1, unit.position.y);
                                 workerModel.scale = glm::vec3(1);
+                                workerModel.rotation = glm::rotate(glm::mat4(1.0f), unit.direction, glm::vec3(0, 1, 0));
                                 const std::vector<Triangle> &triangles = workerModel.getTriangles();
                                 for (size_t i = 0; i < triangles.size(); ++i) {
                                     const auto &triangle = triangles[i];
@@ -172,42 +193,10 @@ struct Game {
                                     glm::vec3 p1 = glm::vec3(p1_4.x / p1_4.w, p1_4.y / p1_4.w, p1_4.z / p1_4.w);
                                     glm::vec3 p2 = glm::vec3(p2_4.x / p2_4.w, p2_4.y / p2_4.w, p2_4.z / p2_4.w);
                                     glm::vec3 p3 = glm::vec3(p3_4.x / p3_4.w, p3_4.y / p3_4.w, p3_4.z / p3_4.w);
-                                    auto plane = get_plane(p1, p2, p3);
-                                    std::vector<glm::vec2> fp2o;
-                                    std::vector<glm::vec2> frust_points_2d = proj_frustum_plane(cam_pos, dirs, plane, fp2o);
-                                    if (frustum_intersects_triangle(cam_pos, dirs, {p1, p2, p3})) {
+
+                                    if (view_frustum_intersects_triangle(cam_pos, cam_dir, cam_pos, dirs, {p1, p2, p3})) {
                                         intersects = true;
                                         break;
-                                        /*tp.push_back(plane.start);
-                                        if(frust_points_2d.size() == 2) {
-                                            glm::vec2 origin = proj_point_plane(cam_pos, plane);
-                                            std::vector<glm::vec2> axes = {perp(frust_points_2d[0] - origin), perp(frust_points_2d[1] - origin)};
-                                            std::vector<float> signs = {proj_mag(frust_points_2d[1] - origin, axes[0]),
-                                                                        proj_mag(frust_points_2d[0] - origin, axes[1])};
-                                            for(int i = 0; i < 2; ++i) {
-                                                glm::vec2 po = frust_points_2d[i];
-                                                glm::vec2 axis = glm::normalize(axes[i] * signs[i]);
-                                                std::pair<float, float> s = shadow_min_max(std::vector<glm::vec2>(
-                                                        plane.points_2d, plane.points_2d + 3), axis, origin);
-                                                fp.push_back(plane.start + po.x * plane.axis1 + po.y * plane.axis2);
-                                                tp.push_back(plane.start + (po.x + axis.x * 0.1f) * plane.axis1 + (po.y + axis.y * 0.1f) * plane.axis2);
-                                                tp.push_back(plane.start + (po.x + axis.x * s.first) * plane.axis1 + (po.y + axis.y * s.first) * plane.axis2);
-                                                tp.push_back(plane.start + (po.x + axis.x * s.second) * plane.axis1 + (po.y + axis.y * s.second) * plane.axis2);
-                                                if(s.first < 0 && s.second < 0) {
-                                                    fp.push_back(proj_line_plane(cam_pos, plane.norm, plane.start, plane.norm) + glm::vec3(0, 0.4, 0));
-                                                }
-                                            }
-                                            fp.push_back(proj_line_plane(cam_pos, plane.norm, plane.start, plane.norm));
-                                            glm::vec2 axis_start = (frust_points_2d[0] + frust_points_2d[1]) / 2;
-                                            glm::vec2 axis = perp(frust_points_2d[1] - frust_points_2d[0]);
-                                            axis = glm::normalize(axis * glm::dot(axis, origin - axis_start));
-                                            std::pair<float, float> s = shadow_min_max(std::vector<glm::vec2>(
-                                                    plane.points_2d, plane.points_2d + 3), axis, axis_start);
-                                            fp.push_back(plane.start + plane.axis1 * axis_start.x + plane.axis2 * axis_start.y);
-                                            fp.push_back(plane.start + plane.axis1 * (axis_start.x + axis.x * s.first) + plane.axis2 * (axis_start.y + axis.y * s.first));
-                                            fp.push_back(plane.start + plane.axis1 * (axis_start.x + axis.x * s.second) + plane.axis2 * (axis_start.y + axis.y * s.second));
-
-                                        }*/
                                     }
                                 }
                                 if (intersects) {
@@ -216,6 +205,15 @@ struct Game {
                             }
                         }
                     }
+                }
+            }
+        }
+        if(button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
+            for(auto id : unitsSelected) {
+                auto& unit = units[id];
+                if(unit.type == Unit::WORKER) {
+                    unit.command.type = Command::MOVE;
+                    unit.command.destination = mouse_world;
                 }
             }
         }
@@ -251,17 +249,23 @@ struct Game {
             } else {
                 overheadCamera.disable(window);
             }
+        } else if(key == GLFW_KEY_S && action == GLFW_PRESS) {
+            for(auto& unitID : unitsSelected) {
+                units[unitID].command.type = Command::NONE;
+            }
         }
         flyCamera.onKey(window, key, scancode, action, mods);
     }
 
     glm::vec3 screen_space_to_overhead_dir(glm::vec2 screen) const {
-        glm::vec4 screen_mouse((screen.x / (float) width * 2 - 1), (screen.y / (float) height * 2 - 1), 1, 1);
+        glm::vec4 screen_mouse((screen.x / (float) width * 2 - 1), (screen.y / (float) height * 2 - 1), 1.0f, 1);
+        glm::vec4 near_point = screen_mouse;
+        near_point.z = 0;
         screen_mouse = glm::inverse(persp * view) * screen_mouse;
-        glm::vec3 m(screen_mouse.x, screen_mouse.y, screen_mouse.z);
-        m *= 1.0f / screen_mouse.w;
-        glm::vec3 v = glm::normalize(m);
-        return glm::vec3(v.x, v.y, v.z);
+        near_point = glm::inverse(persp * view) * near_point;
+        glm::vec3 n = glm::vec3(near_point.x, near_point.y, near_point.z) / near_point.w;
+        glm::vec3 f = glm::vec3(screen_mouse.x, screen_mouse.y, screen_mouse.z) / screen_mouse.w;
+        return -glm::normalize(n - f);
     }
 
     void run() {
@@ -342,9 +346,6 @@ struct Game {
 
             overheadCamera.onMousePosition(window, mouse);
             overheadCamera.update(delta);
-            if(overheadCamera.moved) {
-                drag_start = mouse;
-            }
             if(useOverheadCamera) {
                 glm::vec3 dir = screen_space_to_overhead_dir(mouse);
                 glm::vec3 start = overheadCamera.camera_position;
@@ -353,6 +354,19 @@ struct Game {
                 glm::vec3 mouse3d = proj_line_plane(start, dir, plane_start, plane_norm);
                 mouse_world = glm::vec2(mouse3d.x, mouse3d.z);// - glm::vec2(overheadCamera.camera_position.x, overheadCamera.camera_position.z);
                 mouse_dir = dir;
+            }
+
+            for(auto& pair : units) {
+                auto& unit = pair.second;
+                if(unit.command.type == Command::MOVE) {
+                    glm::vec2 dir = unit.command.destination - unit.position;
+                    if(glm::length(dir) < 0.1) {
+                        unit.command.type = Command::NONE;
+                        continue;
+                    }
+                    unit.direction = -atan2(dir.y, dir.x);
+                    unit.position += glm::normalize(dir) * delta * unit.speed;
+                }
             }
 
 
@@ -382,7 +396,8 @@ struct Game {
             for(const auto& p : units) {
                 const auto& unit = p.second;
                 workerModel.position = glm::vec3(unit.position.x, 1, unit.position.y);
-                workerModel.rotation = glm::rotate(glm::mat4(1.0f), unit.direction, glm::vec3(0, 0, 1));
+                workerModel.rotation = glm::rotate(glm::mat4(1.0f), unit.direction, glm::vec3(0, 1, 0));
+                workerModel.scale = glm::vec3(1);
                 workerModel.draw();
             }
 

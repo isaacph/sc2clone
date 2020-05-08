@@ -54,12 +54,15 @@ std::pair<float, float> shadow(const std::vector<glm::vec2>& points, const glm::
 
 // credit to https://stackoverflow.com/questions/42740765/intersection-between-line-and-triangle-in-3d
 float signed_volume(const glm::vec3& a, const glm::vec3& b, const glm::vec3& c, const glm::vec3& d);
-bool line_intersects_triangle(const glm::vec3& line_start, const glm::vec3& line_dir, std::vector<glm::vec3> triangle);
+bool view_line_intersects_triangle(const glm::vec3 camera_start, const glm::vec3& camera_dir,
+        const glm::vec3& line_start, const glm::vec3& line_dir, const std::vector<glm::vec3>& triangle);
 std::vector<glm::vec2> get_axes(std::vector<glm::vec2> points);
 
-std::vector<glm::vec2> proj_frustum_plane(const glm::vec3& start, const std::vector<glm::vec3>& dirs, const Plane& plane, std::vector<glm::vec2>& neg_t);
+glm::vec3 arbitrary_perp(glm::vec3 other);
+
+std::vector<glm::vec2> proj_frustum_plane(const glm::vec3& start, const std::vector<glm::vec3>& dirs, const Plane& plane);
 
 // num_points must be 4 and dirs must be normalized
-bool frustum_intersects_triangle(glm::vec3 start, std::vector<glm::vec3> frustum, std::vector<glm::vec3> triangle);
+bool view_frustum_intersects_triangle(glm::vec3 camera_start, glm::vec3 camera_dir, glm::vec3 frustum_start, std::vector<glm::vec3> frustum, std::vector<glm::vec3> triangle);
 
 #endif //UNTITLED2_MATH_H
