@@ -378,6 +378,33 @@ graphics/texture_load.cpp.s:
 	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/texture_load.cpp.s
 .PHONY : graphics/texture_load.cpp.s
 
+logic/World.obj: logic/World.cpp.obj
+
+.PHONY : logic/World.obj
+
+# target to build an object file
+logic/World.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/World.cpp.obj
+.PHONY : logic/World.cpp.obj
+
+logic/World.i: logic/World.cpp.i
+
+.PHONY : logic/World.i
+
+# target to preprocess a source file
+logic/World.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/World.cpp.i
+.PHONY : logic/World.cpp.i
+
+logic/World.s: logic/World.cpp.s
+
+.PHONY : logic/World.s
+
+# target to generate assembly for a file
+logic/World.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/World.cpp.s
+.PHONY : logic/World.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -660,60 +687,6 @@ test/Chatbox.cpp.s:
 	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/Chatbox.cpp.s
 .PHONY : test/Chatbox.cpp.s
 
-test/DragCamera.obj: test/DragCamera.cpp.obj
-
-.PHONY : test/DragCamera.obj
-
-# target to build an object file
-test/DragCamera.cpp.obj:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragCamera.cpp.obj
-.PHONY : test/DragCamera.cpp.obj
-
-test/DragCamera.i: test/DragCamera.cpp.i
-
-.PHONY : test/DragCamera.i
-
-# target to preprocess a source file
-test/DragCamera.cpp.i:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragCamera.cpp.i
-.PHONY : test/DragCamera.cpp.i
-
-test/DragCamera.s: test/DragCamera.cpp.s
-
-.PHONY : test/DragCamera.s
-
-# target to generate assembly for a file
-test/DragCamera.cpp.s:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragCamera.cpp.s
-.PHONY : test/DragCamera.cpp.s
-
-test/DragonCurve.obj: test/DragonCurve.cpp.obj
-
-.PHONY : test/DragonCurve.obj
-
-# target to build an object file
-test/DragonCurve.cpp.obj:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragonCurve.cpp.obj
-.PHONY : test/DragonCurve.cpp.obj
-
-test/DragonCurve.i: test/DragonCurve.cpp.i
-
-.PHONY : test/DragonCurve.i
-
-# target to preprocess a source file
-test/DragonCurve.cpp.i:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragonCurve.cpp.i
-.PHONY : test/DragonCurve.cpp.i
-
-test/DragonCurve.s: test/DragonCurve.cpp.s
-
-.PHONY : test/DragonCurve.s
-
-# target to generate assembly for a file
-test/DragonCurve.cpp.s:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragonCurve.cpp.s
-.PHONY : test/DragonCurve.cpp.s
-
 test/FlyCamera.obj: test/FlyCamera.cpp.obj
 
 .PHONY : test/FlyCamera.obj
@@ -805,6 +778,9 @@ help:
 	@echo ... graphics/texture_load.obj
 	@echo ... graphics/texture_load.i
 	@echo ... graphics/texture_load.s
+	@echo ... logic/World.obj
+	@echo ... logic/World.i
+	@echo ... logic/World.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
@@ -835,12 +811,6 @@ help:
 	@echo ... test/Chatbox.obj
 	@echo ... test/Chatbox.i
 	@echo ... test/Chatbox.s
-	@echo ... test/DragCamera.obj
-	@echo ... test/DragCamera.i
-	@echo ... test/DragCamera.s
-	@echo ... test/DragonCurve.obj
-	@echo ... test/DragonCurve.i
-	@echo ... test/DragonCurve.s
 	@echo ... test/FlyCamera.obj
 	@echo ... test/FlyCamera.i
 	@echo ... test/FlyCamera.s

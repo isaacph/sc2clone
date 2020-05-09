@@ -13,10 +13,6 @@
 -- Detecting CXX compiler ABI info - done
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Found Freetype: C:/msys64/mingw64/lib/libfreetype.dll.a (found version "2.10.0") 
--- Found OpenGL: opengl32   
--- Found GLEW: C:/msys64/mingw64/lib/cmake/glew/glew-config.cmake  
--- Found SDL_image: C:/msys64/mingw64/lib/libSDL_image.dll.a (found version "1.2.12") 
 Resources updated.
 -- Configuring done
 -- Generating done

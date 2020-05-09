@@ -36,8 +36,6 @@ add_executable(client
         graphics/shader_util.cpp
         physics/Box.cpp
         physics/RotatedBox.cpp
-        test/DragonCurve.cpp
-        test/DragCamera.cpp
         test/Chatbox.cpp
         graphics/load_obj.cpp
         graphics/draw_model.cpp
@@ -49,6 +47,7 @@ add_executable(client
         server/response.cpp
         server/packet.cpp
         server/async_console.cpp
+        logic/World.cpp
         )
 
 add_executable(server

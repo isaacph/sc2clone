@@ -85,6 +85,8 @@ CMakeFiles/client.dir/graphics/texture_load.cpp.obj: ../graphics/constants.h
 CMakeFiles/client.dir/graphics/texture_load.cpp.obj: ../graphics/texture_load.cpp
 CMakeFiles/client.dir/graphics/texture_load.cpp.obj: ../graphics/texture_load.h
 
+CMakeFiles/client.dir/logic/World.cpp.obj: ../logic/World.cpp
+
 CMakeFiles/client.dir/main.cpp.obj: ../graphics/constants.h
 CMakeFiles/client.dir/main.cpp.obj: ../graphics/draw.h
 CMakeFiles/client.dir/main.cpp.obj: ../graphics/draw_image.h
@@ -94,6 +96,7 @@ CMakeFiles/client.dir/main.cpp.obj: ../graphics/draw_square.h
 CMakeFiles/client.dir/main.cpp.obj: ../graphics/draw_text.h
 CMakeFiles/client.dir/main.cpp.obj: ../graphics/load_obj.h
 CMakeFiles/client.dir/main.cpp.obj: ../graphics/texture_load.h
+CMakeFiles/client.dir/main.cpp.obj: ../logic/World.h
 CMakeFiles/client.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/client.dir/main.cpp.obj: ../math_util.h
 CMakeFiles/client.dir/main.cpp.obj: ../server/async_console.h
@@ -103,8 +106,6 @@ CMakeFiles/client.dir/main.cpp.obj: ../server/response.h
 CMakeFiles/client.dir/main.cpp.obj: ../server/shared.h
 CMakeFiles/client.dir/main.cpp.obj: ../server/socket_init.h
 CMakeFiles/client.dir/main.cpp.obj: ../test/Chatbox.h
-CMakeFiles/client.dir/main.cpp.obj: ../test/DragCamera.h
-CMakeFiles/client.dir/main.cpp.obj: ../test/DragonCurve.h
 CMakeFiles/client.dir/main.cpp.obj: ../test/FlyCamera.h
 CMakeFiles/client.dir/main.cpp.obj: ../test/OverheadCamera.h
 CMakeFiles/client.dir/main.cpp.obj: C:/msys64/mingw64/include/freetype2/freetype/config/ftheader.h

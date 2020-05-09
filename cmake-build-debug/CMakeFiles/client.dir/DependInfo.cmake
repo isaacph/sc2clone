@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/isaac/CLionProjects/untitled2/graphics/load_obj.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/graphics/load_obj.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/graphics/shader_util.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/graphics/shader_util.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/graphics/texture_load.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/graphics/texture_load.cpp.obj"
+  "C:/Users/isaac/CLionProjects/untitled2/logic/World.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/logic/World.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/main.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/main.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/math_util.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/math_util.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/physics/Box.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/physics/Box.cpp.obj"
@@ -22,8 +23,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/isaac/CLionProjects/untitled2/server/packet.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/server/packet.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/server/response.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/server/response.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/test/Chatbox.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/test/Chatbox.cpp.obj"
-  "C:/Users/isaac/CLionProjects/untitled2/test/DragCamera.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/test/DragCamera.cpp.obj"
-  "C:/Users/isaac/CLionProjects/untitled2/test/DragonCurve.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/test/DragonCurve.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/test/FlyCamera.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/test/FlyCamera.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/test/OverheadCamera.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/client.dir/test/OverheadCamera.cpp.obj"
   )

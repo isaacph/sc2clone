@@ -184,6 +184,12 @@
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/texture_load.h">
 			<Option target="client"/>
 		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/logic/World.cpp">
+			<Option target="client"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/logic/World.h">
+			<Option target="client"/>
+		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/main.cpp">
 			<Option target="client"/>
 		</Unit>
@@ -244,18 +250,6 @@
 			<Option target="client"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/Chatbox.h">
-			<Option target="client"/>
-		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/DragCamera.cpp">
-			<Option target="client"/>
-		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/DragCamera.h">
-			<Option target="client"/>
-		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/DragonCurve.cpp">
-			<Option target="client"/>
-		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/DragonCurve.h">
 			<Option target="client"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/FlyCamera.cpp">

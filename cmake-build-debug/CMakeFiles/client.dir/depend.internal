@@ -85,6 +85,8 @@ CMakeFiles/client.dir/graphics/texture_load.cpp.obj
  C:/Users/isaac/CLionProjects/untitled2/graphics/constants.h
  C:/Users/isaac/CLionProjects/untitled2/graphics/texture_load.cpp
  C:/Users/isaac/CLionProjects/untitled2/graphics/texture_load.h
+CMakeFiles/client.dir/logic/World.cpp.obj
+ C:/Users/isaac/CLionProjects/untitled2/logic/World.cpp
 CMakeFiles/client.dir/main.cpp.obj
  C:/Users/isaac/CLionProjects/untitled2/graphics/constants.h
  C:/Users/isaac/CLionProjects/untitled2/graphics/draw.h
@@ -95,6 +97,7 @@ CMakeFiles/client.dir/main.cpp.obj
  C:/Users/isaac/CLionProjects/untitled2/graphics/draw_text.h
  C:/Users/isaac/CLionProjects/untitled2/graphics/load_obj.h
  C:/Users/isaac/CLionProjects/untitled2/graphics/texture_load.h
+ C:/Users/isaac/CLionProjects/untitled2/logic/World.h
  C:/Users/isaac/CLionProjects/untitled2/main.cpp
  C:/Users/isaac/CLionProjects/untitled2/math_util.h
  C:/Users/isaac/CLionProjects/untitled2/server/async_console.h
@@ -104,8 +107,6 @@ CMakeFiles/client.dir/main.cpp.obj
  C:/Users/isaac/CLionProjects/untitled2/server/shared.h
  C:/Users/isaac/CLionProjects/untitled2/server/socket_init.h
  C:/Users/isaac/CLionProjects/untitled2/test/Chatbox.h
- C:/Users/isaac/CLionProjects/untitled2/test/DragCamera.h
- C:/Users/isaac/CLionProjects/untitled2/test/DragonCurve.h
  C:/Users/isaac/CLionProjects/untitled2/test/FlyCamera.h
  C:/Users/isaac/CLionProjects/untitled2/test/OverheadCamera.h
  C:/msys64/mingw64/include/freetype2/freetype/config/ftheader.h

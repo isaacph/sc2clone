@@ -65,4 +65,15 @@ std::vector<glm::vec2> proj_frustum_plane(const glm::vec3& start, const std::vec
 // num_points must be 4 and dirs must be normalized
 bool view_frustum_intersects_triangle(glm::vec3 camera_start, glm::vec3 camera_dir, glm::vec3 frustum_start, std::vector<glm::vec3> frustum, std::vector<glm::vec3> triangle);
 
+inline std::ostream& operator<<(std::ostream& os, glm::mat4 mat) {
+    for(int j = 0; j < 4; j++) {
+        for(int i = 0; i < 4; i++) {
+            os << mat[i][j] << ", ";
+        }
+        os << "\n";
+    }
+    os << "]\n";
+    return os;
+}
+
 #endif //UNTITLED2_MATH_H

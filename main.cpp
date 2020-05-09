@@ -1,38 +1,18 @@
 #include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
 #include "graphics/draw.h"
-#include "test/DragonCurve.h"
-#include "test/DragCamera.h"
 #include "test/FlyCamera.h"
 #include "test/OverheadCamera.h"
 #include "test/Chatbox.h"
 #include "math_util.h"
 #include <pthread.h>
 #include "server/shared.h"
-#include "server/packet.h"
-#include "server/listen.h"
-#include "server/response.h"
 #include "server/socket_init.h"
 #include <sstream>
 #include <windows.h>
 #include <winuser.h>
 #include <windef.h>
-
-std::ostream& operator<<(std::ostream& os, glm::mat4 mat) {
-    for(int j = 0; j < 4; j++) {
-        for(int i = 0; i < 4; i++) {
-            os << mat[i][j] << ", ";
-        }
-        os << "\n";
-    }
-    os << "]\n";
-    return os;
-}
-
-void* test(void* args) {
-    std::cout << "hello from short-lived thread" << std::endl;
-    return NULL;
-}
+#include "logic/World.h"
 
 struct Game {
     GLFWwindow* window = nullptr;
@@ -55,35 +35,10 @@ struct Game {
 
     Graphics::PlainModel workerModel = graphics.initPlainModel("res/cube.obj");
 
+    World world;
+
     Shared communication;
     sockaddr_in server_address = get_address(3800, "127.0.0.1");
-
-    struct Command {
-        enum Type {
-            NONE, MOVE
-        } type = NONE;
-        glm::vec2 destination;
-    };
-
-    struct Unit {
-        enum Type {
-            WORKER, BARRACKS, SOLDIER
-        } type;
-        int team;
-        float radius;
-        glm::vec2 position;
-        float direction = 0;
-        float health = 100;
-        float speed = 4.0f;
-        bool dead = false;
-        Command command;
-    };
-
-    std::map<int, Unit> units;
-    std::set<int> unitsSelected;
-
-    std::vector<glm::vec3> fp;
-    std::vector<glm::vec3> tp;
 
     explicit Game(GLFWwindow* window) : window(window) {
         glfwSetWindowUserPointer(window, this);
@@ -107,8 +62,6 @@ struct Game {
         });
         flyCamera.disable(window);
         overheadCamera.disable(window);
-        pthread_t thread;
-        pthread_create(&thread, NULL, test, nullptr);
     }
 
     void windowSize(int new_width, int new_height) {
@@ -125,7 +78,7 @@ struct Game {
             if (action == GLFW_PRESS && button == GLFW_MOUSE_BUTTON_LEFT && focus == FOCUS_OVERHEAD) {
                 unsigned int closestSelected;
                 bool foundUnit = false;
-                for (auto &p : units) {
+                for (auto &p : world.units) {
                     unsigned int unitID = p.first;
                     auto &unit = p.second;
                     if (unit.type == Unit::WORKER) {
@@ -154,7 +107,7 @@ struct Game {
                         }
                         if (intersects) {
                             if (foundUnit) {
-                                if (unit.position.y > units[closestSelected].position.y) {
+                                if (unit.position.y > world.units[closestSelected].position.y) {
                                     closestSelected = unitID;
                                 }
                             } else {
@@ -164,9 +117,9 @@ struct Game {
                         }
                     }
                 }
-                unitsSelected = {};
+                world.unitsSelected = {};
                 if (foundUnit) {
-                    unitsSelected.insert(closestSelected);
+                    world.unitsSelected.insert(closestSelected);
                 }
             }
             if (button == GLFW_MOUSE_BUTTON_LEFT) {
@@ -190,9 +143,7 @@ struct Game {
                                     screen_space_to_overhead_dir(p3d),
                                     screen_space_to_overhead_dir(p4d)
                             };
-                            tp = {};
-                            fp = {};
-                            for (auto &p : units) {
+                            for (auto &p : world.units) {
                                 unsigned int unitID = p.first;
                                 auto &unit = p.second;
                                 if (unit.type == Unit::WORKER) {
@@ -221,7 +172,7 @@ struct Game {
                                         }
                                     }
                                     if (intersects) {
-                                        unitsSelected.insert(unitID);
+                                        world.unitsSelected.insert(unitID);
                                     }
                                 }
                             }
@@ -230,8 +181,8 @@ struct Game {
                 }
             }
             if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
-                for (auto id : unitsSelected) {
-                    auto &unit = units[id];
+                for (auto id : world.unitsSelected) {
+                    auto &unit = world.units[id];
                     if (unit.type == Unit::WORKER) {
                         unit.command.type = Command::MOVE;
                         unit.command.destination = mouse_world;
@@ -277,8 +228,8 @@ struct Game {
                     overheadCamera.disable(window);
                 }
             } else if (key == GLFW_KEY_S && action == GLFW_PRESS) {
-                for (auto &unitID : unitsSelected) {
-                    units[unitID].command.type = Command::NONE;
+                for (auto &unitID : world.unitsSelected) {
+                    world.units[unitID].command.type = Command::NONE;
                 }
             } else if (key == GLFW_KEY_ENTER && action == GLFW_PRESS) {
                 prev_focus = focus;
@@ -410,12 +361,14 @@ struct Game {
         selectionModel.rotation = glm::mat4(1.0f);
         selectionModel.color = glm::vec4(1, 1, 1, 1);
 
-        units.insert({0, {Unit::WORKER, 0, 1.4f, glm::vec2(0, 0)}});
-        units.insert({1, {Unit::WORKER, 0, 1.4f, glm::vec2(3, 0)}});
-        units.insert({2, {Unit::WORKER, 0, 1.4f, glm::vec2(6, 0)}});
-        units.insert({3, {Unit::WORKER, 0, 1.4f, glm::vec2(6, 3)}});
-        units.insert({4, {Unit::WORKER, 0, 1.4f, glm::vec2(6, 6)}});
-        units.insert({5, {Unit::WORKER, 0, 1.4f, glm::vec2(9, 0)}});
+        world.units.insert({
+            {0, {Unit::WORKER, 0, 1.4f, glm::vec2(0, 0)}},
+            {1, {Unit::WORKER, 0, 1.4f, glm::vec2(3, 0)}},
+            {2, {Unit::WORKER, 0, 1.4f, glm::vec2(6, 0)}},
+            {3, {Unit::WORKER, 0, 1.4f, glm::vec2(6, 3)}},
+            {4, {Unit::WORKER, 0, 1.4f, glm::vec2(6, 6)}},
+            {5, {Unit::WORKER, 0, 1.4f, glm::vec2(9, 0)}}
+                            });
 
         std::unique_ptr<Packet> receive;
 
@@ -450,7 +403,7 @@ struct Game {
                 mouse_dir = dir;
             }
 
-            for(auto& pair : units) {
+            for(auto& pair : world.units) {
                 auto& unit = pair.second;
                 if(unit.command.type == Command::MOVE) {
                     glm::vec2 dir = unit.command.destination - unit.position;
@@ -475,9 +428,9 @@ struct Game {
             plane.draw();
 
             selectionModel.setup = persp * view;
-            for(const auto& id : unitsSelected) {
-                const auto p = units.find(id);
-                if(p != units.end()) {
+            for(const auto& id : world.unitsSelected) {
+                const auto p = world.units.find(id);
+                if(p != world.units.end()) {
                     const auto& unit = p->second;
                     selectionModel.position = glm::vec3(unit.position.x, 0.01, unit.position.y);
                     selectionModel.scale = glm::vec3(unit.radius * 2);
@@ -486,28 +439,13 @@ struct Game {
             }
 
             workerModel.setup = persp * view;
-            for(const auto& p : units) {
+            for(const auto& p : world.units) {
                 const auto& unit = p.second;
                 workerModel.position = glm::vec3(unit.position.x, 1, unit.position.y);
                 workerModel.rotation = glm::rotate(glm::mat4(1.0f), unit.direction, glm::vec3(0, 1, 0));
                 workerModel.scale = glm::vec3(1);
                 workerModel.draw();
             }
-
-            for(auto point : fp) {
-                model2.position = point;
-                model2.setup = persp * view;
-                model2.color = {0, 1, 0, 1};
-                model2.draw();
-            }
-
-            for(auto point : tp) {
-                model2.position = point;
-                model2.setup = persp * view;
-                model2.color = {1, 1, 1, 1};
-                model2.draw();
-            }
-
             glDisable(GL_DEPTH_TEST);
 
             if(focus == FOCUS_FLY) {
