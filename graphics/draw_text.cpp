@@ -107,7 +107,7 @@ void DrawText::initFont(const std::string& name, int size) {
     }
 }
 
-void DrawText::drawFont(glm::mat4 matrix, glm::vec4 color, const std::string& name, int size, std::string text) {
+void DrawText::drawFont(glm::mat4 matrix, glm::vec4 color, const std::string& name, int size, std::string text, bool allowNewLines) {
     Font &font = fonts[name][size];
     if (!font.init) {
         std::cerr << "draw_text.cpp: Font not initialized and tried to render: " << name << " (" << size << ")";
@@ -128,18 +128,26 @@ void DrawText::drawFont(glm::mat4 matrix, glm::vec4 color, const std::string& na
     // Iterate through all characters
     std::string::const_iterator c;
     for (c = text.begin(); c != text.end(); c++) {
+        auto* ch = &font.characters[*c];
+
         if (*c == '\n') {
-            y += (float) size;
-            x = sx;
+            if(allowNewLines) {
+                y -= (float) size;
+                x = sx;
+            } else {
+                ch = &font.characters[' '];
+            }
             continue;
         }
-        Character &ch = font.characters[*c];
+        if(*c == '\r') {
+            continue;
+        }
 
-        GLfloat xpos = x + ch.Bearing.x * scale;
-        GLfloat ypos = y - (float) (ch.Size.y - ch.Bearing.y) * scale;
+        GLfloat xpos = x + ch->Bearing.x * scale;
+        GLfloat ypos = y - (float) (ch->Size.y - ch->Bearing.y) * scale;
 
-        GLfloat w = ch.Size.x * scale;
-        GLfloat h = ch.Size.y * scale;
+        GLfloat w = ch->Size.x * scale;
+        GLfloat h = ch->Size.y * scale;
         // Update VBO for each character
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
         GLfloat vertices[6][4] = {
@@ -152,17 +160,17 @@ void DrawText::drawFont(glm::mat4 matrix, glm::vec4 color, const std::string& na
                 {xpos + w, ypos + h, 1.0, 0.0}
         };
         // Render glyph texture over quad
-        glBindTexture(GL_TEXTURE_2D, ch.TextureID);
+        glBindTexture(GL_TEXTURE_2D, ch->TextureID);
         // Update content of VBO memory
         glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
         // Render quad
         glDrawArrays(GL_TRIANGLES, 0, 6);
         // Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-        x += (ch.Advance >> (GLuint) 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)
+        x += (ch->Advance >> (GLuint) 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)
     }
 }
 
-float DrawText::textWidth(const std::string& name, int size, std::string text) {
+float DrawText::textWidth(const std::string& name, int size, std::string text, bool allowNewLines) {
     Font& font = fonts[name][size];
     float maxX = 0;
     float x = 0;
@@ -173,23 +181,64 @@ float DrawText::textWidth(const std::string& name, int size, std::string text) {
     std::string::const_iterator c;
     for (c = text.begin(); c != text.end(); c++)
     {
+        auto* ch = &font.characters[*c];
         if(*c == '\n')
         {
-            maxX = std::max(x - lastCharAdvance + lastCharWidth, maxX);
-            x = sx;
+            if(allowNewLines) {
+                maxX = std::max(x - lastCharAdvance + lastCharWidth, maxX);
+                x = sx;
+                continue;
+            } else {
+                ch = &font.characters[' '];
+            }
+        }
+        if(*c == '\r') {
             continue;
         }
-        Character& ch = font.characters[*c];
 
         // Update VBO for each character
         // Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-        x += (ch.Advance >> (GLuint) 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
+        x += (ch->Advance >> (GLuint) 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
 
-        lastCharAdvance = (ch.Advance >> (GLuint) 6);
-        lastCharWidth = ch.Size.x;
+        lastCharAdvance = (ch->Advance >> (GLuint) 6);
+        lastCharWidth = ch->Size.x;
     }
     maxX = std::max(x - lastCharAdvance + lastCharWidth, maxX);
     return maxX;
+}
+
+int DrawText::textBeforeWidth(const std::string& name, int size, std::string text, float width, bool allowNewLines) {
+    Font& font = fonts[name][size];
+    float maxX = 0;
+    float x = 0;
+    float sx = x;
+    float lastCharAdvance = 0, lastCharWidth = 0;
+    //float ox = x;
+    // Iterate through all characters
+    for (int i = 0; i < text.size(); ++i)
+    {
+        auto* ch = &font.characters[text[i]];
+        if(text[i] == '\n')
+        {
+            if(allowNewLines) {
+                return i + 1;
+            } else {
+                ch = &font.characters[' '];
+            }
+        }
+
+        // Update VBO for each character
+        // Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
+        x += (ch->Advance >> (GLuint) 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
+
+        lastCharAdvance = (ch->Advance >> (GLuint) 6);
+        lastCharWidth = ch->Size.x;
+
+        if(x - lastCharAdvance + lastCharWidth > width) {
+            return i;
+        }
+    }
+    return text.size();
 }
 
 DrawText::~DrawText() {

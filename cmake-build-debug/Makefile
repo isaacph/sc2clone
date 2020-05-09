@@ -110,17 +110,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named untitled2
+# Target rules for targets named client
 
 # Build rule for target.
-untitled2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 untitled2
-.PHONY : untitled2
+client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 client
+.PHONY : client
 
 # fast build rule for target.
-untitled2/fast:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/build
-.PHONY : untitled2/fast
+client/fast:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/build
+.PHONY : client/fast
+
+#=============================================================================
+# Target rules for targets named server
+
+# Build rule for target.
+server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 server
+.PHONY : server
+
+# fast build rule for target.
+server/fast:
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/build
+.PHONY : server/fast
 
 graphics/draw.obj: graphics/draw.cpp.obj
 
@@ -128,7 +141,7 @@ graphics/draw.obj: graphics/draw.cpp.obj
 
 # target to build an object file
 graphics/draw.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw.cpp.obj
 .PHONY : graphics/draw.cpp.obj
 
 graphics/draw.i: graphics/draw.cpp.i
@@ -137,7 +150,7 @@ graphics/draw.i: graphics/draw.cpp.i
 
 # target to preprocess a source file
 graphics/draw.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw.cpp.i
 .PHONY : graphics/draw.cpp.i
 
 graphics/draw.s: graphics/draw.cpp.s
@@ -146,7 +159,7 @@ graphics/draw.s: graphics/draw.cpp.s
 
 # target to generate assembly for a file
 graphics/draw.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw.cpp.s
 .PHONY : graphics/draw.cpp.s
 
 graphics/draw_image.obj: graphics/draw_image.cpp.obj
@@ -155,7 +168,7 @@ graphics/draw_image.obj: graphics/draw_image.cpp.obj
 
 # target to build an object file
 graphics/draw_image.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_image.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_image.cpp.obj
 .PHONY : graphics/draw_image.cpp.obj
 
 graphics/draw_image.i: graphics/draw_image.cpp.i
@@ -164,7 +177,7 @@ graphics/draw_image.i: graphics/draw_image.cpp.i
 
 # target to preprocess a source file
 graphics/draw_image.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_image.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_image.cpp.i
 .PHONY : graphics/draw_image.cpp.i
 
 graphics/draw_image.s: graphics/draw_image.cpp.s
@@ -173,7 +186,7 @@ graphics/draw_image.s: graphics/draw_image.cpp.s
 
 # target to generate assembly for a file
 graphics/draw_image.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_image.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_image.cpp.s
 .PHONY : graphics/draw_image.cpp.s
 
 graphics/draw_model.obj: graphics/draw_model.cpp.obj
@@ -182,7 +195,7 @@ graphics/draw_model.obj: graphics/draw_model.cpp.obj
 
 # target to build an object file
 graphics/draw_model.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_model.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_model.cpp.obj
 .PHONY : graphics/draw_model.cpp.obj
 
 graphics/draw_model.i: graphics/draw_model.cpp.i
@@ -191,7 +204,7 @@ graphics/draw_model.i: graphics/draw_model.cpp.i
 
 # target to preprocess a source file
 graphics/draw_model.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_model.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_model.cpp.i
 .PHONY : graphics/draw_model.cpp.i
 
 graphics/draw_model.s: graphics/draw_model.cpp.s
@@ -200,7 +213,7 @@ graphics/draw_model.s: graphics/draw_model.cpp.s
 
 # target to generate assembly for a file
 graphics/draw_model.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_model.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_model.cpp.s
 .PHONY : graphics/draw_model.cpp.s
 
 graphics/draw_model_textured.obj: graphics/draw_model_textured.cpp.obj
@@ -209,7 +222,7 @@ graphics/draw_model_textured.obj: graphics/draw_model_textured.cpp.obj
 
 # target to build an object file
 graphics/draw_model_textured.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_model_textured.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_model_textured.cpp.obj
 .PHONY : graphics/draw_model_textured.cpp.obj
 
 graphics/draw_model_textured.i: graphics/draw_model_textured.cpp.i
@@ -218,7 +231,7 @@ graphics/draw_model_textured.i: graphics/draw_model_textured.cpp.i
 
 # target to preprocess a source file
 graphics/draw_model_textured.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_model_textured.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_model_textured.cpp.i
 .PHONY : graphics/draw_model_textured.cpp.i
 
 graphics/draw_model_textured.s: graphics/draw_model_textured.cpp.s
@@ -227,7 +240,7 @@ graphics/draw_model_textured.s: graphics/draw_model_textured.cpp.s
 
 # target to generate assembly for a file
 graphics/draw_model_textured.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_model_textured.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_model_textured.cpp.s
 .PHONY : graphics/draw_model_textured.cpp.s
 
 graphics/draw_square.obj: graphics/draw_square.cpp.obj
@@ -236,7 +249,7 @@ graphics/draw_square.obj: graphics/draw_square.cpp.obj
 
 # target to build an object file
 graphics/draw_square.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_square.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_square.cpp.obj
 .PHONY : graphics/draw_square.cpp.obj
 
 graphics/draw_square.i: graphics/draw_square.cpp.i
@@ -245,7 +258,7 @@ graphics/draw_square.i: graphics/draw_square.cpp.i
 
 # target to preprocess a source file
 graphics/draw_square.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_square.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_square.cpp.i
 .PHONY : graphics/draw_square.cpp.i
 
 graphics/draw_square.s: graphics/draw_square.cpp.s
@@ -254,7 +267,7 @@ graphics/draw_square.s: graphics/draw_square.cpp.s
 
 # target to generate assembly for a file
 graphics/draw_square.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_square.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_square.cpp.s
 .PHONY : graphics/draw_square.cpp.s
 
 graphics/draw_text.obj: graphics/draw_text.cpp.obj
@@ -263,7 +276,7 @@ graphics/draw_text.obj: graphics/draw_text.cpp.obj
 
 # target to build an object file
 graphics/draw_text.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_text.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_text.cpp.obj
 .PHONY : graphics/draw_text.cpp.obj
 
 graphics/draw_text.i: graphics/draw_text.cpp.i
@@ -272,7 +285,7 @@ graphics/draw_text.i: graphics/draw_text.cpp.i
 
 # target to preprocess a source file
 graphics/draw_text.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_text.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_text.cpp.i
 .PHONY : graphics/draw_text.cpp.i
 
 graphics/draw_text.s: graphics/draw_text.cpp.s
@@ -281,7 +294,7 @@ graphics/draw_text.s: graphics/draw_text.cpp.s
 
 # target to generate assembly for a file
 graphics/draw_text.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/draw_text.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/draw_text.cpp.s
 .PHONY : graphics/draw_text.cpp.s
 
 graphics/load_obj.obj: graphics/load_obj.cpp.obj
@@ -290,7 +303,7 @@ graphics/load_obj.obj: graphics/load_obj.cpp.obj
 
 # target to build an object file
 graphics/load_obj.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/load_obj.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/load_obj.cpp.obj
 .PHONY : graphics/load_obj.cpp.obj
 
 graphics/load_obj.i: graphics/load_obj.cpp.i
@@ -299,7 +312,7 @@ graphics/load_obj.i: graphics/load_obj.cpp.i
 
 # target to preprocess a source file
 graphics/load_obj.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/load_obj.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/load_obj.cpp.i
 .PHONY : graphics/load_obj.cpp.i
 
 graphics/load_obj.s: graphics/load_obj.cpp.s
@@ -308,7 +321,7 @@ graphics/load_obj.s: graphics/load_obj.cpp.s
 
 # target to generate assembly for a file
 graphics/load_obj.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/load_obj.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/load_obj.cpp.s
 .PHONY : graphics/load_obj.cpp.s
 
 graphics/shader_util.obj: graphics/shader_util.cpp.obj
@@ -317,7 +330,7 @@ graphics/shader_util.obj: graphics/shader_util.cpp.obj
 
 # target to build an object file
 graphics/shader_util.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/shader_util.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/shader_util.cpp.obj
 .PHONY : graphics/shader_util.cpp.obj
 
 graphics/shader_util.i: graphics/shader_util.cpp.i
@@ -326,7 +339,7 @@ graphics/shader_util.i: graphics/shader_util.cpp.i
 
 # target to preprocess a source file
 graphics/shader_util.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/shader_util.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/shader_util.cpp.i
 .PHONY : graphics/shader_util.cpp.i
 
 graphics/shader_util.s: graphics/shader_util.cpp.s
@@ -335,7 +348,7 @@ graphics/shader_util.s: graphics/shader_util.cpp.s
 
 # target to generate assembly for a file
 graphics/shader_util.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/shader_util.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/shader_util.cpp.s
 .PHONY : graphics/shader_util.cpp.s
 
 graphics/texture_load.obj: graphics/texture_load.cpp.obj
@@ -344,7 +357,7 @@ graphics/texture_load.obj: graphics/texture_load.cpp.obj
 
 # target to build an object file
 graphics/texture_load.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/texture_load.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/texture_load.cpp.obj
 .PHONY : graphics/texture_load.cpp.obj
 
 graphics/texture_load.i: graphics/texture_load.cpp.i
@@ -353,7 +366,7 @@ graphics/texture_load.i: graphics/texture_load.cpp.i
 
 # target to preprocess a source file
 graphics/texture_load.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/texture_load.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/texture_load.cpp.i
 .PHONY : graphics/texture_load.cpp.i
 
 graphics/texture_load.s: graphics/texture_load.cpp.s
@@ -362,7 +375,7 @@ graphics/texture_load.s: graphics/texture_load.cpp.s
 
 # target to generate assembly for a file
 graphics/texture_load.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/graphics/texture_load.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/texture_load.cpp.s
 .PHONY : graphics/texture_load.cpp.s
 
 main.obj: main.cpp.obj
@@ -371,7 +384,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/main.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -380,7 +393,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -389,7 +402,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 math_util.obj: math_util.cpp.obj
@@ -398,7 +411,7 @@ math_util.obj: math_util.cpp.obj
 
 # target to build an object file
 math_util.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/math_util.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/math_util.cpp.obj
 .PHONY : math_util.cpp.obj
 
 math_util.i: math_util.cpp.i
@@ -407,7 +420,7 @@ math_util.i: math_util.cpp.i
 
 # target to preprocess a source file
 math_util.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/math_util.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/math_util.cpp.i
 .PHONY : math_util.cpp.i
 
 math_util.s: math_util.cpp.s
@@ -416,7 +429,7 @@ math_util.s: math_util.cpp.s
 
 # target to generate assembly for a file
 math_util.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/math_util.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/math_util.cpp.s
 .PHONY : math_util.cpp.s
 
 physics/Box.obj: physics/Box.cpp.obj
@@ -425,7 +438,7 @@ physics/Box.obj: physics/Box.cpp.obj
 
 # target to build an object file
 physics/Box.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/Box.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/Box.cpp.obj
 .PHONY : physics/Box.cpp.obj
 
 physics/Box.i: physics/Box.cpp.i
@@ -434,7 +447,7 @@ physics/Box.i: physics/Box.cpp.i
 
 # target to preprocess a source file
 physics/Box.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/Box.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/Box.cpp.i
 .PHONY : physics/Box.cpp.i
 
 physics/Box.s: physics/Box.cpp.s
@@ -443,7 +456,7 @@ physics/Box.s: physics/Box.cpp.s
 
 # target to generate assembly for a file
 physics/Box.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/Box.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/Box.cpp.s
 .PHONY : physics/Box.cpp.s
 
 physics/RotatedBox.obj: physics/RotatedBox.cpp.obj
@@ -452,7 +465,7 @@ physics/RotatedBox.obj: physics/RotatedBox.cpp.obj
 
 # target to build an object file
 physics/RotatedBox.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/RotatedBox.cpp.obj
 .PHONY : physics/RotatedBox.cpp.obj
 
 physics/RotatedBox.i: physics/RotatedBox.cpp.i
@@ -461,7 +474,7 @@ physics/RotatedBox.i: physics/RotatedBox.cpp.i
 
 # target to preprocess a source file
 physics/RotatedBox.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/RotatedBox.cpp.i
 .PHONY : physics/RotatedBox.cpp.i
 
 physics/RotatedBox.s: physics/RotatedBox.cpp.s
@@ -470,8 +483,182 @@ physics/RotatedBox.s: physics/RotatedBox.cpp.s
 
 # target to generate assembly for a file
 physics/RotatedBox.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/physics/RotatedBox.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/RotatedBox.cpp.s
 .PHONY : physics/RotatedBox.cpp.s
+
+server/async_console.obj: server/async_console.cpp.obj
+
+.PHONY : server/async_console.obj
+
+# target to build an object file
+server/async_console.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/async_console.cpp.obj
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/async_console.cpp.obj
+.PHONY : server/async_console.cpp.obj
+
+server/async_console.i: server/async_console.cpp.i
+
+.PHONY : server/async_console.i
+
+# target to preprocess a source file
+server/async_console.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/async_console.cpp.i
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/async_console.cpp.i
+.PHONY : server/async_console.cpp.i
+
+server/async_console.s: server/async_console.cpp.s
+
+.PHONY : server/async_console.s
+
+# target to generate assembly for a file
+server/async_console.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/async_console.cpp.s
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/async_console.cpp.s
+.PHONY : server/async_console.cpp.s
+
+server/listen.obj: server/listen.cpp.obj
+
+.PHONY : server/listen.obj
+
+# target to build an object file
+server/listen.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/listen.cpp.obj
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/listen.cpp.obj
+.PHONY : server/listen.cpp.obj
+
+server/listen.i: server/listen.cpp.i
+
+.PHONY : server/listen.i
+
+# target to preprocess a source file
+server/listen.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/listen.cpp.i
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/listen.cpp.i
+.PHONY : server/listen.cpp.i
+
+server/listen.s: server/listen.cpp.s
+
+.PHONY : server/listen.s
+
+# target to generate assembly for a file
+server/listen.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/listen.cpp.s
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/listen.cpp.s
+.PHONY : server/listen.cpp.s
+
+server/packet.obj: server/packet.cpp.obj
+
+.PHONY : server/packet.obj
+
+# target to build an object file
+server/packet.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/packet.cpp.obj
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/packet.cpp.obj
+.PHONY : server/packet.cpp.obj
+
+server/packet.i: server/packet.cpp.i
+
+.PHONY : server/packet.i
+
+# target to preprocess a source file
+server/packet.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/packet.cpp.i
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/packet.cpp.i
+.PHONY : server/packet.cpp.i
+
+server/packet.s: server/packet.cpp.s
+
+.PHONY : server/packet.s
+
+# target to generate assembly for a file
+server/packet.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/packet.cpp.s
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/packet.cpp.s
+.PHONY : server/packet.cpp.s
+
+server/response.obj: server/response.cpp.obj
+
+.PHONY : server/response.obj
+
+# target to build an object file
+server/response.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/response.cpp.obj
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/response.cpp.obj
+.PHONY : server/response.cpp.obj
+
+server/response.i: server/response.cpp.i
+
+.PHONY : server/response.i
+
+# target to preprocess a source file
+server/response.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/response.cpp.i
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/response.cpp.i
+.PHONY : server/response.cpp.i
+
+server/response.s: server/response.cpp.s
+
+.PHONY : server/response.s
+
+# target to generate assembly for a file
+server/response.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/response.cpp.s
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/response.cpp.s
+.PHONY : server/response.cpp.s
+
+server/server_main.obj: server/server_main.cpp.obj
+
+.PHONY : server/server_main.obj
+
+# target to build an object file
+server/server_main.cpp.obj:
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/server_main.cpp.obj
+.PHONY : server/server_main.cpp.obj
+
+server/server_main.i: server/server_main.cpp.i
+
+.PHONY : server/server_main.i
+
+# target to preprocess a source file
+server/server_main.cpp.i:
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/server_main.cpp.i
+.PHONY : server/server_main.cpp.i
+
+server/server_main.s: server/server_main.cpp.s
+
+.PHONY : server/server_main.s
+
+# target to generate assembly for a file
+server/server_main.cpp.s:
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/server_main.cpp.s
+.PHONY : server/server_main.cpp.s
+
+test/Chatbox.obj: test/Chatbox.cpp.obj
+
+.PHONY : test/Chatbox.obj
+
+# target to build an object file
+test/Chatbox.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/Chatbox.cpp.obj
+.PHONY : test/Chatbox.cpp.obj
+
+test/Chatbox.i: test/Chatbox.cpp.i
+
+.PHONY : test/Chatbox.i
+
+# target to preprocess a source file
+test/Chatbox.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/Chatbox.cpp.i
+.PHONY : test/Chatbox.cpp.i
+
+test/Chatbox.s: test/Chatbox.cpp.s
+
+.PHONY : test/Chatbox.s
+
+# target to generate assembly for a file
+test/Chatbox.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/Chatbox.cpp.s
+.PHONY : test/Chatbox.cpp.s
 
 test/DragCamera.obj: test/DragCamera.cpp.obj
 
@@ -479,7 +666,7 @@ test/DragCamera.obj: test/DragCamera.cpp.obj
 
 # target to build an object file
 test/DragCamera.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/DragCamera.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragCamera.cpp.obj
 .PHONY : test/DragCamera.cpp.obj
 
 test/DragCamera.i: test/DragCamera.cpp.i
@@ -488,7 +675,7 @@ test/DragCamera.i: test/DragCamera.cpp.i
 
 # target to preprocess a source file
 test/DragCamera.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/DragCamera.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragCamera.cpp.i
 .PHONY : test/DragCamera.cpp.i
 
 test/DragCamera.s: test/DragCamera.cpp.s
@@ -497,7 +684,7 @@ test/DragCamera.s: test/DragCamera.cpp.s
 
 # target to generate assembly for a file
 test/DragCamera.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/DragCamera.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragCamera.cpp.s
 .PHONY : test/DragCamera.cpp.s
 
 test/DragonCurve.obj: test/DragonCurve.cpp.obj
@@ -506,7 +693,7 @@ test/DragonCurve.obj: test/DragonCurve.cpp.obj
 
 # target to build an object file
 test/DragonCurve.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/DragonCurve.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragonCurve.cpp.obj
 .PHONY : test/DragonCurve.cpp.obj
 
 test/DragonCurve.i: test/DragonCurve.cpp.i
@@ -515,7 +702,7 @@ test/DragonCurve.i: test/DragonCurve.cpp.i
 
 # target to preprocess a source file
 test/DragonCurve.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/DragonCurve.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragonCurve.cpp.i
 .PHONY : test/DragonCurve.cpp.i
 
 test/DragonCurve.s: test/DragonCurve.cpp.s
@@ -524,7 +711,7 @@ test/DragonCurve.s: test/DragonCurve.cpp.s
 
 # target to generate assembly for a file
 test/DragonCurve.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/DragonCurve.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/DragonCurve.cpp.s
 .PHONY : test/DragonCurve.cpp.s
 
 test/FlyCamera.obj: test/FlyCamera.cpp.obj
@@ -533,7 +720,7 @@ test/FlyCamera.obj: test/FlyCamera.cpp.obj
 
 # target to build an object file
 test/FlyCamera.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/FlyCamera.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/FlyCamera.cpp.obj
 .PHONY : test/FlyCamera.cpp.obj
 
 test/FlyCamera.i: test/FlyCamera.cpp.i
@@ -542,7 +729,7 @@ test/FlyCamera.i: test/FlyCamera.cpp.i
 
 # target to preprocess a source file
 test/FlyCamera.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/FlyCamera.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/FlyCamera.cpp.i
 .PHONY : test/FlyCamera.cpp.i
 
 test/FlyCamera.s: test/FlyCamera.cpp.s
@@ -551,7 +738,7 @@ test/FlyCamera.s: test/FlyCamera.cpp.s
 
 # target to generate assembly for a file
 test/FlyCamera.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/FlyCamera.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/FlyCamera.cpp.s
 .PHONY : test/FlyCamera.cpp.s
 
 test/OverheadCamera.obj: test/OverheadCamera.cpp.obj
@@ -560,7 +747,7 @@ test/OverheadCamera.obj: test/OverheadCamera.cpp.obj
 
 # target to build an object file
 test/OverheadCamera.cpp.obj:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/OverheadCamera.cpp.obj
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/OverheadCamera.cpp.obj
 .PHONY : test/OverheadCamera.cpp.obj
 
 test/OverheadCamera.i: test/OverheadCamera.cpp.i
@@ -569,7 +756,7 @@ test/OverheadCamera.i: test/OverheadCamera.cpp.i
 
 # target to preprocess a source file
 test/OverheadCamera.cpp.i:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/OverheadCamera.cpp.i
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/OverheadCamera.cpp.i
 .PHONY : test/OverheadCamera.cpp.i
 
 test/OverheadCamera.s: test/OverheadCamera.cpp.s
@@ -578,7 +765,7 @@ test/OverheadCamera.s: test/OverheadCamera.cpp.s
 
 # target to generate assembly for a file
 test/OverheadCamera.cpp.s:
-	$(MAKE) -f CMakeFiles\untitled2.dir\build.make CMakeFiles/untitled2.dir/test/OverheadCamera.cpp.s
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/OverheadCamera.cpp.s
 .PHONY : test/OverheadCamera.cpp.s
 
 # Help Target
@@ -587,7 +774,8 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... untitled2
+	@echo ... client
+	@echo ... server
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... graphics/draw.obj
@@ -629,6 +817,24 @@ help:
 	@echo ... physics/RotatedBox.obj
 	@echo ... physics/RotatedBox.i
 	@echo ... physics/RotatedBox.s
+	@echo ... server/async_console.obj
+	@echo ... server/async_console.i
+	@echo ... server/async_console.s
+	@echo ... server/listen.obj
+	@echo ... server/listen.i
+	@echo ... server/listen.s
+	@echo ... server/packet.obj
+	@echo ... server/packet.i
+	@echo ... server/packet.s
+	@echo ... server/response.obj
+	@echo ... server/response.i
+	@echo ... server/response.s
+	@echo ... server/server_main.obj
+	@echo ... server/server_main.i
+	@echo ... server/server_main.s
+	@echo ... test/Chatbox.obj
+	@echo ... test/Chatbox.i
+	@echo ... test/Chatbox.s
 	@echo ... test/DragCamera.obj
 	@echo ... test/DragCamera.i
 	@echo ... test/DragCamera.s

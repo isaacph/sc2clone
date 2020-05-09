@@ -5,8 +5,18 @@
 #include "test/DragCamera.h"
 #include "test/FlyCamera.h"
 #include "test/OverheadCamera.h"
+#include "test/Chatbox.h"
 #include "math_util.h"
 #include <pthread.h>
+#include "server/shared.h"
+#include "server/packet.h"
+#include "server/listen.h"
+#include "server/response.h"
+#include "server/socket_init.h"
+#include <sstream>
+#include <windows.h>
+#include <winuser.h>
+#include <windef.h>
 
 std::ostream& operator<<(std::ostream& os, glm::mat4 mat) {
     for(int j = 0; j < 4; j++) {
@@ -34,13 +44,19 @@ struct Game {
     glm::vec3 mouse_dir;
     FlyCamera flyCamera = FlyCamera(view);
     OverheadCamera overheadCamera = OverheadCamera(view);
-    bool useFlyCamera = false;
-    bool useOverheadCamera = false;
+    Chatbox chatbox = Chatbox(graphics.initText("arial", 30), 20, 30, 800, glm::mat4(1.0f));
+
     glm::vec2 drag_start;
     bool left_click = false;
     bool drag = false;
+    enum FocusMode {
+        FOCUS_NONE, FOCUS_FLY, FOCUS_OVERHEAD, FOCUS_CHAT
+    } focus, prev_focus;
 
     Graphics::PlainModel workerModel = graphics.initPlainModel("res/cube.obj");
+
+    Shared communication;
+    sockaddr_in server_address = get_address(3800, "127.0.0.1");
 
     struct Command {
         enum Type {
@@ -86,6 +102,9 @@ struct Game {
         glfwSetKeyCallback(window, [](GLFWwindow* win, int key, int scancode, int action, int mods) {
             ((Game*) glfwGetWindowUserPointer(win))->onKey(key, scancode, action, mods);
         });
+        glfwSetCharCallback(window, [](GLFWwindow* win, unsigned int codepoint) {
+            ((Game*) glfwGetWindowUserPointer(win))->onChar(codepoint);
+        });
         flyCamera.disable(window);
         overheadCamera.disable(window);
         pthread_t thread;
@@ -102,125 +121,128 @@ struct Game {
     }
 
     void onMouse(int button, int action, int mods) {
-        if(action == GLFW_PRESS && button == GLFW_MOUSE_BUTTON_LEFT && useOverheadCamera) {
-            unsigned int closestSelected;
-            bool foundUnit = false;
-            for (auto &p : units) {
-                unsigned int unitID = p.first;
-                auto &unit = p.second;
-                if (unit.type == Unit::WORKER) {
-                    bool intersects = false;
-                    glm::vec3 cam_pos = overheadCamera.camera_position;
-                    glm::vec3 cam_dir = overheadCamera.camera_focus_point - cam_pos;
-                    glm::vec3 dir = mouse_dir;
-                    workerModel.position = glm::vec3(unit.position.x, 1, unit.position.y);
-                    workerModel.scale = glm::vec3(1);
-                    workerModel.rotation = glm::rotate(glm::mat4(1.0f), unit.direction, glm::vec3(0, 1, 0));
-                    const std::vector<Triangle> &triangles = workerModel.getTriangles();
-                    for (size_t i = 0; i < triangles.size(); ++i) {
-                        const auto &triangle = triangles[i];
-                        glm::vec4 p1_4 = workerModel.getModelMatrix() *
-                                         glm::vec4(triangle.p1.x, triangle.p1.y, triangle.p1.z, 1);
-                        glm::vec4 p2_4 = workerModel.getModelMatrix() *
-                                         glm::vec4(triangle.p2.x, triangle.p2.y, triangle.p2.z, 1);
-                        glm::vec4 p3_4 = workerModel.getModelMatrix() *
-                                         glm::vec4(triangle.p3.x, triangle.p3.y, triangle.p3.z, 1);
-                        glm::vec3 p1 = glm::vec3(p1_4.x / p1_4.w, p1_4.y / p1_4.w, p1_4.z / p1_4.w);
-                        glm::vec3 p2 = glm::vec3(p2_4.x / p2_4.w, p2_4.y / p2_4.w, p2_4.z / p2_4.w);
-                        glm::vec3 p3 = glm::vec3(p3_4.x / p3_4.w, p3_4.y / p3_4.w, p3_4.z / p3_4.w);
-                        if (view_line_intersects_triangle(cam_pos, cam_dir, cam_pos, mouse_dir, {p1, p2, p3})) {
-                            intersects = true;
-                        }
-                    }
-                    if (intersects) {
-                        if(foundUnit) {
-                            if(unit.position.y > units[closestSelected].position.y)
-                            {
-                                closestSelected = unitID;
-                            }
-                        } else {
-                            foundUnit = true;
-                            closestSelected = unitID;
-                        }
-                    }
-                }
-            }
-            unitsSelected = {};
-            if(foundUnit) {
-                unitsSelected.insert(closestSelected);
-            }
-        }
-        if(button == GLFW_MOUSE_BUTTON_LEFT) {
-            left_click = action > 0;
-            if(useOverheadCamera) {
-                if (action == GLFW_PRESS) {
-                    drag_start = mouse;
-                }
-                if (action == GLFW_RELEASE) {
-                    if(drag) {
-                        drag = false;
+        if(focus != FOCUS_CHAT) {
+            if (action == GLFW_PRESS && button == GLFW_MOUSE_BUTTON_LEFT && focus == FOCUS_OVERHEAD) {
+                unsigned int closestSelected;
+                bool foundUnit = false;
+                for (auto &p : units) {
+                    unsigned int unitID = p.first;
+                    auto &unit = p.second;
+                    if (unit.type == Unit::WORKER) {
+                        bool intersects = false;
                         glm::vec3 cam_pos = overheadCamera.camera_position;
                         glm::vec3 cam_dir = overheadCamera.camera_focus_point - cam_pos;
-                        glm::vec2 p1d = drag_start;
-                        glm::vec2 p3d = mouse;
-                        glm::vec2 p2d(drag_start.x, mouse.y);
-                        glm::vec2 p4d(mouse.x, drag_start.y);
-                        std::vector<glm::vec3> dirs = {
-                                screen_space_to_overhead_dir(p1d),
-                                screen_space_to_overhead_dir(p2d),
-                                screen_space_to_overhead_dir(p3d),
-                                screen_space_to_overhead_dir(p4d)
-                        };
-                        tp = {};
-                        fp = {};
-                        for (auto &p : units) {
-                            unsigned int unitID = p.first;
-                            auto &unit = p.second;
-                            if (unit.type == Unit::WORKER) {
-                                bool intersects = false;
-                                workerModel.position = glm::vec3(unit.position.x, 1, unit.position.y);
-                                workerModel.scale = glm::vec3(1);
-                                workerModel.rotation = glm::rotate(glm::mat4(1.0f), unit.direction, glm::vec3(0, 1, 0));
-                                const std::vector<Triangle> &triangles = workerModel.getTriangles();
-                                for (size_t i = 0; i < triangles.size(); ++i) {
-                                    const auto &triangle = triangles[i];
-                                    glm::vec4 p1_4 = workerModel.getModelMatrix() *
-                                                     glm::vec4(triangle.p1.x, triangle.p1.y, triangle.p1.z, 1);
-                                    glm::vec4 p2_4 = workerModel.getModelMatrix() *
-                                                     glm::vec4(triangle.p2.x, triangle.p2.y, triangle.p2.z, 1);
-                                    glm::vec4 p3_4 = workerModel.getModelMatrix() *
-                                                     glm::vec4(triangle.p3.x, triangle.p3.y, triangle.p3.z, 1);
-                                    glm::vec3 p1 = glm::vec3(p1_4.x / p1_4.w, p1_4.y / p1_4.w, p1_4.z / p1_4.w);
-                                    glm::vec3 p2 = glm::vec3(p2_4.x / p2_4.w, p2_4.y / p2_4.w, p2_4.z / p2_4.w);
-                                    glm::vec3 p3 = glm::vec3(p3_4.x / p3_4.w, p3_4.y / p3_4.w, p3_4.z / p3_4.w);
-
-                                    if (view_frustum_intersects_triangle(cam_pos, cam_dir, cam_pos, dirs, {p1, p2, p3})) {
-                                        intersects = true;
-                                        break;
-                                    }
+                        glm::vec3 dir = mouse_dir;
+                        workerModel.position = glm::vec3(unit.position.x, 1, unit.position.y);
+                        workerModel.scale = glm::vec3(1);
+                        workerModel.rotation = glm::rotate(glm::mat4(1.0f), unit.direction, glm::vec3(0, 1, 0));
+                        const std::vector<Triangle> &triangles = workerModel.getTriangles();
+                        for (size_t i = 0; i < triangles.size(); ++i) {
+                            const auto &triangle = triangles[i];
+                            glm::vec4 p1_4 = workerModel.getModelMatrix() *
+                                             glm::vec4(triangle.p1.x, triangle.p1.y, triangle.p1.z, 1);
+                            glm::vec4 p2_4 = workerModel.getModelMatrix() *
+                                             glm::vec4(triangle.p2.x, triangle.p2.y, triangle.p2.z, 1);
+                            glm::vec4 p3_4 = workerModel.getModelMatrix() *
+                                             glm::vec4(triangle.p3.x, triangle.p3.y, triangle.p3.z, 1);
+                            glm::vec3 p1 = glm::vec3(p1_4.x / p1_4.w, p1_4.y / p1_4.w, p1_4.z / p1_4.w);
+                            glm::vec3 p2 = glm::vec3(p2_4.x / p2_4.w, p2_4.y / p2_4.w, p2_4.z / p2_4.w);
+                            glm::vec3 p3 = glm::vec3(p3_4.x / p3_4.w, p3_4.y / p3_4.w, p3_4.z / p3_4.w);
+                            if (view_line_intersects_triangle(cam_pos, cam_dir, cam_pos, mouse_dir, {p1, p2, p3})) {
+                                intersects = true;
+                            }
+                        }
+                        if (intersects) {
+                            if (foundUnit) {
+                                if (unit.position.y > units[closestSelected].position.y) {
+                                    closestSelected = unitID;
                                 }
-                                if (intersects) {
-                                    unitsSelected.insert(unitID);
+                            } else {
+                                foundUnit = true;
+                                closestSelected = unitID;
+                            }
+                        }
+                    }
+                }
+                unitsSelected = {};
+                if (foundUnit) {
+                    unitsSelected.insert(closestSelected);
+                }
+            }
+            if (button == GLFW_MOUSE_BUTTON_LEFT) {
+                left_click = action > 0;
+                if (focus == FOCUS_OVERHEAD) {
+                    if (action == GLFW_PRESS) {
+                        drag_start = mouse;
+                    }
+                    if (action == GLFW_RELEASE) {
+                        if (drag) {
+                            drag = false;
+                            glm::vec3 cam_pos = overheadCamera.camera_position;
+                            glm::vec3 cam_dir = overheadCamera.camera_focus_point - cam_pos;
+                            glm::vec2 p1d = drag_start;
+                            glm::vec2 p3d = mouse;
+                            glm::vec2 p2d(drag_start.x, mouse.y);
+                            glm::vec2 p4d(mouse.x, drag_start.y);
+                            std::vector<glm::vec3> dirs = {
+                                    screen_space_to_overhead_dir(p1d),
+                                    screen_space_to_overhead_dir(p2d),
+                                    screen_space_to_overhead_dir(p3d),
+                                    screen_space_to_overhead_dir(p4d)
+                            };
+                            tp = {};
+                            fp = {};
+                            for (auto &p : units) {
+                                unsigned int unitID = p.first;
+                                auto &unit = p.second;
+                                if (unit.type == Unit::WORKER) {
+                                    bool intersects = false;
+                                    workerModel.position = glm::vec3(unit.position.x, 1, unit.position.y);
+                                    workerModel.scale = glm::vec3(1);
+                                    workerModel.rotation = glm::rotate(glm::mat4(1.0f), unit.direction,
+                                                                       glm::vec3(0, 1, 0));
+                                    const std::vector<Triangle> &triangles = workerModel.getTriangles();
+                                    for (size_t i = 0; i < triangles.size(); ++i) {
+                                        const auto &triangle = triangles[i];
+                                        glm::vec4 p1_4 = workerModel.getModelMatrix() *
+                                                         glm::vec4(triangle.p1.x, triangle.p1.y, triangle.p1.z, 1);
+                                        glm::vec4 p2_4 = workerModel.getModelMatrix() *
+                                                         glm::vec4(triangle.p2.x, triangle.p2.y, triangle.p2.z, 1);
+                                        glm::vec4 p3_4 = workerModel.getModelMatrix() *
+                                                         glm::vec4(triangle.p3.x, triangle.p3.y, triangle.p3.z, 1);
+                                        glm::vec3 p1 = glm::vec3(p1_4.x / p1_4.w, p1_4.y / p1_4.w, p1_4.z / p1_4.w);
+                                        glm::vec3 p2 = glm::vec3(p2_4.x / p2_4.w, p2_4.y / p2_4.w, p2_4.z / p2_4.w);
+                                        glm::vec3 p3 = glm::vec3(p3_4.x / p3_4.w, p3_4.y / p3_4.w, p3_4.z / p3_4.w);
+
+                                        if (view_frustum_intersects_triangle(cam_pos, cam_dir, cam_pos, dirs,
+                                                                             {p1, p2, p3})) {
+                                            intersects = true;
+                                            break;
+                                        }
+                                    }
+                                    if (intersects) {
+                                        unitsSelected.insert(unitID);
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-        }
-        if(button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
-            for(auto id : unitsSelected) {
-                auto& unit = units[id];
-                if(unit.type == Unit::WORKER) {
-                    unit.command.type = Command::MOVE;
-                    unit.command.destination = mouse_world;
+            if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
+                for (auto id : unitsSelected) {
+                    auto &unit = units[id];
+                    if (unit.type == Unit::WORKER) {
+                        unit.command.type = Command::MOVE;
+                        unit.command.destination = mouse_world;
+                    }
                 }
             }
         }
     }
 
     void onCursorPos(double x, double y) {
-        if(useOverheadCamera && left_click) {
+        if(focus == FOCUS_OVERHEAD && left_click) {
             drag = true;
         }
     }
@@ -229,32 +251,97 @@ struct Game {
     }
 
     void onKey(int key, int scancode, int action, int mods) {
-        if(key == GLFW_KEY_V && action == GLFW_PRESS) {
-            useFlyCamera = !useFlyCamera;
-            if(useFlyCamera) {
-                flyCamera.center = overheadCamera.camera_position;
-                flyCamera.rotation = overheadCamera.rotation;
-                flyCamera.enable(window);
-                overheadCamera.disable(window);
-                useOverheadCamera = false;
-            } else {
+        if(focus != FOCUS_CHAT) {
+            if (key == GLFW_KEY_V && action == GLFW_PRESS) {
+                if (focus != FOCUS_FLY) {
+                    prev_focus = focus;
+                    focus = FOCUS_FLY;
+                    flyCamera.center = overheadCamera.camera_position;
+                    flyCamera.rotation = overheadCamera.rotation;
+                    flyCamera.enable(window);
+                    overheadCamera.disable(window);
+                } else {
+                    prev_focus = focus;
+                    focus = FOCUS_NONE;
+                    flyCamera.disable(window);
+                }
+            } else if (key == GLFW_KEY_G && action == GLFW_PRESS) {
+                if (focus != FOCUS_OVERHEAD) {
+                    prev_focus = focus;
+                    focus = FOCUS_OVERHEAD;
+                    flyCamera.disable(window);
+                    overheadCamera.enable(window);
+                } else {
+                    prev_focus = focus;
+                    focus = FOCUS_NONE;
+                    overheadCamera.disable(window);
+                }
+            } else if (key == GLFW_KEY_S && action == GLFW_PRESS) {
+                for (auto &unitID : unitsSelected) {
+                    units[unitID].command.type = Command::NONE;
+                }
+            } else if (key == GLFW_KEY_ENTER && action == GLFW_PRESS) {
+                prev_focus = focus;
+                focus = FOCUS_CHAT;
+                chatbox.enable();
                 flyCamera.disable(window);
-            }
-        } else if(key == GLFW_KEY_G && action == GLFW_PRESS) {
-            useOverheadCamera = !useOverheadCamera;
-            if(useOverheadCamera) {
-                flyCamera.disable(window);
-                overheadCamera.enable(window);
-                useFlyCamera = false;
-            } else {
                 overheadCamera.disable(window);
             }
-        } else if(key == GLFW_KEY_S && action == GLFW_PRESS) {
-            for(auto& unitID : unitsSelected) {
-                units[unitID].command.type = Command::NONE;
+        } else if(key == GLFW_KEY_ENTER && action == GLFW_PRESS) {
+            if(chatbox.typed.size() == 0) {
+                FocusMode f = focus;
+                focus = prev_focus;
+                prev_focus = f;
+                chatbox.disable();
+                if (focus == FOCUS_OVERHEAD) {
+                    overheadCamera.enable(window);
+                } else if (focus == FOCUS_FLY) {
+                    flyCamera.enable(window);
+                }
+            } else {
+                communication.response.send(std::make_unique<Packet>(Packet{
+                        chatbox.typed,
+                        server_address
+                }));
+
+                chatbox.println(chatbox.typed);
+                chatbox.typed.clear();
+            }
+        } else if(key == GLFW_KEY_BACKSPACE && action > 0) {
+            if(chatbox.typed.size() > 0) {
+                chatbox.typed.pop_back();
+            }
+        } else if(key == GLFW_KEY_V && action > 0 && mods == GLFW_MOD_CONTROL) {
+            if(OpenClipboard(nullptr)) {
+                HGLOBAL data_handle = GetClipboardData(CF_TEXT);
+                if(data_handle != NULL) {
+                    char* c_text = static_cast<char*>(GlobalLock(data_handle));
+                    if(c_text != NULL) {
+                        std::string text(c_text);
+                        chatbox.typed.insert(chatbox.typed.end(), text.begin(), text.end());
+                    }
+                    GlobalUnlock(data_handle);
+                }
+                CloseClipboard();
             }
         }
+        if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+            prev_focus = focus;
+            focus = FOCUS_NONE;
+            chatbox.disable();
+            flyCamera.disable(window);
+            overheadCamera.disable(window);
+        }
         flyCamera.onKey(window, key, scancode, action, mods);
+    }
+
+    void onChar(unsigned int codepoint) {
+        if(codepoint < 128) {
+            char c = codepoint;
+            if(focus == FOCUS_CHAT && c != '\n') {
+                chatbox.typed.push_back(c);
+            }
+        }
     }
 
     glm::vec3 screen_space_to_overhead_dir(glm::vec2 screen) const {
@@ -269,6 +356,7 @@ struct Game {
     }
 
     void run() {
+
         Graphics::Text text = graphics.initText("arial", 20);
         text.text = "Isaac Huffman";
         text.color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
@@ -329,6 +417,8 @@ struct Game {
         units.insert({4, {Unit::WORKER, 0, 1.4f, glm::vec2(6, 6)}});
         units.insert({5, {Unit::WORKER, 0, 1.4f, glm::vec2(9, 0)}});
 
+        std::unique_ptr<Packet> receive;
+
         double current_time = glfwGetTime();
         double last_time = current_time;
         while(!glfwWindowShouldClose(window)) {
@@ -336,6 +426,10 @@ struct Game {
             current_time = glfwGetTime();
             double delta = std::min<double>(current_time - last_time, 0.1);
             last_time = current_time;
+
+            while((receive = communication.listen.get()) != nullptr) {
+                chatbox.println(receive->message);
+            }
 
             double m[2];
             glfwGetCursorPos(window, m, m + 1);
@@ -346,7 +440,7 @@ struct Game {
 
             overheadCamera.onMousePosition(window, mouse);
             overheadCamera.update(delta);
-            if(useOverheadCamera) {
+            if(focus == FOCUS_OVERHEAD) {
                 glm::vec3 dir = screen_space_to_overhead_dir(mouse);
                 glm::vec3 start = overheadCamera.camera_position;
                 glm::vec3 plane_start = glm::vec3(0, 0, 0);
@@ -368,7 +462,6 @@ struct Game {
                     unit.position += glm::normalize(dir) * delta * unit.speed;
                 }
             }
-
 
             //rot += delta;
 
@@ -417,17 +510,14 @@ struct Game {
 
             glDisable(GL_DEPTH_TEST);
 
-            text.setup = ortho;
-            text.draw();
-
-            if(useFlyCamera) {
+            if(focus == FOCUS_FLY) {
                 rect.matrix = glm::scale(glm::translate(glm::mat4(1.0f), glm::vec3(width / 2, height / 2, 0)),
                         glm::vec3(10, 10, 0));
                 rect.setup = ortho;
                 rect.draw();
             }
 
-            if(useOverheadCamera && drag) {
+            if(focus == FOCUS_OVERHEAD && drag) {
                 glm::vec2 center = (drag_start + mouse) * 1.0f / 2.0f;
                 glm::vec2 size = mouse - drag_start;
                 rect.matrix = glm::scale(glm::translate(glm::mat4(1.0f), glm::vec3(center.x, center.y, 0)),
@@ -435,6 +525,8 @@ struct Game {
                 rect.setup = ortho;
                 rect.draw();
             }
+
+            chatbox.draw(delta, ortho);
 
             glfwPollEvents();
             glfwSwapBuffers(window);
@@ -471,10 +563,27 @@ int main() {
     errorCheckGl("draw pre-init");
 
     Game game(window);
+
+    game.communication.port = 3801;
+    init_socket(game.communication.port,
+                game.communication.timeout_ms,
+                game.communication.socket,
+                game.communication.address, true);
+
+    pthread_t listen_pthread, response_pthread;
+
+    pthread_create(&listen_pthread, NULL, listen_thread, &game.communication);
+    pthread_create(&response_pthread, NULL, response_thread, &game.communication);
+
     game.windowSize(STARTING_WINDOW_SIZE.x, STARTING_WINDOW_SIZE.y);
     game.run();
 
     glfwTerminate();
+
+    game.communication.exit = true;
+    pthread_join(listen_pthread, NULL);
+    pthread_join(response_pthread, NULL);
+    close_socket(game.communication.socket);
 
     return 0;
 }

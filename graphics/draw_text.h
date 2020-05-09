@@ -14,8 +14,9 @@ class DrawText {
 public:
     DrawText();
     void initFont(const std::string& name, int size);
-    void drawFont(glm::mat4 matrix, glm::vec4 color, const std::string& name, int size, std::string text);
-    float textWidth(const std::string& name, int size, std::string text);
+    void drawFont(glm::mat4 matrix, glm::vec4 color, const std::string& name, int size, std::string text, bool allowNewLines);
+    float textWidth(const std::string& name, int size, std::string text, bool allowNewLines);
+    int textBeforeWidth(const std::string& name, int size, std::string text, float width, bool allowNewLines);
     ~DrawText();
 #ifndef USE_EXTERNAL_FOLDER_RESOURCES
     const std::string VERTEX_SHADER = "res/shaders/text_v.glsl";

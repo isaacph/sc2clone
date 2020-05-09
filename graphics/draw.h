@@ -62,8 +62,10 @@ public:
         glm::mat4 matrix = glm::mat4(1.0f);
         glm::vec4 color = glm::vec4(1.0f);
         std::string text = "";
+        bool allowNewLines = true;
         void draw() override;
-        float width();
+        float getWidth(const std::string& txt);
+        int getTextInWidth(const std::string& txt, float width);
         const std::string font;
         const int size;
     private:

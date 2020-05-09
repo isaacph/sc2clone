@@ -286,12 +286,6 @@ untitled2_BINARY_DIR:STATIC=C:/Users/isaac/CLionProjects/untitled2/cmake-build-d
 //Value Computed by CMake
 untitled2_SOURCE_DIR:STATIC=C:/Users/isaac/CLionProjects/untitled2
 
-//Value Computed by CMake
-untitled_BINARY_DIR:STATIC=C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug
-
-//Value Computed by CMake
-untitled_SOURCE_DIR:STATIC=C:/Users/isaac/CLionProjects/untitled2
-
 
 ########################
 # INTERNAL cache entries

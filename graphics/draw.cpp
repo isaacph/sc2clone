@@ -31,14 +31,17 @@ Graphics::Rectangle Graphics::initRectangle() {
 
 Graphics::Text::Text(Graphics& graphics, std::string font, int size) : Object(graphics), font(std::move(font)), size(size) {}
 void Graphics::Text::draw() {
-    graphics.drawText.drawFont(setup * matrix, color, font, size, text);
+    graphics.drawText.drawFont(setup * matrix, color, font, size, text, allowNewLines);
 }
 Graphics::Text Graphics::initText(const std::string& font, int size) {
     drawText.initFont(font, size);
     return Graphics::Text(*this, font, size);
 }
-float Graphics::Text::width() {
-    return graphics.drawText.textWidth(font, size, text);
+float Graphics::Text::getWidth(const std::string& txt) {
+    return graphics.drawText.textWidth(font, size, txt, allowNewLines);
+}
+int Graphics::Text::getTextInWidth(const std::string& txt, float width) {
+    return graphics.drawText.textBeforeWidth(font, size, txt, width, allowNewLines);
 }
 
 Graphics::Image::Image(Graphics& graphics) : Object(graphics) {}
