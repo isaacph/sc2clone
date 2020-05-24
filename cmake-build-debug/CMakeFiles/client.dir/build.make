@@ -154,52 +154,24 @@ CMakeFiles/client.dir/graphics/shader_util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/graphics/shader_util.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\graphics\shader_util.cpp -o CMakeFiles\client.dir\graphics\shader_util.cpp.s
 
-CMakeFiles/client.dir/physics/Box.cpp.obj: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/physics/Box.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
-CMakeFiles/client.dir/physics/Box.cpp.obj: ../physics/Box.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/client.dir/physics/Box.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\physics\Box.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\physics\Box.cpp
+CMakeFiles/client.dir/user_interface/Chatbox.cpp.obj: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/user_interface/Chatbox.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
+CMakeFiles/client.dir/user_interface/Chatbox.cpp.obj: ../user_interface/Chatbox.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/client.dir/user_interface/Chatbox.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\user_interface\Chatbox.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\user_interface\Chatbox.cpp
 
-CMakeFiles/client.dir/physics/Box.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/physics/Box.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\physics\Box.cpp > CMakeFiles\client.dir\physics\Box.cpp.i
+CMakeFiles/client.dir/user_interface/Chatbox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/user_interface/Chatbox.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\user_interface\Chatbox.cpp > CMakeFiles\client.dir\user_interface\Chatbox.cpp.i
 
-CMakeFiles/client.dir/physics/Box.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/physics/Box.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\physics\Box.cpp -o CMakeFiles\client.dir\physics\Box.cpp.s
-
-CMakeFiles/client.dir/physics/RotatedBox.cpp.obj: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/physics/RotatedBox.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
-CMakeFiles/client.dir/physics/RotatedBox.cpp.obj: ../physics/RotatedBox.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/client.dir/physics/RotatedBox.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\physics\RotatedBox.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\physics\RotatedBox.cpp
-
-CMakeFiles/client.dir/physics/RotatedBox.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/physics/RotatedBox.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\physics\RotatedBox.cpp > CMakeFiles\client.dir\physics\RotatedBox.cpp.i
-
-CMakeFiles/client.dir/physics/RotatedBox.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/physics/RotatedBox.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\physics\RotatedBox.cpp -o CMakeFiles\client.dir\physics\RotatedBox.cpp.s
-
-CMakeFiles/client.dir/test/Chatbox.cpp.obj: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/test/Chatbox.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
-CMakeFiles/client.dir/test/Chatbox.cpp.obj: ../test/Chatbox.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/client.dir/test/Chatbox.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\test\Chatbox.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\test\Chatbox.cpp
-
-CMakeFiles/client.dir/test/Chatbox.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/test/Chatbox.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\test\Chatbox.cpp > CMakeFiles\client.dir\test\Chatbox.cpp.i
-
-CMakeFiles/client.dir/test/Chatbox.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/test/Chatbox.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\test\Chatbox.cpp -o CMakeFiles\client.dir\test\Chatbox.cpp.s
+CMakeFiles/client.dir/user_interface/Chatbox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/user_interface/Chatbox.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\user_interface\Chatbox.cpp -o CMakeFiles\client.dir\user_interface\Chatbox.cpp.s
 
 CMakeFiles/client.dir/graphics/load_obj.cpp.obj: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/graphics/load_obj.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
 CMakeFiles/client.dir/graphics/load_obj.cpp.obj: ../graphics/load_obj.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/client.dir/graphics/load_obj.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/client.dir/graphics/load_obj.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\graphics\load_obj.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\graphics\load_obj.cpp
 
 CMakeFiles/client.dir/graphics/load_obj.cpp.i: cmake_force
@@ -213,7 +185,7 @@ CMakeFiles/client.dir/graphics/load_obj.cpp.s: cmake_force
 CMakeFiles/client.dir/graphics/draw_model.cpp.obj: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/graphics/draw_model.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
 CMakeFiles/client.dir/graphics/draw_model.cpp.obj: ../graphics/draw_model.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/client.dir/graphics/draw_model.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/client.dir/graphics/draw_model.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\graphics\draw_model.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\graphics\draw_model.cpp
 
 CMakeFiles/client.dir/graphics/draw_model.cpp.i: cmake_force
@@ -227,7 +199,7 @@ CMakeFiles/client.dir/graphics/draw_model.cpp.s: cmake_force
 CMakeFiles/client.dir/graphics/draw_model_textured.cpp.obj: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/graphics/draw_model_textured.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
 CMakeFiles/client.dir/graphics/draw_model_textured.cpp.obj: ../graphics/draw_model_textured.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/client.dir/graphics/draw_model_textured.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/client.dir/graphics/draw_model_textured.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\graphics\draw_model_textured.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\graphics\draw_model_textured.cpp
 
 CMakeFiles/client.dir/graphics/draw_model_textured.cpp.i: cmake_force
@@ -238,38 +210,52 @@ CMakeFiles/client.dir/graphics/draw_model_textured.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/graphics/draw_model_textured.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\graphics\draw_model_textured.cpp -o CMakeFiles\client.dir\graphics\draw_model_textured.cpp.s
 
-CMakeFiles/client.dir/test/FlyCamera.cpp.obj: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/test/FlyCamera.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
-CMakeFiles/client.dir/test/FlyCamera.cpp.obj: ../test/FlyCamera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/client.dir/test/FlyCamera.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\test\FlyCamera.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\test\FlyCamera.cpp
+CMakeFiles/client.dir/user_interface/FlyCamera.cpp.obj: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/user_interface/FlyCamera.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
+CMakeFiles/client.dir/user_interface/FlyCamera.cpp.obj: ../user_interface/FlyCamera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/client.dir/user_interface/FlyCamera.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\user_interface\FlyCamera.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\user_interface\FlyCamera.cpp
 
-CMakeFiles/client.dir/test/FlyCamera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/test/FlyCamera.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\test\FlyCamera.cpp > CMakeFiles\client.dir\test\FlyCamera.cpp.i
+CMakeFiles/client.dir/user_interface/FlyCamera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/user_interface/FlyCamera.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\user_interface\FlyCamera.cpp > CMakeFiles\client.dir\user_interface\FlyCamera.cpp.i
 
-CMakeFiles/client.dir/test/FlyCamera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/test/FlyCamera.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\test\FlyCamera.cpp -o CMakeFiles\client.dir\test\FlyCamera.cpp.s
+CMakeFiles/client.dir/user_interface/FlyCamera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/user_interface/FlyCamera.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\user_interface\FlyCamera.cpp -o CMakeFiles\client.dir\user_interface\FlyCamera.cpp.s
 
-CMakeFiles/client.dir/test/OverheadCamera.cpp.obj: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/test/OverheadCamera.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
-CMakeFiles/client.dir/test/OverheadCamera.cpp.obj: ../test/OverheadCamera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/client.dir/test/OverheadCamera.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\test\OverheadCamera.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\test\OverheadCamera.cpp
+CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.obj: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
+CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.obj: ../user_interface/OverheadCamera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\user_interface\OverheadCamera.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\user_interface\OverheadCamera.cpp
 
-CMakeFiles/client.dir/test/OverheadCamera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/test/OverheadCamera.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\test\OverheadCamera.cpp > CMakeFiles\client.dir\test\OverheadCamera.cpp.i
+CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\user_interface\OverheadCamera.cpp > CMakeFiles\client.dir\user_interface\OverheadCamera.cpp.i
 
-CMakeFiles/client.dir/test/OverheadCamera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/test/OverheadCamera.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\test\OverheadCamera.cpp -o CMakeFiles\client.dir\test\OverheadCamera.cpp.s
+CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\user_interface\OverheadCamera.cpp -o CMakeFiles\client.dir\user_interface\OverheadCamera.cpp.s
+
+CMakeFiles/client.dir/user_interface/FocusMode.cpp.obj: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/user_interface/FocusMode.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
+CMakeFiles/client.dir/user_interface/FocusMode.cpp.obj: ../user_interface/FocusMode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/client.dir/user_interface/FocusMode.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\user_interface\FocusMode.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\user_interface\FocusMode.cpp
+
+CMakeFiles/client.dir/user_interface/FocusMode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/user_interface/FocusMode.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\user_interface\FocusMode.cpp > CMakeFiles\client.dir\user_interface\FocusMode.cpp.i
+
+CMakeFiles/client.dir/user_interface/FocusMode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/user_interface/FocusMode.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\user_interface\FocusMode.cpp -o CMakeFiles\client.dir\user_interface\FocusMode.cpp.s
 
 CMakeFiles/client.dir/math_util.cpp.obj: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/math_util.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
 CMakeFiles/client.dir/math_util.cpp.obj: ../math_util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/client.dir/math_util.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/client.dir/math_util.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\math_util.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\math_util.cpp
 
 CMakeFiles/client.dir/math_util.cpp.i: cmake_force
@@ -283,7 +269,7 @@ CMakeFiles/client.dir/math_util.cpp.s: cmake_force
 CMakeFiles/client.dir/server/listen.cpp.obj: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/server/listen.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
 CMakeFiles/client.dir/server/listen.cpp.obj: ../server/listen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/client.dir/server/listen.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/client.dir/server/listen.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\server\listen.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\server\listen.cpp
 
 CMakeFiles/client.dir/server/listen.cpp.i: cmake_force
@@ -297,7 +283,7 @@ CMakeFiles/client.dir/server/listen.cpp.s: cmake_force
 CMakeFiles/client.dir/server/response.cpp.obj: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/server/response.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
 CMakeFiles/client.dir/server/response.cpp.obj: ../server/response.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/client.dir/server/response.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/client.dir/server/response.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\server\response.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\server\response.cpp
 
 CMakeFiles/client.dir/server/response.cpp.i: cmake_force
@@ -311,7 +297,7 @@ CMakeFiles/client.dir/server/response.cpp.s: cmake_force
 CMakeFiles/client.dir/server/packet.cpp.obj: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/server/packet.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
 CMakeFiles/client.dir/server/packet.cpp.obj: ../server/packet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/client.dir/server/packet.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/client.dir/server/packet.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\server\packet.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\server\packet.cpp
 
 CMakeFiles/client.dir/server/packet.cpp.i: cmake_force
@@ -325,7 +311,7 @@ CMakeFiles/client.dir/server/packet.cpp.s: cmake_force
 CMakeFiles/client.dir/server/async_console.cpp.obj: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/server/async_console.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
 CMakeFiles/client.dir/server/async_console.cpp.obj: ../server/async_console.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/client.dir/server/async_console.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/client.dir/server/async_console.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\server\async_console.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\server\async_console.cpp
 
 CMakeFiles/client.dir/server/async_console.cpp.i: cmake_force
@@ -339,7 +325,7 @@ CMakeFiles/client.dir/server/async_console.cpp.s: cmake_force
 CMakeFiles/client.dir/logic/World.cpp.obj: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/logic/World.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
 CMakeFiles/client.dir/logic/World.cpp.obj: ../logic/World.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/client.dir/logic/World.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/client.dir/logic/World.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\logic\World.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\logic\World.cpp
 
 CMakeFiles/client.dir/logic/World.cpp.i: cmake_force
@@ -350,6 +336,48 @@ CMakeFiles/client.dir/logic/World.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/logic/World.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\logic\World.cpp -o CMakeFiles\client.dir\logic\World.cpp.s
 
+CMakeFiles/client.dir/logic/Game.cpp.obj: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/logic/Game.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
+CMakeFiles/client.dir/logic/Game.cpp.obj: ../logic/Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/client.dir/logic/Game.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\logic\Game.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\logic\Game.cpp
+
+CMakeFiles/client.dir/logic/Game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/logic/Game.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\logic\Game.cpp > CMakeFiles\client.dir\logic\Game.cpp.i
+
+CMakeFiles/client.dir/logic/Game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/logic/Game.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\logic\Game.cpp -o CMakeFiles\client.dir\logic\Game.cpp.s
+
+CMakeFiles/client.dir/logic/GameCommands.cpp.obj: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/logic/GameCommands.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
+CMakeFiles/client.dir/logic/GameCommands.cpp.obj: ../logic/GameCommands.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/client.dir/logic/GameCommands.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\logic\GameCommands.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\logic\GameCommands.cpp
+
+CMakeFiles/client.dir/logic/GameCommands.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/logic/GameCommands.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\logic\GameCommands.cpp > CMakeFiles\client.dir\logic\GameCommands.cpp.i
+
+CMakeFiles/client.dir/logic/GameCommands.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/logic/GameCommands.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\logic\GameCommands.cpp -o CMakeFiles\client.dir\logic\GameCommands.cpp.s
+
+CMakeFiles/client.dir/logic/SelectMath.cpp.obj: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/logic/SelectMath.cpp.obj: CMakeFiles/client.dir/includes_CXX.rsp
+CMakeFiles/client.dir/logic/SelectMath.cpp.obj: ../logic/SelectMath.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/client.dir/logic/SelectMath.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\client.dir\logic\SelectMath.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\logic\SelectMath.cpp
+
+CMakeFiles/client.dir/logic/SelectMath.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/logic/SelectMath.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\logic\SelectMath.cpp > CMakeFiles\client.dir\logic\SelectMath.cpp.i
+
+CMakeFiles/client.dir/logic/SelectMath.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/logic/SelectMath.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\logic\SelectMath.cpp -o CMakeFiles\client.dir\logic\SelectMath.cpp.s
+
 # Object files for target client
 client_OBJECTS = \
 "CMakeFiles/client.dir/main.cpp.obj" \
@@ -359,20 +387,22 @@ client_OBJECTS = \
 "CMakeFiles/client.dir/graphics/draw_image.cpp.obj" \
 "CMakeFiles/client.dir/graphics/texture_load.cpp.obj" \
 "CMakeFiles/client.dir/graphics/shader_util.cpp.obj" \
-"CMakeFiles/client.dir/physics/Box.cpp.obj" \
-"CMakeFiles/client.dir/physics/RotatedBox.cpp.obj" \
-"CMakeFiles/client.dir/test/Chatbox.cpp.obj" \
+"CMakeFiles/client.dir/user_interface/Chatbox.cpp.obj" \
 "CMakeFiles/client.dir/graphics/load_obj.cpp.obj" \
 "CMakeFiles/client.dir/graphics/draw_model.cpp.obj" \
 "CMakeFiles/client.dir/graphics/draw_model_textured.cpp.obj" \
-"CMakeFiles/client.dir/test/FlyCamera.cpp.obj" \
-"CMakeFiles/client.dir/test/OverheadCamera.cpp.obj" \
+"CMakeFiles/client.dir/user_interface/FlyCamera.cpp.obj" \
+"CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.obj" \
+"CMakeFiles/client.dir/user_interface/FocusMode.cpp.obj" \
 "CMakeFiles/client.dir/math_util.cpp.obj" \
 "CMakeFiles/client.dir/server/listen.cpp.obj" \
 "CMakeFiles/client.dir/server/response.cpp.obj" \
 "CMakeFiles/client.dir/server/packet.cpp.obj" \
 "CMakeFiles/client.dir/server/async_console.cpp.obj" \
-"CMakeFiles/client.dir/logic/World.cpp.obj"
+"CMakeFiles/client.dir/logic/World.cpp.obj" \
+"CMakeFiles/client.dir/logic/Game.cpp.obj" \
+"CMakeFiles/client.dir/logic/GameCommands.cpp.obj" \
+"CMakeFiles/client.dir/logic/SelectMath.cpp.obj"
 
 # External object files for target client
 client_EXTERNAL_OBJECTS =
@@ -384,20 +414,22 @@ client.exe: CMakeFiles/client.dir/graphics/draw_text.cpp.obj
 client.exe: CMakeFiles/client.dir/graphics/draw_image.cpp.obj
 client.exe: CMakeFiles/client.dir/graphics/texture_load.cpp.obj
 client.exe: CMakeFiles/client.dir/graphics/shader_util.cpp.obj
-client.exe: CMakeFiles/client.dir/physics/Box.cpp.obj
-client.exe: CMakeFiles/client.dir/physics/RotatedBox.cpp.obj
-client.exe: CMakeFiles/client.dir/test/Chatbox.cpp.obj
+client.exe: CMakeFiles/client.dir/user_interface/Chatbox.cpp.obj
 client.exe: CMakeFiles/client.dir/graphics/load_obj.cpp.obj
 client.exe: CMakeFiles/client.dir/graphics/draw_model.cpp.obj
 client.exe: CMakeFiles/client.dir/graphics/draw_model_textured.cpp.obj
-client.exe: CMakeFiles/client.dir/test/FlyCamera.cpp.obj
-client.exe: CMakeFiles/client.dir/test/OverheadCamera.cpp.obj
+client.exe: CMakeFiles/client.dir/user_interface/FlyCamera.cpp.obj
+client.exe: CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.obj
+client.exe: CMakeFiles/client.dir/user_interface/FocusMode.cpp.obj
 client.exe: CMakeFiles/client.dir/math_util.cpp.obj
 client.exe: CMakeFiles/client.dir/server/listen.cpp.obj
 client.exe: CMakeFiles/client.dir/server/response.cpp.obj
 client.exe: CMakeFiles/client.dir/server/packet.cpp.obj
 client.exe: CMakeFiles/client.dir/server/async_console.cpp.obj
 client.exe: CMakeFiles/client.dir/logic/World.cpp.obj
+client.exe: CMakeFiles/client.dir/logic/Game.cpp.obj
+client.exe: CMakeFiles/client.dir/logic/GameCommands.cpp.obj
+client.exe: CMakeFiles/client.dir/logic/SelectMath.cpp.obj
 client.exe: CMakeFiles/client.dir/build.make
 client.exe: C:/msys64/mingw64/lib/libglew32.dll.a
 client.exe: C:/msys64/mingw64/lib/libfreetype.dll.a
@@ -405,7 +437,7 @@ client.exe: C:/msys64/mingw64/lib/libSDL_image.dll.a
 client.exe: CMakeFiles/client.dir/linklibs.rsp
 client.exe: CMakeFiles/client.dir/objects1.rsp
 client.exe: CMakeFiles/client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable client.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Linking CXX executable client.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\client.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

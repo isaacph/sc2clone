@@ -55,7 +55,8 @@ std::pair<float, float> shadow(const std::vector<glm::vec2>& points, const glm::
 // credit to https://stackoverflow.com/questions/42740765/intersection-between-line-and-triangle-in-3d
 float signed_volume(const glm::vec3& a, const glm::vec3& b, const glm::vec3& c, const glm::vec3& d);
 bool view_line_intersects_triangle(const glm::vec3 camera_start, const glm::vec3& camera_dir,
-        const glm::vec3& line_start, const glm::vec3& line_dir, const std::vector<glm::vec3>& triangle);
+        const glm::vec3& line_start, const glm::vec3& line_dir, const std::vector<glm::vec3>& triangle,
+        float& dist);
 std::vector<glm::vec2> get_axes(std::vector<glm::vec2> points);
 
 glm::vec3 arbitrary_perp(glm::vec3 other);
@@ -65,6 +66,7 @@ std::vector<glm::vec2> proj_frustum_plane(const glm::vec3& start, const std::vec
 // num_points must be 4 and dirs must be normalized
 bool view_frustum_intersects_triangle(glm::vec3 camera_start, glm::vec3 camera_dir, glm::vec3 frustum_start, std::vector<glm::vec3> frustum, std::vector<glm::vec3> triangle);
 
+/*
 inline std::ostream& operator<<(std::ostream& os, glm::mat4 mat) {
     for(int j = 0; j < 4; j++) {
         for(int i = 0; i < 4; i++) {
@@ -74,6 +76,51 @@ inline std::ostream& operator<<(std::ostream& os, glm::mat4 mat) {
     }
     os << "]\n";
     return os;
+}*/
+
+inline int find_first_not_whitespace(const std::string& s, int start) {
+    for(int i = start; i < s.size(); i++) {
+        if(s[i] != ' ' && s[i] != '\n' && s[i] != '\t') {
+            return i;
+        }
+    }
+    return s.size();
+}
+
+inline int find_first_whitespace(const std::string& s, int start) {
+    for(int i = start; i < s.size(); i++) {
+        if(s[i] == ' ' || s[i] == '\n' || s[i] == '\t') {
+            return i;
+        }
+    }
+    return s.size();
+}
+
+inline std::string format_cmd(const std::string& input) {
+    int first_space = input.find(' ');
+    if(first_space == std::string::npos) {
+        return input;
+    }
+    return input.substr(0, first_space);
+}
+
+inline std::string format_args(const std::string& input) {
+    int first_space = input.find(' ');
+    if(first_space == std::string::npos || first_space + 1 >= input.size()) {
+        return "";
+    }
+    return input.substr(first_space + 1, input.size() - first_space - 1);
+}
+
+inline std::vector<std::string> format_args_arr(const std::string& input) {
+    std::vector<std::string> args;
+    int pos = 0, start;
+    while(pos < input.size()) {
+        start = find_first_not_whitespace(input, pos);
+        pos = find_first_whitespace(input, start);
+        args.push_back(input.substr(start, pos - start));
+    }
+    return args;
 }
 
 #endif //UNTITLED2_MATH_H

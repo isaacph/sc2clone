@@ -184,11 +184,28 @@
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/graphics/texture_load.h">
 			<Option target="client"/>
 		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/logic/Game.cpp">
+			<Option target="client"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/logic/Game.h">
+			<Option target="client"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/logic/GameCommands.cpp">
+			<Option target="client"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/logic/SelectMath.cpp">
+			<Option target="client"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/logic/SelectMath.h">
+			<Option target="client"/>
+		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/logic/World.cpp">
 			<Option target="client"/>
+			<Option target="server"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/logic/World.h">
 			<Option target="client"/>
+			<Option target="server"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/main.cpp">
 			<Option target="client"/>
@@ -199,25 +216,20 @@
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/math_util.h">
 			<Option target="client"/>
 		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/physics/Box.cpp">
-			<Option target="client"/>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/server/Server.cpp">
+			<Option target="server"/>
 		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/physics/Box.h">
-			<Option target="client"/>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/server/Server.h">
+			<Option target="server"/>
 		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/physics/RotatedBox.cpp">
-			<Option target="client"/>
-		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/physics/RotatedBox.h">
-			<Option target="client"/>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/server/ServerCommands.cpp">
+			<Option target="server"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/server/async_console.cpp">
 			<Option target="client"/>
-			<Option target="server"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/server/async_console.h">
 			<Option target="client"/>
-			<Option target="server"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/server/listen.cpp">
 			<Option target="client"/>
@@ -246,22 +258,28 @@
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/server/server_main.cpp">
 			<Option target="server"/>
 		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/Chatbox.cpp">
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/user_interface/Chatbox.cpp">
 			<Option target="client"/>
 		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/Chatbox.h">
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/user_interface/Chatbox.h">
 			<Option target="client"/>
 		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/FlyCamera.cpp">
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/user_interface/FlyCamera.cpp">
 			<Option target="client"/>
 		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/FlyCamera.h">
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/user_interface/FlyCamera.h">
 			<Option target="client"/>
 		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/OverheadCamera.cpp">
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/user_interface/FocusMode.cpp">
 			<Option target="client"/>
 		</Unit>
-		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/test/OverheadCamera.h">
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/user_interface/FocusMode.h">
+			<Option target="client"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/user_interface/OverheadCamera.cpp">
+			<Option target="client"/>
+		</Unit>
+		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/user_interface/OverheadCamera.h">
 			<Option target="client"/>
 		</Unit>
 		<Unit filename="C:/Users/isaac/CLionProjects/untitled2/CMakeLists.txt">

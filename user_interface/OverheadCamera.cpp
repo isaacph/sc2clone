@@ -6,7 +6,7 @@
 #include <iostream>
 #include "OverheadCamera.h"
 
-OverheadCamera::OverheadCamera(glm::mat4& view) : view(view) {
+OverheadCamera::OverheadCamera(glm::mat4& view, GLFWwindow* window) : view(view), window(window) {
     rotation = glm::vec3(3.14159265359f / 4 * 1.2f, 3.14159265359f * 0, 0);
     camera_focus_distance = 32;
     camera_scroll_speed = 16;
@@ -69,11 +69,11 @@ void OverheadCamera::update(double delta) {
     }
 }
 
-void OverheadCamera::enable(GLFWwindow* window) {
+void OverheadCamera::enable() {
     toggle = true;
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 }
 
-void OverheadCamera::disable(GLFWwindow* window) {
+void OverheadCamera::disable() {
     toggle = false;
 }

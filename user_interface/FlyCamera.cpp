@@ -8,7 +8,7 @@
 #include <iostream>
 #define MY_PI 3.1415926535979
 
-FlyCamera::FlyCamera(glm::mat4 &view) : view(view), move_speed(4) {}
+FlyCamera::FlyCamera(glm::mat4 &view, GLFWwindow* window) : view(view), move_speed(4), window(window) {}
 
 void FlyCamera::onMousePosition(const glm::vec2 &mouse_pos) {
     last_mouse_position = mouse_position;
@@ -33,12 +33,12 @@ void FlyCamera::onKey(GLFWwindow* window, int key, int scancode, int action, int
     }
 }
 
-void FlyCamera::enable(GLFWwindow* window) {
+void FlyCamera::enable() {
     toggle = true;
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 }
 
-void FlyCamera::disable(GLFWwindow *window) {
+void FlyCamera::disable() {
     toggle = false;
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 }

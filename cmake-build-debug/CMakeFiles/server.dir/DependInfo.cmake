@@ -4,7 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/isaac/CLionProjects/untitled2/server/async_console.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/server.dir/server/async_console.cpp.obj"
+  "C:/Users/isaac/CLionProjects/untitled2/logic/World.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/server.dir/logic/World.cpp.obj"
+  "C:/Users/isaac/CLionProjects/untitled2/server/Server.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/server.dir/server/Server.cpp.obj"
+  "C:/Users/isaac/CLionProjects/untitled2/server/ServerCommands.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/server.dir/server/ServerCommands.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/server/listen.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/server.dir/server/listen.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/server/packet.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/server.dir/server/packet.cpp.obj"
   "C:/Users/isaac/CLionProjects/untitled2/server/response.cpp" "C:/Users/isaac/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/server.dir/server/response.cpp.obj"

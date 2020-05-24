@@ -53,7 +53,7 @@ inline int init_socket(int& port, int timeout_ms, SOCKET& soc, struct sockaddr_i
     return 0;
 }
 
-struct sockaddr_in get_address(int port, std::string ip) {
+inline struct sockaddr_in get_address(int port, std::string ip) {
     struct sockaddr_in addr;
     memset(&addr, 0, sizeof(addr));
     addr.sin_family = AF_INET;

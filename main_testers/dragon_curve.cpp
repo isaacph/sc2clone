@@ -2,7 +2,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include "../graphics/draw.h"
 #include "../test/DragonCurve.h"
-#include "../test/DragCamera.h"
+#include "../user_interface/DragCamera.h"
 
 void loadObj(const std::string& path);
 

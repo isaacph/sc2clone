@@ -109,10 +109,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/JetBrains/CLion 2019.2.1/bin/cmake/win/share/cmake-3.16/Modules/ProcessorCount.cmake"
   "C:/Program Files/JetBrains/CLion 2019.2.1/bin/cmake/win/share/cmake-3.16/Modules/SelectLibraryConfigurations.cmake"
   "../CMakeLists.txt"
-  "CMakeFiles/3.16.5/CMakeCCompiler.cmake"
-  "CMakeFiles/3.16.5/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.16.5/CMakeRCCompiler.cmake"
-  "CMakeFiles/3.16.5/CMakeSystem.cmake"
   "C:/msys64/mingw64/lib/cmake/glew/CopyImportedTargetProperties.cmake"
   "C:/msys64/mingw64/lib/cmake/glew/glew-config.cmake"
   "C:/msys64/mingw64/lib/cmake/glew/glew-targets-release.cmake"
@@ -131,12 +127,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.16.5/CMakeSystem.cmake"
-  "CMakeFiles/3.16.5/CMakeCCompiler.cmake"
-  "CMakeFiles/3.16.5/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.16.5/CMakeRCCompiler.cmake"
-  "CMakeFiles/3.16.5/CMakeCCompiler.cmake"
-  "CMakeFiles/3.16.5/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

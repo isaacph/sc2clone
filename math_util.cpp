@@ -53,8 +53,20 @@ bool shadow_intersect(glm::vec2 point, glm::vec2 axis, glm::vec2 s1, glm::vec2 s
     return shadow_intersect(p, min, max);
 }
 
+TrianglePlane get_plane(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3) {
+    glm::vec3 plane_start = (p1 + p2 + p3) / 3.0f;
+    glm::vec3 plane_norm = glm::normalize(glm::cross(p2-p1, p3-p1));
+    glm::vec3 plane_axis1 = glm::normalize(p2 - p1);
+    glm::vec3 plane_axis2 = glm::normalize(glm::cross(plane_norm, plane_axis1));
+    glm::vec2 plane_v0(proj_mag(p1 - plane_start, plane_axis1), proj_mag(p1 - plane_start, plane_axis2));
+    glm::vec2 plane_v1(proj_mag(p2 - plane_start, plane_axis1), proj_mag(p2 - plane_start, plane_axis2));
+    glm::vec2 plane_v2(proj_mag(p3 - plane_start, plane_axis1), proj_mag(p3 - plane_start, plane_axis2));
+    return {plane_start, plane_norm, plane_axis1, plane_axis2, {p1, p2, p3}, {plane_v0, plane_v1, plane_v2}};
+}
+
 bool view_line_intersects_triangle(const glm::vec3 camera_start, const glm::vec3& camera_dir,
-                                   const glm::vec3& line_start, const glm::vec3& line_dir, const std::vector<glm::vec3>& triangle) {
+                                   const glm::vec3& line_start, const glm::vec3& line_dir, const std::vector<glm::vec3>& triangle,
+                                   float& dist) {
     if(triangle.size() != 3) {
         return false;
     }
@@ -84,6 +96,9 @@ bool view_line_intersects_triangle(const glm::vec3 camera_start, const glm::vec3
         }
     }
 
+    TrianglePlane plane2 = get_plane(triangle[0], triangle[1], triangle[2]);
+    glm::vec3 p = proj_line_plane(camera_start, camera_dir, plane2.start, plane2.norm);
+    dist = glm::length(p - camera_start);
     return true;
 }
 
@@ -109,17 +124,6 @@ std::vector<glm::vec2> get_axes(std::vector<glm::vec2> points) {
 
 glm::vec2 perp(const glm::vec2& v) {
     return {v.y, -v.x};
-}
-
-TrianglePlane get_plane(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3) {
-    glm::vec3 plane_start = (p1 + p2 + p3) / 3.0f;
-    glm::vec3 plane_norm = glm::normalize(glm::cross(p2-p1, p3-p1));
-    glm::vec3 plane_axis1 = glm::normalize(p2 - p1);
-    glm::vec3 plane_axis2 = glm::normalize(glm::cross(plane_norm, plane_axis1));
-    glm::vec2 plane_v0(proj_mag(p1 - plane_start, plane_axis1), proj_mag(p1 - plane_start, plane_axis2));
-    glm::vec2 plane_v1(proj_mag(p2 - plane_start, plane_axis1), proj_mag(p2 - plane_start, plane_axis2));
-    glm::vec2 plane_v2(proj_mag(p3 - plane_start, plane_axis1), proj_mag(p3 - plane_start, plane_axis2));
-    return {plane_start, plane_norm, plane_axis1, plane_axis2, {p1, p2, p3}, {plane_v0, plane_v1, plane_v2}};
 }
 
 std::vector<glm::vec2> proj_frustum_plane(const glm::vec3& start, const std::vector<glm::vec3>& dirs, const Plane& plane) {

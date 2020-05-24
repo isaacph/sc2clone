@@ -20,6 +20,9 @@ struct Packet {
     inline unsigned short port() {
         return ntohs(address.sin_port);
     }
+    inline std::string str_address() {
+        return ip() + std::string(":") + std::to_string(port());
+    }
 };
 
 #endif //UNTITLED2_PACKET_H

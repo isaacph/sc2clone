@@ -13,7 +13,6 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "async_console.h"
 #include <queue>
 
 struct Shared {
@@ -25,11 +24,7 @@ struct Shared {
     struct sockaddr_in address;
 
     Listen listen;
-    Response response;
-
-    ConsoleOut consoleOut;
-    ConsoleOut::Stream cout = consoleOut.get_stream(std::cout);
-    ConsoleOut::Stream cerr = consoleOut.get_stream(std::cerr);
+    Response response = Response(socket);
 };
 
 #endif //UNTITLED2_SHARED_H

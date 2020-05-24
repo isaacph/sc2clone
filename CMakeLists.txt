@@ -34,28 +34,32 @@ add_executable(client
         graphics/draw_image.cpp
         graphics/texture_load.cpp
         graphics/shader_util.cpp
-        physics/Box.cpp
-        physics/RotatedBox.cpp
-        test/Chatbox.cpp
+        user_interface/Chatbox.cpp
         graphics/load_obj.cpp
         graphics/draw_model.cpp
         graphics/draw_model_textured.cpp
-        test/FlyCamera.cpp
-        test/OverheadCamera.cpp
+        user_interface/FlyCamera.cpp
+        user_interface/OverheadCamera.cpp
+        user_interface/FocusMode.cpp
         math_util.cpp
         server/listen.cpp
         server/response.cpp
         server/packet.cpp
         server/async_console.cpp
         logic/World.cpp
+        logic/Game.cpp
+        logic/GameCommands.cpp
+        logic/SelectMath.cpp
         )
 
 add_executable(server
         server/server_main.cpp
-        server/async_console.cpp
         server/listen.cpp
         server/response.cpp
         server/packet.cpp
+        logic/World.cpp
+        server/Server.cpp
+        server/ServerCommands.cpp
         )
 
 target_link_libraries(client glfw3 GLEW::GLEW opengl32 ${FREETYPE_LIBRARIES} ${SDL_IMAGE_LIBRARIES} ws2_32)

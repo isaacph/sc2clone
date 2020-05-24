@@ -6,15 +6,16 @@
 #define UNTITLED2_OVERHEADCAMERA_H
 #include <glm/glm.hpp>
 #include <GLFW/glfw3.h>
+#include "FocusMode.h"
 
-class OverheadCamera {
+class OverheadCamera : public FocusMode {
 public:
-    explicit OverheadCamera(glm::mat4& view);
+    explicit OverheadCamera(glm::mat4& view, GLFWwindow* window);
     void onMousePosition(GLFWwindow* window, const glm::vec2& mouse_pos);
     void onWindowSize(GLFWwindow* window, const glm::vec2& window_size);
     void update(double delta);
-    void enable(GLFWwindow* window);
-    void disable(GLFWwindow* window);
+    void enable();
+    void disable();
 
     glm::vec3 camera_focus_point;
     float camera_focus_distance;
@@ -28,6 +29,7 @@ private:
     bool toggle = false;
     glm::vec2 mouse_position, last_mouse_position;
     glm::vec2 window_size;
+    GLFWwindow* window;
 };
 
 

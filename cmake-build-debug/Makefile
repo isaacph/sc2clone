@@ -378,6 +378,87 @@ graphics/texture_load.cpp.s:
 	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/graphics/texture_load.cpp.s
 .PHONY : graphics/texture_load.cpp.s
 
+logic/Game.obj: logic/Game.cpp.obj
+
+.PHONY : logic/Game.obj
+
+# target to build an object file
+logic/Game.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/Game.cpp.obj
+.PHONY : logic/Game.cpp.obj
+
+logic/Game.i: logic/Game.cpp.i
+
+.PHONY : logic/Game.i
+
+# target to preprocess a source file
+logic/Game.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/Game.cpp.i
+.PHONY : logic/Game.cpp.i
+
+logic/Game.s: logic/Game.cpp.s
+
+.PHONY : logic/Game.s
+
+# target to generate assembly for a file
+logic/Game.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/Game.cpp.s
+.PHONY : logic/Game.cpp.s
+
+logic/GameCommands.obj: logic/GameCommands.cpp.obj
+
+.PHONY : logic/GameCommands.obj
+
+# target to build an object file
+logic/GameCommands.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/GameCommands.cpp.obj
+.PHONY : logic/GameCommands.cpp.obj
+
+logic/GameCommands.i: logic/GameCommands.cpp.i
+
+.PHONY : logic/GameCommands.i
+
+# target to preprocess a source file
+logic/GameCommands.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/GameCommands.cpp.i
+.PHONY : logic/GameCommands.cpp.i
+
+logic/GameCommands.s: logic/GameCommands.cpp.s
+
+.PHONY : logic/GameCommands.s
+
+# target to generate assembly for a file
+logic/GameCommands.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/GameCommands.cpp.s
+.PHONY : logic/GameCommands.cpp.s
+
+logic/SelectMath.obj: logic/SelectMath.cpp.obj
+
+.PHONY : logic/SelectMath.obj
+
+# target to build an object file
+logic/SelectMath.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/SelectMath.cpp.obj
+.PHONY : logic/SelectMath.cpp.obj
+
+logic/SelectMath.i: logic/SelectMath.cpp.i
+
+.PHONY : logic/SelectMath.i
+
+# target to preprocess a source file
+logic/SelectMath.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/SelectMath.cpp.i
+.PHONY : logic/SelectMath.cpp.i
+
+logic/SelectMath.s: logic/SelectMath.cpp.s
+
+.PHONY : logic/SelectMath.s
+
+# target to generate assembly for a file
+logic/SelectMath.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/SelectMath.cpp.s
+.PHONY : logic/SelectMath.cpp.s
+
 logic/World.obj: logic/World.cpp.obj
 
 .PHONY : logic/World.obj
@@ -385,6 +466,7 @@ logic/World.obj: logic/World.cpp.obj
 # target to build an object file
 logic/World.cpp.obj:
 	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/World.cpp.obj
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/logic/World.cpp.obj
 .PHONY : logic/World.cpp.obj
 
 logic/World.i: logic/World.cpp.i
@@ -394,6 +476,7 @@ logic/World.i: logic/World.cpp.i
 # target to preprocess a source file
 logic/World.cpp.i:
 	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/World.cpp.i
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/logic/World.cpp.i
 .PHONY : logic/World.cpp.i
 
 logic/World.s: logic/World.cpp.s
@@ -403,6 +486,7 @@ logic/World.s: logic/World.cpp.s
 # target to generate assembly for a file
 logic/World.cpp.s:
 	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/logic/World.cpp.s
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/logic/World.cpp.s
 .PHONY : logic/World.cpp.s
 
 main.obj: main.cpp.obj
@@ -459,59 +543,59 @@ math_util.cpp.s:
 	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/math_util.cpp.s
 .PHONY : math_util.cpp.s
 
-physics/Box.obj: physics/Box.cpp.obj
+server/Server.obj: server/Server.cpp.obj
 
-.PHONY : physics/Box.obj
-
-# target to build an object file
-physics/Box.cpp.obj:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/Box.cpp.obj
-.PHONY : physics/Box.cpp.obj
-
-physics/Box.i: physics/Box.cpp.i
-
-.PHONY : physics/Box.i
-
-# target to preprocess a source file
-physics/Box.cpp.i:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/Box.cpp.i
-.PHONY : physics/Box.cpp.i
-
-physics/Box.s: physics/Box.cpp.s
-
-.PHONY : physics/Box.s
-
-# target to generate assembly for a file
-physics/Box.cpp.s:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/Box.cpp.s
-.PHONY : physics/Box.cpp.s
-
-physics/RotatedBox.obj: physics/RotatedBox.cpp.obj
-
-.PHONY : physics/RotatedBox.obj
+.PHONY : server/Server.obj
 
 # target to build an object file
-physics/RotatedBox.cpp.obj:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/RotatedBox.cpp.obj
-.PHONY : physics/RotatedBox.cpp.obj
+server/Server.cpp.obj:
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/Server.cpp.obj
+.PHONY : server/Server.cpp.obj
 
-physics/RotatedBox.i: physics/RotatedBox.cpp.i
+server/Server.i: server/Server.cpp.i
 
-.PHONY : physics/RotatedBox.i
+.PHONY : server/Server.i
 
 # target to preprocess a source file
-physics/RotatedBox.cpp.i:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/RotatedBox.cpp.i
-.PHONY : physics/RotatedBox.cpp.i
+server/Server.cpp.i:
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/Server.cpp.i
+.PHONY : server/Server.cpp.i
 
-physics/RotatedBox.s: physics/RotatedBox.cpp.s
+server/Server.s: server/Server.cpp.s
 
-.PHONY : physics/RotatedBox.s
+.PHONY : server/Server.s
 
 # target to generate assembly for a file
-physics/RotatedBox.cpp.s:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/physics/RotatedBox.cpp.s
-.PHONY : physics/RotatedBox.cpp.s
+server/Server.cpp.s:
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/Server.cpp.s
+.PHONY : server/Server.cpp.s
+
+server/ServerCommands.obj: server/ServerCommands.cpp.obj
+
+.PHONY : server/ServerCommands.obj
+
+# target to build an object file
+server/ServerCommands.cpp.obj:
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/ServerCommands.cpp.obj
+.PHONY : server/ServerCommands.cpp.obj
+
+server/ServerCommands.i: server/ServerCommands.cpp.i
+
+.PHONY : server/ServerCommands.i
+
+# target to preprocess a source file
+server/ServerCommands.cpp.i:
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/ServerCommands.cpp.i
+.PHONY : server/ServerCommands.cpp.i
+
+server/ServerCommands.s: server/ServerCommands.cpp.s
+
+.PHONY : server/ServerCommands.s
+
+# target to generate assembly for a file
+server/ServerCommands.cpp.s:
+	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/ServerCommands.cpp.s
+.PHONY : server/ServerCommands.cpp.s
 
 server/async_console.obj: server/async_console.cpp.obj
 
@@ -520,7 +604,6 @@ server/async_console.obj: server/async_console.cpp.obj
 # target to build an object file
 server/async_console.cpp.obj:
 	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/async_console.cpp.obj
-	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/async_console.cpp.obj
 .PHONY : server/async_console.cpp.obj
 
 server/async_console.i: server/async_console.cpp.i
@@ -530,7 +613,6 @@ server/async_console.i: server/async_console.cpp.i
 # target to preprocess a source file
 server/async_console.cpp.i:
 	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/async_console.cpp.i
-	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/async_console.cpp.i
 .PHONY : server/async_console.cpp.i
 
 server/async_console.s: server/async_console.cpp.s
@@ -540,7 +622,6 @@ server/async_console.s: server/async_console.cpp.s
 # target to generate assembly for a file
 server/async_console.cpp.s:
 	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/server/async_console.cpp.s
-	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/async_console.cpp.s
 .PHONY : server/async_console.cpp.s
 
 server/listen.obj: server/listen.cpp.obj
@@ -660,86 +741,113 @@ server/server_main.cpp.s:
 	$(MAKE) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/server_main.cpp.s
 .PHONY : server/server_main.cpp.s
 
-test/Chatbox.obj: test/Chatbox.cpp.obj
+user_interface/Chatbox.obj: user_interface/Chatbox.cpp.obj
 
-.PHONY : test/Chatbox.obj
-
-# target to build an object file
-test/Chatbox.cpp.obj:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/Chatbox.cpp.obj
-.PHONY : test/Chatbox.cpp.obj
-
-test/Chatbox.i: test/Chatbox.cpp.i
-
-.PHONY : test/Chatbox.i
-
-# target to preprocess a source file
-test/Chatbox.cpp.i:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/Chatbox.cpp.i
-.PHONY : test/Chatbox.cpp.i
-
-test/Chatbox.s: test/Chatbox.cpp.s
-
-.PHONY : test/Chatbox.s
-
-# target to generate assembly for a file
-test/Chatbox.cpp.s:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/Chatbox.cpp.s
-.PHONY : test/Chatbox.cpp.s
-
-test/FlyCamera.obj: test/FlyCamera.cpp.obj
-
-.PHONY : test/FlyCamera.obj
+.PHONY : user_interface/Chatbox.obj
 
 # target to build an object file
-test/FlyCamera.cpp.obj:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/FlyCamera.cpp.obj
-.PHONY : test/FlyCamera.cpp.obj
+user_interface/Chatbox.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/Chatbox.cpp.obj
+.PHONY : user_interface/Chatbox.cpp.obj
 
-test/FlyCamera.i: test/FlyCamera.cpp.i
+user_interface/Chatbox.i: user_interface/Chatbox.cpp.i
 
-.PHONY : test/FlyCamera.i
+.PHONY : user_interface/Chatbox.i
 
 # target to preprocess a source file
-test/FlyCamera.cpp.i:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/FlyCamera.cpp.i
-.PHONY : test/FlyCamera.cpp.i
+user_interface/Chatbox.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/Chatbox.cpp.i
+.PHONY : user_interface/Chatbox.cpp.i
 
-test/FlyCamera.s: test/FlyCamera.cpp.s
+user_interface/Chatbox.s: user_interface/Chatbox.cpp.s
 
-.PHONY : test/FlyCamera.s
+.PHONY : user_interface/Chatbox.s
 
 # target to generate assembly for a file
-test/FlyCamera.cpp.s:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/FlyCamera.cpp.s
-.PHONY : test/FlyCamera.cpp.s
+user_interface/Chatbox.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/Chatbox.cpp.s
+.PHONY : user_interface/Chatbox.cpp.s
 
-test/OverheadCamera.obj: test/OverheadCamera.cpp.obj
+user_interface/FlyCamera.obj: user_interface/FlyCamera.cpp.obj
 
-.PHONY : test/OverheadCamera.obj
+.PHONY : user_interface/FlyCamera.obj
 
 # target to build an object file
-test/OverheadCamera.cpp.obj:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/OverheadCamera.cpp.obj
-.PHONY : test/OverheadCamera.cpp.obj
+user_interface/FlyCamera.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/FlyCamera.cpp.obj
+.PHONY : user_interface/FlyCamera.cpp.obj
 
-test/OverheadCamera.i: test/OverheadCamera.cpp.i
+user_interface/FlyCamera.i: user_interface/FlyCamera.cpp.i
 
-.PHONY : test/OverheadCamera.i
+.PHONY : user_interface/FlyCamera.i
 
 # target to preprocess a source file
-test/OverheadCamera.cpp.i:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/OverheadCamera.cpp.i
-.PHONY : test/OverheadCamera.cpp.i
+user_interface/FlyCamera.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/FlyCamera.cpp.i
+.PHONY : user_interface/FlyCamera.cpp.i
 
-test/OverheadCamera.s: test/OverheadCamera.cpp.s
+user_interface/FlyCamera.s: user_interface/FlyCamera.cpp.s
 
-.PHONY : test/OverheadCamera.s
+.PHONY : user_interface/FlyCamera.s
 
 # target to generate assembly for a file
-test/OverheadCamera.cpp.s:
-	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/test/OverheadCamera.cpp.s
-.PHONY : test/OverheadCamera.cpp.s
+user_interface/FlyCamera.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/FlyCamera.cpp.s
+.PHONY : user_interface/FlyCamera.cpp.s
+
+user_interface/FocusMode.obj: user_interface/FocusMode.cpp.obj
+
+.PHONY : user_interface/FocusMode.obj
+
+# target to build an object file
+user_interface/FocusMode.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/FocusMode.cpp.obj
+.PHONY : user_interface/FocusMode.cpp.obj
+
+user_interface/FocusMode.i: user_interface/FocusMode.cpp.i
+
+.PHONY : user_interface/FocusMode.i
+
+# target to preprocess a source file
+user_interface/FocusMode.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/FocusMode.cpp.i
+.PHONY : user_interface/FocusMode.cpp.i
+
+user_interface/FocusMode.s: user_interface/FocusMode.cpp.s
+
+.PHONY : user_interface/FocusMode.s
+
+# target to generate assembly for a file
+user_interface/FocusMode.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/FocusMode.cpp.s
+.PHONY : user_interface/FocusMode.cpp.s
+
+user_interface/OverheadCamera.obj: user_interface/OverheadCamera.cpp.obj
+
+.PHONY : user_interface/OverheadCamera.obj
+
+# target to build an object file
+user_interface/OverheadCamera.cpp.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.obj
+.PHONY : user_interface/OverheadCamera.cpp.obj
+
+user_interface/OverheadCamera.i: user_interface/OverheadCamera.cpp.i
+
+.PHONY : user_interface/OverheadCamera.i
+
+# target to preprocess a source file
+user_interface/OverheadCamera.cpp.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.i
+.PHONY : user_interface/OverheadCamera.cpp.i
+
+user_interface/OverheadCamera.s: user_interface/OverheadCamera.cpp.s
+
+.PHONY : user_interface/OverheadCamera.s
+
+# target to generate assembly for a file
+user_interface/OverheadCamera.cpp.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/user_interface/OverheadCamera.cpp.s
+.PHONY : user_interface/OverheadCamera.cpp.s
 
 # Help Target
 help:
@@ -778,6 +886,15 @@ help:
 	@echo ... graphics/texture_load.obj
 	@echo ... graphics/texture_load.i
 	@echo ... graphics/texture_load.s
+	@echo ... logic/Game.obj
+	@echo ... logic/Game.i
+	@echo ... logic/Game.s
+	@echo ... logic/GameCommands.obj
+	@echo ... logic/GameCommands.i
+	@echo ... logic/GameCommands.s
+	@echo ... logic/SelectMath.obj
+	@echo ... logic/SelectMath.i
+	@echo ... logic/SelectMath.s
 	@echo ... logic/World.obj
 	@echo ... logic/World.i
 	@echo ... logic/World.s
@@ -787,12 +904,12 @@ help:
 	@echo ... math_util.obj
 	@echo ... math_util.i
 	@echo ... math_util.s
-	@echo ... physics/Box.obj
-	@echo ... physics/Box.i
-	@echo ... physics/Box.s
-	@echo ... physics/RotatedBox.obj
-	@echo ... physics/RotatedBox.i
-	@echo ... physics/RotatedBox.s
+	@echo ... server/Server.obj
+	@echo ... server/Server.i
+	@echo ... server/Server.s
+	@echo ... server/ServerCommands.obj
+	@echo ... server/ServerCommands.i
+	@echo ... server/ServerCommands.s
 	@echo ... server/async_console.obj
 	@echo ... server/async_console.i
 	@echo ... server/async_console.s
@@ -808,15 +925,18 @@ help:
 	@echo ... server/server_main.obj
 	@echo ... server/server_main.i
 	@echo ... server/server_main.s
-	@echo ... test/Chatbox.obj
-	@echo ... test/Chatbox.i
-	@echo ... test/Chatbox.s
-	@echo ... test/FlyCamera.obj
-	@echo ... test/FlyCamera.i
-	@echo ... test/FlyCamera.s
-	@echo ... test/OverheadCamera.obj
-	@echo ... test/OverheadCamera.i
-	@echo ... test/OverheadCamera.s
+	@echo ... user_interface/Chatbox.obj
+	@echo ... user_interface/Chatbox.i
+	@echo ... user_interface/Chatbox.s
+	@echo ... user_interface/FlyCamera.obj
+	@echo ... user_interface/FlyCamera.i
+	@echo ... user_interface/FlyCamera.s
+	@echo ... user_interface/FocusMode.obj
+	@echo ... user_interface/FocusMode.i
+	@echo ... user_interface/FocusMode.s
+	@echo ... user_interface/OverheadCamera.obj
+	@echo ... user_interface/OverheadCamera.i
+	@echo ... user_interface/OverheadCamera.s
 .PHONY : help
 
 
