@@ -13,102 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2fe7bb29-9ede-4c4d-9be6-ad06a9f6cfeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/logic/GameCommands.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/SelectMath.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/SelectMath.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/Server.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/Server.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/ServerCommands.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_interface/FocusMode.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_interface/FocusMode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CMakeRCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CompilerIdC/a.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CompilerIdCXX/a.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw_image.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw_image.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw_model.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw_model.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw_model_textured.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw_model_textured.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw_square.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw_square.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw_text.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/draw_text.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/shader_util.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/graphics/shader_util.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/logic/World.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/logic/World.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/math_util.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/math_util.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/objects1.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/physics/Box.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/physics/RotatedBox.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/server/listen.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/server/listen.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/server/packet.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/server/packet.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/server/response.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/server/response.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/test/Chatbox.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/test/DragCamera.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/test/DragonCurve.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/test/FlyCamera.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/test/OverheadCamera.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/objects1.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/server/async_console.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/server/listen.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/server/packet.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/server/response.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/server.dir/server/server_main.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/server.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/server.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/untitled2.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/untitled2.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphics/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/constants.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphics/draw.h" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/draw.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/logic/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/logic/Game.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/World.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/logic/World.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/World.h" beforeDir="false" afterPath="$PROJECT_DIR$/logic/World.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_testers/dragon_curve.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_testers/dragon_curve.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/math_util.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/math_util.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/math_util.h" beforeDir="false" afterPath="$PROJECT_DIR$/math_util.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/packet.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/packet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/response.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/response.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/response.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/response.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server_main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/server_main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/shared.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/shared.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/socket_init.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/socket_init.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Chatbox.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/user_interface/Chatbox.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Chatbox.h" beforeDir="false" afterPath="$PROJECT_DIR$/user_interface/Chatbox.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/DragCamera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/user_interface/DragCamera.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/DragCamera.h" beforeDir="false" afterPath="$PROJECT_DIR$/user_interface/DragCamera.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/FlyCamera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/user_interface/FlyCamera.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/FlyCamera.h" beforeDir="false" afterPath="$PROJECT_DIR$/user_interface/FlyCamera.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/OverheadCamera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/user_interface/OverheadCamera.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/OverheadCamera.h" beforeDir="false" afterPath="$PROJECT_DIR$/user_interface/OverheadCamera.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,6 +168,7 @@
       <workItem from="1590288516769" duration="42000" />
       <workItem from="1590288618448" duration="8795000" />
       <workItem from="1590337294388" duration="4424000" />
+      <workItem from="1590342002486" duration="160000" />
     </task>
     <servers />
   </component>
@@ -278,10 +184,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1590291395619" />
-    <state x="532" y="216" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585362698878">
+    <state x="532" y="216" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590342024129">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="532" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1585362698878" />
+    <state x="532" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1590342024129" />
     <state x="449" y="149" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588562376807">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
