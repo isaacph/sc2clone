@@ -5,15 +5,19 @@
 #include "shared.h"
 #include <sys/time.h>
 
-void Response::send(std::unique_ptr<Packet> packet) {
+void Response::send_async(std::unique_ptr<Packet> packet) {
     pthread_mutex_lock(&packet_queue_mutex);
     packet_queue.push(std::move(packet));
     pthread_mutex_unlock(&packet_queue_mutex);
 }
 
+void Response::send_sync(std::unique_ptr<Packet> packet) {
+    sendto(socket, &*packet->message.begin(), packet->message.size(), 0,
+           (struct sockaddr*) &packet->address, packet->address_length);
+}
+
 void* response_thread(void* args) {
     Shared& shared = *((Shared*) args);
-    shared.cout << "Response thread started.\n" << FLUSH;
 
     pthread_mutex_lock(&shared.response.packet_queue_mutex);
     while(true) {
@@ -35,7 +39,7 @@ void* response_thread(void* args) {
                 if (sendto(shared.socket, &*packet->message.begin(), packet->message.size(), 0,
                            (struct sockaddr*) &packet->address, packet->address_length) == SOCKET_ERROR)
                 {
-                    shared.cerr << "Could not send data: " << WSAGetLastError() << "\n" << FLUSH;
+                    std::cerr << "Response thread could not send data: " << WSAGetLastError() << std::endl;
                     continue;
                 }
             }
@@ -46,8 +50,6 @@ void* response_thread(void* args) {
         }
     }
     pthread_mutex_unlock(&shared.response.packet_queue_mutex);
-
-    shared.cout << "Response thread exiting.\n" << FLUSH;
     pthread_exit(args);
     return nullptr;
 }

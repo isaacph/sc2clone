@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/server.dir/server/async_console.cpp.obj"
+  "CMakeFiles/server.dir/logic/World.cpp.obj"
+  "CMakeFiles/server.dir/server/Server.cpp.obj"
+  "CMakeFiles/server.dir/server/ServerCommands.cpp.obj"
   "CMakeFiles/server.dir/server/listen.cpp.obj"
   "CMakeFiles/server.dir/server/packet.cpp.obj"
   "CMakeFiles/server.dir/server/response.cpp.obj"

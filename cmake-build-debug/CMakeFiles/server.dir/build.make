@@ -70,24 +70,10 @@ CMakeFiles/server.dir/server/server_main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/server/server_main.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\server\server_main.cpp -o CMakeFiles\server.dir\server\server_main.cpp.s
 
-CMakeFiles/server.dir/server/async_console.cpp.obj: CMakeFiles/server.dir/flags.make
-CMakeFiles/server.dir/server/async_console.cpp.obj: CMakeFiles/server.dir/includes_CXX.rsp
-CMakeFiles/server.dir/server/async_console.cpp.obj: ../server/async_console.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/server.dir/server/async_console.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\server.dir\server\async_console.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\server\async_console.cpp
-
-CMakeFiles/server.dir/server/async_console.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/server/async_console.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\server\async_console.cpp > CMakeFiles\server.dir\server\async_console.cpp.i
-
-CMakeFiles/server.dir/server/async_console.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/server/async_console.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\server\async_console.cpp -o CMakeFiles\server.dir\server\async_console.cpp.s
-
 CMakeFiles/server.dir/server/listen.cpp.obj: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server/listen.cpp.obj: CMakeFiles/server.dir/includes_CXX.rsp
 CMakeFiles/server.dir/server/listen.cpp.obj: ../server/listen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/server.dir/server/listen.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/server.dir/server/listen.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\server.dir\server\listen.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\server\listen.cpp
 
 CMakeFiles/server.dir/server/listen.cpp.i: cmake_force
@@ -101,7 +87,7 @@ CMakeFiles/server.dir/server/listen.cpp.s: cmake_force
 CMakeFiles/server.dir/server/response.cpp.obj: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server/response.cpp.obj: CMakeFiles/server.dir/includes_CXX.rsp
 CMakeFiles/server.dir/server/response.cpp.obj: ../server/response.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/server.dir/server/response.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/server.dir/server/response.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\server.dir\server\response.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\server\response.cpp
 
 CMakeFiles/server.dir/server/response.cpp.i: cmake_force
@@ -115,7 +101,7 @@ CMakeFiles/server.dir/server/response.cpp.s: cmake_force
 CMakeFiles/server.dir/server/packet.cpp.obj: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server/packet.cpp.obj: CMakeFiles/server.dir/includes_CXX.rsp
 CMakeFiles/server.dir/server/packet.cpp.obj: ../server/packet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/server.dir/server/packet.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/server.dir/server/packet.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\server.dir\server\packet.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\server\packet.cpp
 
 CMakeFiles/server.dir/server/packet.cpp.i: cmake_force
@@ -126,27 +112,73 @@ CMakeFiles/server.dir/server/packet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/server/packet.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\server\packet.cpp -o CMakeFiles\server.dir\server\packet.cpp.s
 
+CMakeFiles/server.dir/logic/World.cpp.obj: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/logic/World.cpp.obj: CMakeFiles/server.dir/includes_CXX.rsp
+CMakeFiles/server.dir/logic/World.cpp.obj: ../logic/World.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/server.dir/logic/World.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\server.dir\logic\World.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\logic\World.cpp
+
+CMakeFiles/server.dir/logic/World.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/logic/World.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\logic\World.cpp > CMakeFiles\server.dir\logic\World.cpp.i
+
+CMakeFiles/server.dir/logic/World.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/logic/World.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\logic\World.cpp -o CMakeFiles\server.dir\logic\World.cpp.s
+
+CMakeFiles/server.dir/server/Server.cpp.obj: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/server/Server.cpp.obj: CMakeFiles/server.dir/includes_CXX.rsp
+CMakeFiles/server.dir/server/Server.cpp.obj: ../server/Server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/server.dir/server/Server.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\server.dir\server\Server.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\server\Server.cpp
+
+CMakeFiles/server.dir/server/Server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/server/Server.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\server\Server.cpp > CMakeFiles\server.dir\server\Server.cpp.i
+
+CMakeFiles/server.dir/server/Server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/server/Server.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\server\Server.cpp -o CMakeFiles\server.dir\server\Server.cpp.s
+
+CMakeFiles/server.dir/server/ServerCommands.cpp.obj: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/server/ServerCommands.cpp.obj: CMakeFiles/server.dir/includes_CXX.rsp
+CMakeFiles/server.dir/server/ServerCommands.cpp.obj: ../server/ServerCommands.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/server.dir/server/ServerCommands.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\server.dir\server\ServerCommands.cpp.obj -c C:\Users\isaac\CLionProjects\untitled2\server\ServerCommands.cpp
+
+CMakeFiles/server.dir/server/ServerCommands.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/server/ServerCommands.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\isaac\CLionProjects\untitled2\server\ServerCommands.cpp > CMakeFiles\server.dir\server\ServerCommands.cpp.i
+
+CMakeFiles/server.dir/server/ServerCommands.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/server/ServerCommands.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\isaac\CLionProjects\untitled2\server\ServerCommands.cpp -o CMakeFiles\server.dir\server\ServerCommands.cpp.s
+
 # Object files for target server
 server_OBJECTS = \
 "CMakeFiles/server.dir/server/server_main.cpp.obj" \
-"CMakeFiles/server.dir/server/async_console.cpp.obj" \
 "CMakeFiles/server.dir/server/listen.cpp.obj" \
 "CMakeFiles/server.dir/server/response.cpp.obj" \
-"CMakeFiles/server.dir/server/packet.cpp.obj"
+"CMakeFiles/server.dir/server/packet.cpp.obj" \
+"CMakeFiles/server.dir/logic/World.cpp.obj" \
+"CMakeFiles/server.dir/server/Server.cpp.obj" \
+"CMakeFiles/server.dir/server/ServerCommands.cpp.obj"
 
 # External object files for target server
 server_EXTERNAL_OBJECTS =
 
 server.exe: CMakeFiles/server.dir/server/server_main.cpp.obj
-server.exe: CMakeFiles/server.dir/server/async_console.cpp.obj
 server.exe: CMakeFiles/server.dir/server/listen.cpp.obj
 server.exe: CMakeFiles/server.dir/server/response.cpp.obj
 server.exe: CMakeFiles/server.dir/server/packet.cpp.obj
+server.exe: CMakeFiles/server.dir/logic/World.cpp.obj
+server.exe: CMakeFiles/server.dir/server/Server.cpp.obj
+server.exe: CMakeFiles/server.dir/server/ServerCommands.cpp.obj
 server.exe: CMakeFiles/server.dir/build.make
 server.exe: CMakeFiles/server.dir/linklibs.rsp
 server.exe: CMakeFiles/server.dir/objects1.rsp
 server.exe: CMakeFiles/server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable server.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\isaac\CLionProjects\untitled2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable server.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\server.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

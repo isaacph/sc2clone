@@ -11,12 +11,15 @@
 
 class Response {
 public:
-    void send(std::unique_ptr<Packet> packet);
+    inline Response(SOCKET& socket) : socket(socket) {}
+    void send_async(std::unique_ptr<Packet> packet);
+    void send_sync(std::unique_ptr<Packet> packet);
 private:
     std::queue<std::unique_ptr<Packet>> packet_queue;
     pthread_mutex_t packet_queue_mutex = PTHREAD_MUTEX_INITIALIZER;
     pthread_cond_t packet_queue_signal = PTHREAD_COND_INITIALIZER;
     friend void* response_thread(void* args);
+    SOCKET& socket;
 };
 
 void* response_thread(void* args);

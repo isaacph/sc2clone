@@ -5,15 +5,16 @@
 #ifndef UNTITLED2_FLYCAMERA_H
 #define UNTITLED2_FLYCAMERA_H
 #include <glm/glm.hpp>
+#include "FocusMode.h"
 
-class FlyCamera {
+class FlyCamera : public FocusMode {
 public:
-    explicit FlyCamera(glm::mat4& view);
+    explicit FlyCamera(glm::mat4& view, GLFWwindow* window);
     void onMousePosition(const glm::vec2& mouse_pos);
     void onKey(GLFWwindow* window, int key, int scancode, int action, int mods);
     void update(double delta);
-    void enable(GLFWwindow* window);
-    void disable(GLFWwindow* window);
+    void enable();
+    void disable();
 
     glm::vec3 center;
     glm::vec3 rotation;
@@ -24,6 +25,7 @@ public:
 private:
     bool key_w = false, key_s = false, key_a = false, key_d = false, key_space = false, key_shift = false;
     bool toggle = false;
+    GLFWwindow* window;
 };
 
 #endif //UNTITLED2_FLYCAMERA_H

@@ -4,6 +4,9 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 #include "Chatbox.h"
+#include <windows.h>
+#include <winuser.h>
+#include <windef.h>
 
 Chatbox::Chatbox(Graphics::Text text, int log_length, int space, int pixel_width, glm::mat4 origin)
 : text(text), log_length(log_length), space(space), pixel_width(pixel_width), origin(origin) {}
@@ -41,6 +44,7 @@ void Chatbox::println(const std::string& s) {
         current = remain;
     } while(current.size() > 0);
 }
+
 void Chatbox::draw(double delta, const glm::mat4& setup) {
     if(!typing) {
         inactivity += delta;
@@ -73,6 +77,39 @@ void Chatbox::draw(double delta, const glm::mat4& setup) {
             text.matrix = glm::translate(text.matrix, glm::vec3(0, space, 0));
             text.text = log[i];
             text.draw();
+        }
+    }
+}
+void Chatbox::onKey(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    if(key == GLFW_KEY_ENTER && action == GLFW_PRESS) {
+        if (typed.size() > 0) {
+            user_input.push_back(typed);
+            typed.clear();
+        }
+    } else if(key == GLFW_KEY_BACKSPACE && action > 0) {
+        if(typed.size() > 0) {
+            typed.pop_back();
+        }
+    } else if(key == GLFW_KEY_V && action > 0 && mods == GLFW_MOD_CONTROL) {
+        if(OpenClipboard(nullptr)) {
+            HGLOBAL data_handle = GetClipboardData(CF_TEXT);
+            if(data_handle != NULL) {
+                char* c_text = static_cast<char*>(GlobalLock(data_handle));
+                if(c_text != NULL) {
+                    std::string text(c_text);
+                    typed.insert(typed.end(), text.begin(), text.end());
+                }
+                GlobalUnlock(data_handle);
+            }
+            CloseClipboard();
+        }
+    }
+}
+void Chatbox::onChar(GLFWwindow *window, unsigned int codepoint) {
+    if(codepoint < 128) {
+        char c = codepoint;
+        if(c != '\n') {
+            typed.push_back(c);
         }
     }
 }

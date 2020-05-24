@@ -6,29 +6,25 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "async_console.h"
 #include <winsock2.h>
 #include <memory>
 #include "packet.h"
 #include "shared.h"
-#include "listen.h"
-#include "response.h"
-#include <sys/time.h>
 #include "socket_init.h"
+#include "../logic/World.h"
+#include "../math_util.h"
+#include "Server.h"
+#include <chrono>
+#include <functional>
 
 void* process_thread(void* args) {
     Shared& shared = *((Shared*) args);
-    shared.cout << "Process thread started.\n" << FLUSH;
+    std::cout << "Process thread started.\n" << std::endl;
 
-    while(!shared.exit) {
-        std::unique_ptr<Packet> packet;
-        while((packet = shared.listen.get()) != nullptr) {
-            shared.cout << packet->message << "\n" << FLUSH;
-            shared.response.send(std::move(packet));
-        }
-    }
+    Server server(shared);
+    server.run();
 
-    shared.cout << "Process thread exiting.\n" << FLUSH;
+    std::cout << "Process thread exiting." << std::endl;
     pthread_exit(args);
     return nullptr;
 }
@@ -49,27 +45,21 @@ int main() {
     pthread_t& response_pthread = threads[2];
     pthread_t& console_pthread = threads[3];
 
+    std::cout << "Main thread waiting for exit command. Press enter to exit." << std::endl;
+
     pthread_create(&listen_pthread, NULL, listen_thread, &shared);
     pthread_create(&process_pthread, NULL, process_thread, &shared);
     pthread_create(&response_pthread, NULL, response_thread, &shared);
-    pthread_create(&console_pthread, NULL, output_thread, &shared.consoleOut);
 
-    shared.cout << "Main thread waiting for exit command. Press enter to exit.\n" << FLUSH;
     std::string line;
     std::getline(std::cin, line);
 
-    shared.response.send(std::make_unique<Packet>(Packet{
-        "hello",
-        get_address(3800, "127.0.0.1")
-    }));
-
-    shared.cout << "Console input has requested exit.\n" << FLUSH;
     shared.exit = true;
-    shared.consoleOut.exit();
 
-    for(pthread_t& thread : threads) {
-        if(thread != -1) {
-            pthread_join(thread, NULL);
+    for(int i = 0; i < threads.size(); ++i) {
+        if(threads[i] != -1) {
+            std::cout << "Joining thread " << i << std::endl;
+            pthread_join(threads[i], NULL);
         }
     }
 

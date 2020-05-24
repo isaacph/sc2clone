@@ -41,6 +41,7 @@ public:
     };
 
     class Model : public Object {
+    public:
         virtual const std::vector<Triangle>& getTriangles() const = 0;
         virtual glm::mat4 getModelMatrix() const = 0;
     protected:
