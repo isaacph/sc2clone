@@ -38,6 +38,8 @@ int main() {
         std::cout << dependencies.images[i].width << ", " << dependencies.images[i].height << "\n";
     }
 
+    
+
     while(!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
 
