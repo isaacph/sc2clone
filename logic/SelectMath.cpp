@@ -67,7 +67,7 @@ bool check_selection(
 }
 
 int Game::select_units_click(bool& foundUnit, bool sameTeam) {
-    int closestSelected;
+    int closestSelected = -1;
     float closestDist;
     foundUnit = false;
     for (auto &p : world.units) {
@@ -89,7 +89,6 @@ int Game::select_units_click(bool& foundUnit, bool sameTeam) {
             }
         }
     }
-    Unit& unit = world.units[closestSelected];
     return closestSelected;
 }
 
