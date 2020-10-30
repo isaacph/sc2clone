@@ -6,6 +6,7 @@
 #define UNTITLED2_SERVER_H
 #include "shared.h"
 #include "../logic/World.h"
+#include "../logic/UniqueID.h"
 
 struct User {
     struct sockaddr_in address;
@@ -33,7 +34,7 @@ private:
 
     Shared& shared;
     World world;
-    std::map<std::string, User> users;
+    std::map<UniqueID, User> users;
     int total_users;
 };
 

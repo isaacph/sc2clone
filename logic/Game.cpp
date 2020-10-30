@@ -6,7 +6,8 @@
 #include "SelectMath.h"
 
 Game::Game(GLFWwindow* window) : window(window), flyCamera(view, window), overheadCamera(view, window),
-focusManager({&noFocus, &flyCamera, &overheadCamera, &chatbox}, &noFocus) {
+focusManager({&noFocus, &flyCamera, &overheadCamera, &chatbox}, &noFocus),
+uniqueIDGenerator(), clientID(uniqueIDGenerator.generate()) {
     initCommands();
     glfwSetWindowUserPointer(window, this);
     glfwSetWindowSizeCallback(window, [](GLFWwindow* win, int new_width, int new_height) {
@@ -348,11 +349,11 @@ void Game::run() {
 }
 
 void Game::send_async(const std::string &msg) {
-    communication.response.send_async(std::make_unique<Packet>(Packet(msg, server_address)));
+    communication.response.send_async(std::make_unique<Packet>(Packet(clientID.to_string() + " " + msg, server_address)));
 }
 
 void Game::send_sync(const std::string &msg) {
-    communication.response.send_sync(std::make_unique<Packet>(Packet(msg, server_address)));
+    communication.response.send_sync(std::make_unique<Packet>(Packet(clientID.to_string() + " " + msg, server_address)));
 }
 
 Graphics::Model* Game::get_model_unit(const Unit& unit) {

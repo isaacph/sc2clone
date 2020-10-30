@@ -16,11 +16,7 @@ struct Packet {
     Packet(const std::string& message, struct sockaddr_in address);
 
     inline std::string str_address() {
-        char buffer[20];
-        int bufLen = 20;
-        WSAAddressToString(reinterpret_cast<LPSOCKADDR>(&address), address_length, NULL, buffer,
-                           reinterpret_cast<LPDWORD>(bufLen));
-        return std::string(buffer, bufLen);
+        return std::string(inet_ntoa(address.sin_addr)) + ":" + std::to_string(address.sin_port);
     }
 };
 
