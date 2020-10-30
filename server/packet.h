@@ -11,17 +11,16 @@ struct Packet {
     std::string message;
     struct sockaddr_in address;
     int address_length;
+    int port;
     Packet(const std::string& message, struct sockaddr_in address, int address_length);
     Packet(const std::string& message, struct sockaddr_in address);
 
-    inline std::string ip() {
-        return std::string(inet_ntoa(*((in_addr*) &address)));
-    }
-    inline unsigned short port() {
-        return ntohs(address.sin_port);
-    }
     inline std::string str_address() {
-        return ip() + std::string(":") + std::to_string(port());
+        char buffer[20];
+        int bufLen = 20;
+        WSAAddressToString(reinterpret_cast<LPSOCKADDR>(&address), address_length, NULL, buffer,
+                           reinterpret_cast<LPDWORD>(bufLen));
+        return std::string(buffer, bufLen);
     }
 };
 
