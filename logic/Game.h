@@ -21,6 +21,7 @@
 #include <windef.h>
 #include "../logic/World.h"
 #include "../user_interface/FocusMode.h"
+#include "UniqueID.h"
 
 struct Game;
 
@@ -54,6 +55,9 @@ struct Game {
 
     World world;
     int team = 0;
+
+    UniqueIDGenerator uniqueIDGenerator;
+    UniqueID clientID;
 
     Shared communication;
     sockaddr_in server_address = get_address(3800, "127.0.0.1");

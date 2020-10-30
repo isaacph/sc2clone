@@ -51,6 +51,7 @@ int main() {
     pthread_create(&process_pthread, NULL, process_thread, &shared);
     pthread_create(&response_pthread, NULL, response_thread, &shared);
 
+    // Make it so pressing enter a couple times exits the server cleanly
     std::string line;
     std::getline(std::cin, line);
 

@@ -15,13 +15,14 @@ void Server::command(User& user, std::string cmd, std::string args) {
     } else if(cmd == "username") {
         send_sync(user, "chat User name is: " + user.name);
     } else if(cmd == "login") {
-        if (user.authority >= 0) {
+        if (user.authority <= 0) {
             auto args_arr = format_args_arr(args);
             if (args_arr.size() >= 1) {
                 user.name = args_arr[0];
                 user.authority = 1;
                 send_sync(user, "chat Logged in as " + user.name);
                 send_sync(user, "root 0");
+                send_sync(user, "clear");
                 for (auto pair : world.units) {
                     send_sync(user, "world unit " + pair.second.to_string());
                 }

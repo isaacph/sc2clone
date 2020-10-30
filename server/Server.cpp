@@ -26,7 +26,7 @@ void Server::run() {
 
         std::unique_ptr<Packet> packet;
         while((packet = shared.listen.get()) != nullptr) {
-            std::cout << packet->ip() << ":" << packet->port() << ": " << packet->message << std::endl;
+            std::cout << packet->str_address() << ": " << packet->message << std::endl;
             processPacket(std::move(packet));
         }
 
@@ -61,11 +61,15 @@ void Server::processPacket(std::unique_ptr<Packet> packet) {
     // find the command in the packet
     // check if the user has authority to perform the command
     // perform the command (if authorized)
-    std::string address_str = packet->str_address();
-    auto p2 = users.find(address_str);
+    size_t spacePos = packet->message.find(' ');
+    if(spacePos == std::string::npos) {
+        std::cout << "Invalid packet received from address " + packet->str_address() << "\n";
+    }
+    UniqueID identifier(packet->message.substr(0, spacePos));
+    auto p2 = users.find(identifier);
     User* user = nullptr;
     if(p2 == users.end()) {
-        user = &users.insert({address_str, {
+        user = &users.insert({identifier, {
                 packet->address,
                 std::string("temp") + std::to_string(total_users),
                 0
@@ -73,9 +77,10 @@ void Server::processPacket(std::unique_ptr<Packet> packet) {
     } else {
         user = &p2->second;
     }
-
-    std::string cmd = format_cmd(packet->message);
-    command(*user, cmd, format_args(packet->message));
+    std::string removeIdentifier = packet->message.substr(spacePos + 1, std::string::npos);
+    std::string cmd = format_cmd(removeIdentifier);
+    std::string args = format_args(removeIdentifier);
+    command(*user, cmd, args);
 }
 void Server::broadcast_sync(std::string message) {
     for(auto& u : users) {
