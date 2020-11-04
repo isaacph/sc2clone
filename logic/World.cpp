@@ -17,18 +17,18 @@ void World::update(double delta) {
             auto p = units.find(projectile.target);
             if(p == units.end()) {
                 projectile.alive = false;
-                events.push_back({WorldEvent::PROJECTILE, projectile.number});
+                events.push({WorldEvent::PROJECTILE, projectile.number});
             } else {
                 auto& unit = p->second;
                 glm::vec2 dir = unit.position - projectile.position;
                 if(glm::length(dir) <= projectile.speed * delta) {
                     projectile.alive = false;
-                    events.push_back({WorldEvent::PROJECTILE, projectile.number});
+                    events.push({WorldEvent::PROJECTILE, projectile.number});
                     unit.health -= projectile.damage;
                     if(unit.health <= 0) {
                         unit.alive = false;
                     }
-                    events.push_back({WorldEvent::UNIT_UPDATE, unit.number});
+                    events.push({WorldEvent::UNIT_UPDATE, unit.number});
                 } else {
                     projectile.position += projectile.speed * glm::normalize(dir) * delta;
                 }
@@ -46,7 +46,7 @@ void World::update(double delta) {
                     glm::vec2 dir = unit.command.destination - unit.position;
                     if (glm::length(dir) <= unit.speed * delta) {
                         if(root) {
-                            events.push_back({WorldEvent::COMMAND, unit.number, UnitCommand(UnitCommand::NONE)});
+                            events.push({WorldEvent::COMMAND, unit.number, UnitCommand(UnitCommand::NONE)});
                         }
                         unit.command.type = UnitCommand::NONE;
                         continue;
@@ -55,7 +55,7 @@ void World::update(double delta) {
                     unit.position += glm::normalize(dir) * delta * unit.speed;
                 } else {
                     if(root) {
-                        events.push_back({WorldEvent::COMMAND, unit.number, UnitCommand(UnitCommand::NONE)});
+                        events.push({WorldEvent::COMMAND, unit.number, UnitCommand(UnitCommand::NONE)});
                     }
                     unit.command.type = UnitCommand::NONE;
                 }
@@ -78,7 +78,7 @@ void World::update(double delta) {
                     }
                 } else {
                     if(root) {
-                        events.push_back({WorldEvent::COMMAND, unit.number, UnitCommand(UnitCommand::NONE)});
+                        events.push({WorldEvent::COMMAND, unit.number, UnitCommand(UnitCommand::NONE)});
                     }
                     unit.command.type = UnitCommand::NONE;
                 }
@@ -89,7 +89,7 @@ void World::update(double delta) {
                         if(root) {
                             unit.alive = false;
                         }
-                        events.push_back({WorldEvent::DEAD_UNIT, unit.number});
+                        events.push({WorldEvent::DEAD_UNIT, unit.number});
                         local_create_barracks(unit.team, unit.position);
                     }
                 }
@@ -98,7 +98,7 @@ void World::update(double delta) {
                     auto p = units.find(unit.command.targetID);
                     if(p == units.end() || !p->second.alive || unit.number == p->second.number) {
                         if(root) {
-                            events.push_back({WorldEvent::COMMAND, unit.number, UnitCommand(UnitCommand::NONE)});
+                            events.push({WorldEvent::COMMAND, unit.number, UnitCommand(UnitCommand::NONE)});
                         }
                         unit.command.type = UnitCommand::NONE;
                     } else {
@@ -111,7 +111,7 @@ void World::update(double delta) {
                             }
                             if(unit.attack_timer <= 0) {
                                 unit.attack_timer = 1.0f / unit.attack_speed;
-                                events.push_back({WorldEvent::UNIT_UPDATE, unit.number});
+                                events.push({WorldEvent::UNIT_UPDATE, unit.number});
                                 local_shoot_projectile(unit.number, target.number, 15, 5);
                             }
                         } else {
@@ -151,7 +151,7 @@ void World::update(double delta) {
                         unit.direction = -atan2(dir.y, dir.x);
                         if (glm::length(dir) <= unit.speed * delta) {
                             if(root) {
-                                events.push_back({WorldEvent::COMMAND, unit.number, UnitCommand(UnitCommand::NONE)});
+                                events.push({WorldEvent::COMMAND, unit.number, UnitCommand(UnitCommand::NONE)});
                             }
                             unit.command.type = UnitCommand::NONE;
                             continue;
@@ -160,7 +160,7 @@ void World::update(double delta) {
                         unit.direction = -atan2(closestTargetDir.y, closestTargetDir.x);
                         if(unit.attack_timer <= 0) {
                             unit.attack_timer = 1.0f / unit.attack_speed;
-                            events.push_back({WorldEvent::UNIT_UPDATE, unit.number});
+                            events.push({WorldEvent::UNIT_UPDATE, unit.number});
                             local_shoot_projectile(unit.number, closestTarget, 15, 5);
                         }
                     }
@@ -267,7 +267,7 @@ void World::server_command(std::string s) {
 void World::local_create_worker(int team, glm::vec2 position, float direction) {
     if(root) {
         Unit& u = create_worker(team, position, direction);
-        events.push_back({WorldEvent::UNIT_UPDATE, u.number});
+        events.push({WorldEvent::UNIT_UPDATE, u.number});
     } else {
         //events.push_back({WorldEvent::NEW_UNIT});
     }
@@ -275,7 +275,7 @@ void World::local_create_worker(int team, glm::vec2 position, float direction) {
 void World::local_create_barracks(int team, glm::vec2 position) {
     if(root) {
         Unit &u = create_barracks(team, position);
-        events.push_back({WorldEvent::UNIT_UPDATE, u.number});
+        events.push({WorldEvent::UNIT_UPDATE, u.number});
     } else {
         //events.push_back({WorldEvent::NEW_UNIT});
     }
@@ -283,7 +283,7 @@ void World::local_create_barracks(int team, glm::vec2 position) {
 void World::local_create_soldier(int team, glm::vec2 position, float direction) {
     if(root) {
         Unit &u = create_soldier(team, position, direction);
-        events.push_back({WorldEvent::UNIT_UPDATE, u.number});
+        events.push({WorldEvent::UNIT_UPDATE, u.number});
     } else {
         //events.push_back({WorldEvent::NEW_UNIT});
     }
@@ -291,7 +291,7 @@ void World::local_create_soldier(int team, glm::vec2 position, float direction) 
 void World::local_shoot_projectile(int source, int target, float damage, float speed) {
     if(root) {
         int id = shoot_projectile(source, target, damage, speed);
-        events.push_back({WorldEvent::PROJECTILE, id});
+        events.push({WorldEvent::PROJECTILE, id});
     }
 }
 void World::local_command_units(int team, std::vector<int> ids, UnitCommand command) {
@@ -318,9 +318,9 @@ void World::local_command_units(int team, std::vector<int> ids, UnitCommand comm
             filtered_2 = filtered;
         }
         command_units(filtered_2, command);
-        events.push_back({WorldEvent::COMMAND, 0, command, filtered_2});
+        events.push({WorldEvent::COMMAND, 0, command, filtered_2});
     } else {
-        events.push_back({WorldEvent::COMMAND, 0, command, ids});
+        events.push({WorldEvent::COMMAND, 0, command, ids});
     }
 }
 Unit::Unit(std::string args) {
@@ -434,8 +434,8 @@ WorldEvent World::next_event() {
     if(events.size() <= 0) {
         return {WorldEvent::NONE};
     }
-    WorldEvent event = events.back();
-    events.pop_back();
+    WorldEvent event = events.front();
+    events.pop();
     return event;
 }
 std::vector<int> World::filter_ids(const std::vector<int>& ids, int team, const UnitCommand& command) {

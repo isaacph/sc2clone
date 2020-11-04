@@ -9,6 +9,7 @@
 #include <vector>
 #include <set>
 #include <functional>
+#include <queue>
 
 struct UnitCommand {
     enum Type {
@@ -74,7 +75,6 @@ struct Projectile {
 class World {
 public:
     bool root;
-    bool force_root = false;
     World();
     std::map<int, Unit> units;
     std::set<int> unitsSelected;
@@ -108,7 +108,7 @@ private:
     inline int next_projectile_identity() {
         return projectile_counter++;
     }
-    std::vector<WorldEvent> events;
+    std::queue<WorldEvent> events;
 
     Unit& create_worker(int team, glm::vec2 position, float direction = 0);
     Unit& create_barracks(int team, glm::vec2 position);

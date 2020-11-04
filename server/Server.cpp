@@ -10,8 +10,6 @@ Server::Server(Shared &shared) : shared(shared), total_users(0) {
 }
 
 void Server::run() {
-    world.force_root = true;
-
     double delta_add, delta = 0;
     std::chrono::steady_clock::time_point delta_begin = std::chrono::steady_clock::now();
     std::chrono::steady_clock::time_point delta_end = delta_begin;
