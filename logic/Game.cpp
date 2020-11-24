@@ -48,6 +48,9 @@ uniqueIDGenerator(), clientID(uniqueIDGenerator.generate()) {
 }
 
 void Game::windowSize(int new_width, int new_height) {
+    if(new_width <= 0 || new_height <= 0) {
+        return;
+    }
     glViewport(0, 0, new_width, new_height);
     ortho = glm::ortho<float>(0.0f, new_width, 0.0f, new_height, 0.0f, 1.0f);
     persp = glm::perspective(60.0f * 3.14159265359f / 180.0f, (float) new_width / (float) new_height, 0.1f, 1000.0f);

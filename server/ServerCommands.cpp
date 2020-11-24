@@ -8,37 +8,37 @@
 
 void Server::command(User& user, std::string cmd, std::string args) {
     if(cmd == "ping") {
-        send_sync(user, "ping");
+        sendSync(user, "ping");
     } else if(cmd == "help") {
         std::string help = "chat Command list not implemented";
-        send_sync(user, help);
+        sendSync(user, help);
     } else if(cmd == "username") {
-        send_sync(user, "chat User name is: " + user.name);
+        sendSync(user, "chat User name is: " + user.name);
     } else if(cmd == "login") {
         if (user.authority <= 0) {
             auto args_arr = format_args_arr(args);
             if (args_arr.size() >= 1) {
                 user.name = args_arr[0];
                 user.authority = 1;
-                send_sync(user, "chat Logged in as " + user.name);
-                send_sync(user, "root 0");
-                send_sync(user, "clear");
+                sendSync(user, "chat Logged in as " + user.name);
+                sendSync(user, "root 0");
+                sendSync(user, "clear");
                 for (auto pair : world.units) {
-                    send_sync(user, "world unit " + pair.second.to_string());
+                    sendSync(user, "world unit " + pair.second.to_string());
                 }
                 if (args_arr.size() == 2 && args_arr[1] == "amazing") {
                     user.authority = 10;
-                    send_sync(user, "chat Admin permissions granted");
+                    sendSync(user, "chat Admin permissions granted");
                 }
             } else {
-                send_sync(user, "chat Invalid arguments");
+                sendSync(user, "chat Invalid arguments");
             }
         } else {
-            send_sync(user, "chat Already logged in");
+            sendSync(user, "chat Already logged in");
         }
     } else if(cmd == "logout") {
         user.authority = 0;
-        send_sync(user, "chat Logged out");
+        sendSync(user, "chat Logged out");
     } else if(cmd == "world") {
         /*
         if (args.size() > 0 && user.authority >= 0) {
@@ -46,7 +46,7 @@ void Server::command(User& user, std::string cmd, std::string args) {
         }*/
     } else if(cmd == "getunits") {
         for (auto pair : world.units) {
-            send_sync(user, "world unit " + pair.second.to_string());
+            sendSync(user, "world unit " + pair.second.to_string());
         }
     } else if(cmd == "command") {
         std::vector<int> ids;
@@ -58,8 +58,8 @@ void Server::command(User& user, std::string cmd, std::string args) {
             int team = std::atoi(params[0].c_str());
             if(team >= 0 && team < 7) {
                 user.team = team;
-                send_sync(user, "team " + std::to_string(user.team));
-                send_sync(user, "chat Joined team " + std::to_string(user.team));
+                sendSync(user, "team " + std::to_string(user.team));
+                sendSync(user, "chat Joined team " + std::to_string(user.team));
                 bool spawn_unit = true;
                 for(auto& unit : world.units) {
                     if(unit.second.alive && unit.second.type == Unit::WORKER && unit.second.team == user.team) {
@@ -68,17 +68,17 @@ void Server::command(User& user, std::string cmd, std::string args) {
                 }
                 if(spawn_unit) {
                     world.local_create_worker(user.team, glm::vec2(0));
-                    send_sync(user, "chat Unit spawned.");
+                    sendSync(user, "chat Unit spawned.");
                 }
             } else {
-                send_sync(user, "chat Bad team #");
+                sendSync(user, "chat Bad team #");
             }
         } else {
-            send_sync(user, "chat Invalid parameters");
+            sendSync(user, "chat Invalid parameters");
         }
     } else if(cmd == "say") {
         if(user.authority > 0) {
-            broadcast_sync("chat " + user.name + ": " + args);
+            broadcastSync("chat " + user.name + ": " + args);
         }
     } else if(cmd == "ip") {
         if(user.authority > 0) {
@@ -91,13 +91,14 @@ void Server::command(User& user, std::string cmd, std::string args) {
                         std::string ip = args_arr[1];
                         int port = std::atoi(args_arr[2].c_str());
                         u.address = get_address(port, ip);
-                        send_sync(user, "chat Ip for user " + name + " has been set to " + ip + ":" + std::to_string(port));
+                        sendSync(user,
+                                 "chat Ip for user " + name + " has been set to " + ip + ":" + std::to_string(port));
                         break;
                     }
                 }
             }
         }
     } else {
-        send_sync(user, "chat Command not found: " + cmd);
+        sendSync(user, "chat Command not found: " + cmd);
     }
 }

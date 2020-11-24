@@ -4,16 +4,23 @@
 
 #include "Server.h"
 #include <chrono>
+#include <atomic>
+#include <iostream>
 #include "../math_util.h"
 
-Server::Server(Shared &shared) : shared(shared), total_users(0) {
+Server::Server(std::atomic<bool>& running) : running(running), total_users(0) {
 }
 
 void Server::run() {
+
+    if(!initSocket(3800)) {
+        std::cout << "Server didn't start.\n";
+        return;
+    }
     double delta_add, delta = 0;
     std::chrono::steady_clock::time_point delta_begin = std::chrono::steady_clock::now();
     std::chrono::steady_clock::time_point delta_end = delta_begin;
-    while(!shared.exit) {
+    while(running.load(std::memory_order_relaxed)) {
         delta = 0;
         while(delta < 0.001) {
             delta_end = std::chrono::steady_clock::now();
@@ -22,9 +29,9 @@ void Server::run() {
             delta += delta_add;
         }
 
-        std::unique_ptr<Packet> packet;
-        while((packet = shared.listen.get()) != nullptr) {
-            std::cout << packet->str_address() << ": " << packet->message << std::endl;
+        std::vector<std::unique_ptr<Packet>> packets = pollAndSend();
+        for(auto& packet : packets) {
+            std::cout << packet->message << "\n";
             processPacket(std::move(packet));
         }
 
@@ -33,24 +40,22 @@ void Server::run() {
         while(world.has_next_event()) {
             WorldEvent event = world.next_event();
             if(event.type == WorldEvent::UNIT_UPDATE) {
-                broadcast_sync("world unit " + world.units[event.identity].to_string());
+                broadcastSync("world unit " + world.units[event.identity].to_string());
             } else if(event.type == WorldEvent::COMMAND) {
-                broadcast_sync("world command " + world.unit_command_string(event.command, event.command_ids));
+                broadcastSync("world command " + world.unit_command_string(event.command, event.command_ids));
             } else if(event.type == WorldEvent::DEAD_UNIT) {
-                broadcast_sync("world unit " + world.units[event.identity].to_string());
+                broadcastSync("world unit " + world.units[event.identity].to_string());
             } else if(event.type == WorldEvent::PROJECTILE) {
-                broadcast_sync("world projectile " + world.projectiles[event.identity].to_string());
+                broadcastSync("world projectile " + world.projectiles[event.identity].to_string());
             }
         }
     }
+
+    closeSocket();
 }
 
-void Server::send_async(User& user, std::string message) {
-    shared.response.send_async(std::make_unique<Packet>(Packet(message, user.address)));
-}
-
-void Server::send_sync(User& user, std::string message) {
-    shared.response.send_sync(std::make_unique<Packet>(Packet(message, user.address)));
+void Server::sendSync(User& user, const std::string& message) {
+    send(std::make_unique<Packet>(Packet(message, user.address)));
 }
 
 void Server::processPacket(std::unique_ptr<Packet> packet) {
@@ -80,11 +85,11 @@ void Server::processPacket(std::unique_ptr<Packet> packet) {
     std::string args = format_args(removeIdentifier);
     command(*user, cmd, args);
 }
-void Server::broadcast_sync(std::string message) {
+void Server::broadcastSync(std::string message) {
     for(auto& u : users) {
         auto& user = u.second;
         if(user.authority > 0) {
-            send_sync(user, message);
+            sendSync(user, message);
         }
     }
 }

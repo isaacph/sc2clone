@@ -60,10 +60,15 @@ add_executable(server
         logic/World.cpp
         server/Server.cpp
         server/ServerCommands.cpp
+        server/ServerNetworking.cpp
         )
+
+add_executable(test
+        test.cpp)
 
 target_link_libraries(client glfw3 GLEW::GLEW opengl32 ${FREETYPE_LIBRARIES} ${SDL_IMAGE_LIBRARIES} ws2_32)
 target_link_libraries(server ws2_32)
+target_link_libraries(test ws2_32)
 add_res(${CMAKE_SOURCE_DIR}/res ${CMAKE_CURRENT_BINARY_DIR})
 
 #find_package(PkgConfig REQUIRED)

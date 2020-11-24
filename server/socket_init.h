@@ -4,7 +4,7 @@
 
 #ifndef UNTITLED2_SOCKET_INIT_H
 #define UNTITLED2_SOCKET_INIT_H
-
+#include <iostream>
 #include <winsock2.h>
 
 inline int init_socket(int& port, int timeout_ms, SOCKET& soc, struct sockaddr_in& address, bool find_port = false) {
