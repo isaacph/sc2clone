@@ -10,7 +10,7 @@
 
 FlyCamera::FlyCamera(glm::mat4 &view, GLFWwindow* window) : view(view), move_speed(4), window(window) {}
 
-void FlyCamera::onMousePosition(const glm::vec2 &mouse_pos) {
+void FlyCamera::onMousePosition(GLFWwindow* window, const glm::vec2& mouse_pos) {
     last_mouse_position = mouse_position;
     mouse_position = mouse_pos;
 }
@@ -36,6 +36,7 @@ void FlyCamera::onKey(GLFWwindow* window, int key, int scancode, int action, int
 void FlyCamera::enable() {
     toggle = true;
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    rotation.x = 0;
 }
 
 void FlyCamera::disable() {

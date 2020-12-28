@@ -13,9 +13,8 @@
 #include "../user_interface/Chatbox.h"
 #include "../math_util.h"
 #include <pthread.h>
-#include "../server/shared.h"
-#include "../server/socket_init.h"
 #include <sstream>
+#include "../server/ServerNetworking.h"
 #include <windows.h>
 #include <winuser.h>
 #include <windef.h>
@@ -33,8 +32,8 @@ struct Game {
     glm::mat4 ortho = glm::mat4(1.0f), view = glm::mat4(1.0f), persp = glm::mat4(1.0f);
     int width = 0, height = 0;
     glm::vec2 mouse;
-    glm::vec2 mouse_world;
-    glm::vec3 mouse_dir;
+    glm::vec2 mouseWorld;
+    glm::vec3 mouseDir;
 
     FlyCamera flyCamera;
     OverheadCamera overheadCamera;
@@ -43,7 +42,7 @@ struct Game {
     FocusNone noFocus;
     FocusManager focusManager;
 
-    glm::vec2 drag_start;
+    glm::vec2 dragStart;
     bool left_click = false;
     bool drag = false;
     bool attack = false;
@@ -58,31 +57,32 @@ struct Game {
 
     UniqueIDGenerator uniqueIDGenerator;
     UniqueID clientID;
+    Networking networking;
+    struct sockaddr_in serverAddress;
 
-    Shared communication;
-    sockaddr_in server_address = get_address(3800, "127.0.0.1");
-    int ping_timer;
-    bool ping_started;
+    double currentTime;
+    double pingStart;
+    bool pinging;
 
     std::map<std::string, GameCommand> commands;
 
-    explicit Game(GLFWwindow* window);
+    explicit Game();
     void windowSize(int new_width, int new_height);
     void onMouse(int button, int action, int mods);
     void onCursorPos(double x, double y);
     void onScroll(double x, double y);
     void onKey(int key, int scancode, int action, int mods);
     void onChar(unsigned int codepoint);
-    glm::vec3 screen_space_to_overhead_dir(glm::vec2 screen) const;
+    glm::vec3 screenSpaceToOverheadDir(glm::vec2 screen) const;
     void run();
     void command(std::string command);
     void initCommands();
-    void send_async(const std::string& msg);
-    void send_sync(const std::string& msg);
-    int select_units_click(bool& foundUnit, bool sameTeam);
-    void select_units_drag();
+    void send(const std::string& msg);
+    int findMouseOverUnits(bool& foundUnit, bool sameTeam);
+    void findMouseDragUnits();
+    ~Game();
 
-    Graphics::Model* get_model_unit(const Unit& unit);
+    Graphics::Model* getUnitModel(const Unit& unit);
 };
 
 

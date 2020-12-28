@@ -10,6 +10,7 @@
 #include <set>
 #include <functional>
 #include <queue>
+#include <string>
 
 struct UnitCommand {
     enum Type {
@@ -24,7 +25,7 @@ struct UnitCommand {
     inline UnitCommand(Type type1) : UnitCommand(type1, glm::vec2(0)) {}
     UnitCommand(std::string args);
     static UnitCommand parse(std::string args, std::vector<int>& ids);
-    std::string to_string();
+    std::string toString();
 };
 
 struct Unit {
@@ -47,7 +48,7 @@ struct Unit {
     inline Unit(int number) : number(number) {}
     Unit() = default;
     Unit(std::string args);
-    std::string to_string();
+    std::string toString();
 };
 
 struct WorldEvent {
@@ -69,7 +70,7 @@ struct Projectile {
     bool alive;
     Projectile() = default;
     Projectile(std::string args);
-    std::string to_string();
+    std::string toString();
 };
 
 class World {

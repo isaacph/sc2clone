@@ -43,6 +43,7 @@ void Chatbox::println(const std::string& s) {
 
         current = remain;
     } while(current.size() > 0);
+    inactivity = 0;
 }
 
 void Chatbox::draw(double delta, const glm::mat4& setup) {

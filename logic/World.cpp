@@ -345,7 +345,7 @@ Unit::Unit(std::string args) {
     }
     command = UnitCommand(cmd_str);
 }
-std::string Unit::to_string() {
+std::string Unit::toString() {
     if(abs(position.x) >= 10000 || abs(position.y) >= 10000) {
         position.x = 0;
         position.y = 0;
@@ -363,7 +363,7 @@ std::string Unit::to_string() {
         std::to_string((int) alive) + " " +
         std::to_string(load_time) + " " +
         std::to_string(attack_range) + " " +
-        command.to_string();
+            command.toString();
 }
 UnitCommand::UnitCommand(std::string args) {
     std::vector<std::string> arr = format_args_arr(args);
@@ -386,7 +386,7 @@ UnitCommand UnitCommand::parse(std::string args, std::vector<int> &ids) {
     }
     return UnitCommand(args);
 }
-std::string UnitCommand::to_string() {
+std::string UnitCommand::toString() {
     return std::to_string((int) type) + " " +
            std::to_string(destination.x) + " " +
            std::to_string(destination.y) + " " +
@@ -396,7 +396,7 @@ std::string World::unit_command_string(UnitCommand cmd, std::vector<int> ids) {
     if(ids.size() == 0) {
         return "";
     }
-    std::string out = cmd.to_string();
+    std::string out = cmd.toString();
     for(int i = 0; i < ids.size(); ++i) {
         out += " " + std::to_string(ids[i]);
     }
@@ -417,7 +417,7 @@ Projectile::Projectile(std::string args) {
     speed = std::atof(args_arr[6].c_str());
     alive = args_arr[7] == "1";
 }
-std::string Projectile::to_string() {
+std::string Projectile::toString() {
     return std::to_string(number) + " " +
         std::to_string(source) + " " +
         std::to_string(target) + " " +

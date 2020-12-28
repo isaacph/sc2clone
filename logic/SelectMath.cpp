@@ -66,7 +66,7 @@ bool check_selection(
     return false;
 }
 
-int Game::select_units_click(bool& foundUnit, bool sameTeam) {
+int Game::findMouseOverUnits(bool& foundUnit, bool sameTeam) {
     int closestSelected = -1;
     float closestDist;
     foundUnit = false;
@@ -74,12 +74,12 @@ int Game::select_units_click(bool& foundUnit, bool sameTeam) {
         unsigned int unitID = p.first;
         auto &unit = p.second;
         if(unit.alive && (!sameTeam || unit.team == team)) {
-            Graphics::Model *model = get_model_unit(unit);
+            Graphics::Model *model = getUnitModel(unit);
             if (model != nullptr) {
                 float dist = 0;
                 if (check_selection(overheadCamera.camera_position,
                                     overheadCamera.camera_focus_point - overheadCamera.camera_position,
-                                    mouse_dir, *model, dist)) {
+                                    mouseDir, *model, dist)) {
                     if (!foundUnit || dist < closestDist) {
                         foundUnit = true;
                         closestSelected = unitID;
@@ -92,18 +92,18 @@ int Game::select_units_click(bool& foundUnit, bool sameTeam) {
     return closestSelected;
 }
 
-void Game::select_units_drag() {
+void Game::findMouseDragUnits() {
     std::vector<glm::vec3> dirs = {
-            screen_space_to_overhead_dir(drag_start),
-            screen_space_to_overhead_dir(glm::vec2(drag_start.x, mouse.y)),
-            screen_space_to_overhead_dir(mouse),
-            screen_space_to_overhead_dir(glm::vec2(mouse.x, drag_start.y))
+            screenSpaceToOverheadDir(dragStart),
+            screenSpaceToOverheadDir(glm::vec2(dragStart.x, mouse.y)),
+            screenSpaceToOverheadDir(mouse),
+            screenSpaceToOverheadDir(glm::vec2(mouse.x, dragStart.y))
     };
     for (auto &p : world.units) {
         unsigned int unitID = p.first;
         auto &unit = p.second;
         if(unit.alive && unit.team == team) {
-            Graphics::Model *model = get_model_unit(unit);
+            Graphics::Model *model = getUnitModel(unit);
             if (model != nullptr) {
                 if (check_selection(
                         overheadCamera.camera_position,

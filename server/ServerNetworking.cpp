@@ -2,10 +2,10 @@
 // Created by isaac on 11/17/2020.
 //
 
-#include "Server.h"
+#include "ServerNetworking.h"
 #include <iostream>
 
-bool Server::initSocket(int port, bool findPort) {
+bool Networking::initSocket(int port, bool findPort) {
     this->port = port;
     WSADATA wsa;
 
@@ -61,12 +61,12 @@ bool Server::initSocket(int port, bool findPort) {
     return true;
 }
 
-void Server::closeSocket() {
+void Networking::closeSocket() {
     closesocket(serverSocket);
     std::cout << "Socket closed.\n";
 }
 
-std::vector<std::unique_ptr<Packet>> Server::pollAndSend() {
+std::vector<std::unique_ptr<Packet>> Networking::pollAndSend() {
     std::vector<std::unique_ptr<Packet>> received;
 
     WSAEVENT event = WSACreateEvent();
@@ -140,7 +140,7 @@ std::vector<std::unique_ptr<Packet>> Server::pollAndSend() {
     return received;
 }
 
-void Server::send(std::unique_ptr<Packet> packet) {
+void Networking::send(std::unique_ptr<Packet> packet) {
     packetQueue.push(std::move(packet));
 }
 

@@ -3,6 +3,7 @@
 //
 
 #include "Game.h"
+#include <chrono>
 
 namespace GameCommands {
     void test(Game& game, const std::string& args_temp) {
@@ -43,16 +44,16 @@ namespace GameCommands {
         }
     }
     void send(Game& game, const std::string& args) {
-        game.send_async(args);
+        game.send(args);
     }
     void ping(Game& game, const std::string& args) {
-        if(!game.ping_started) {
-            game.ping_started = true;
-            game.ping_timer = 0;
-            game.send_sync("ping");
+        if(!game.pinging) {
+            game.pinging = true;
+            game.pingStart = game.currentTime;
+            game.send("ping");
         } else {
-            game.ping_started = false;
-            game.chatbox.println("Ping is " + std::to_string(game.ping_timer) + " frame(s)");
+            game.pinging = false;
+            game.chatbox.println("Ping is " + std::to_string(game.currentTime - game.pingStart) + " seconds");
         }
     }
     void root(Game& game, const std::string& args) {
@@ -83,19 +84,21 @@ namespace GameCommands {
         game.world.server_command(args);
     }
     void host(Game& game, const std::string& args) {
-        game.server_address = get_address(3800, args.c_str());
+//        game.server_address = get_address(3800, args.c_str());
+        game.serverAddress = getNetworkingAddress(3800, args);
         game.chatbox.println("Ip set to " + args + ":3800");
     }
 }
 
 void Game::initCommands() {
     using namespace GameCommands;
-    ping_started = false;
+    pingStart = -1;
+    pinging = false;
     commands = {
             {"test", test},
             {"chat", chat},
             {"overheadpos", overheadpos},
-            {"send", send},
+            {"send", GameCommands::send},
             {"ping", ping},
             {"root", root},
             {"team", team_num},

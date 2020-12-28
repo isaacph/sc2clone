@@ -8,8 +8,8 @@
 #include "../logic/UniqueID.h"
 #include <queue>
 #include <memory>
-#include <winsock2.h>
-#include "packet.h"
+#include "Packet.h"
+#include "ServerNetworking.h"
 
 struct User {
     struct sockaddr_in address;
@@ -29,28 +29,18 @@ public:
 
     void run();
 private:
-    void broadcastSync(std::string message);
-    void sendSync(User& user, const std::string& message);
+    void broadcast(std::string message);
+    void send(User& user, const std::string& message);
     void command(User& user, std::string cmd, std::string args);
     void processPacket(std::unique_ptr<Packet> packet);
-
-    bool initSocket(int port, bool findPort = false);
-    void closeSocket();
-    std::vector<std::unique_ptr<Packet>> pollAndSend();
-    void send(std::unique_ptr<Packet> packet);
-
-    bool canSend;
-    int socketOn;
-    int port;
-    SOCKET serverSocket;
-    struct sockaddr_in address;
-    std::queue<std::unique_ptr<Packet>> packetQueue;
 
     World world;
     std::map<UniqueID, User> users;
     int total_users;
 
     std::atomic<bool>& running;
+
+    Networking networking;
 };
 
 

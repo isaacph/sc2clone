@@ -27,7 +27,6 @@ endmacro(add_res)
 
 add_executable(client
         main.cpp
-        #main_testers/dragon_curve.cpp
         graphics/draw.cpp
         graphics/draw_square.cpp
         graphics/draw_text.cpp
@@ -42,10 +41,8 @@ add_executable(client
         user_interface/OverheadCamera.cpp
         user_interface/FocusMode.cpp
         math_util.cpp
-        server/listen.cpp
-        server/response.cpp
-        server/packet.cpp
-        server/async_console.cpp
+        server/Packet.cpp
+        server/ServerNetworking.cpp
         logic/World.cpp
         logic/Game.cpp
         logic/GameCommands.cpp
@@ -53,10 +50,8 @@ add_executable(client
         )
 
 add_executable(server
-        server/server_main.cpp
-        server/listen.cpp
-        server/response.cpp
-        server/packet.cpp
+        server/ServerMain.cpp
+        server/Packet.cpp
         logic/World.cpp
         server/Server.cpp
         server/ServerCommands.cpp
@@ -66,9 +61,15 @@ add_executable(server
 add_executable(test
         test.cpp)
 
+add_executable(test2
+        test2.cpp
+        server/ServerNetworking.cpp
+        server/Packet.cpp)
+
 target_link_libraries(client glfw3 GLEW::GLEW opengl32 ${FREETYPE_LIBRARIES} ${SDL_IMAGE_LIBRARIES} ws2_32)
 target_link_libraries(server ws2_32)
 target_link_libraries(test ws2_32)
+target_link_libraries(test2 ws2_32)
 add_res(${CMAKE_SOURCE_DIR}/res ${CMAKE_CURRENT_BINARY_DIR})
 
 #find_package(PkgConfig REQUIRED)

@@ -10,7 +10,7 @@
 class FlyCamera : public FocusMode {
 public:
     explicit FlyCamera(glm::mat4& view, GLFWwindow* window);
-    void onMousePosition(const glm::vec2& mouse_pos);
+    void onMousePosition(GLFWwindow* window, const glm::vec2& mouse_pos) override;
     void onKey(GLFWwindow* window, int key, int scancode, int action, int mods);
     void update(double delta);
     void enable();

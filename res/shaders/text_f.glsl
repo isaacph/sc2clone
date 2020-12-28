@@ -8,5 +8,5 @@ uniform vec4 color;
 void main()
 {
     float a = texture(sampler, texCoord).r;
-    outColor = color * vec4(1, 1, 1, a) * a;
+    outColor = color * vec4(1, 1, 1, a);
 }

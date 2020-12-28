@@ -6,17 +6,12 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include <winsock2.h>
 #include <memory>
-#include "packet.h"
-#include "socket_init.h"
+#include "Packet.h"
 #include "../logic/World.h"
 #include "../math_util.h"
 #include "Server.h"
-#include <chrono>
-#include <functional>
 #include <atomic>
-#include "WorldServer.h"
 
 struct Shared {
     std::atomic<bool> running;

@@ -4,8 +4,39 @@
 
 #include "Game.h"
 #include "SelectMath.h"
+#include <chrono>
 
-Game::Game(GLFWwindow* window) : window(window), flyCamera(view, window), overheadCamera(view, window),
+GLFWwindow* initWindow(int width, int height) {
+    glfwInit();
+
+//    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+//    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+//    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+//    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+
+    glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
+    GLFWwindow* window = glfwCreateWindow(width, height, "Render Engine",
+                                          nullptr, nullptr);
+
+    glfwMakeContextCurrent(window);
+
+    // enable VSYNCtest
+    glfwSwapInterval(1);
+
+    // init GL
+    glewExperimental = GL_TRUE;
+    glewInit();
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_CULL_FACE);
+    glClearColor(0, 0, 0, 0);
+    errorCheckGl("draw pre-init");
+
+    return window;
+}
+
+
+Game::Game() : window(initWindow(800, 600)), flyCamera(view, window), overheadCamera(view, window),
 focusManager({&noFocus, &flyCamera, &overheadCamera, &chatbox}, &noFocus),
 uniqueIDGenerator(), clientID(uniqueIDGenerator.generate()) {
     initCommands();
@@ -32,7 +63,7 @@ uniqueIDGenerator(), clientID(uniqueIDGenerator.generate()) {
     focusManager.add_link(&overheadCamera, &chatbox, {GLFW_KEY_ENTER, GLFW_PRESS, 0});
     focusManager.add_link(&flyCamera, &chatbox, {GLFW_KEY_ENTER, GLFW_PRESS, 0});
     focusManager.add_link(&chatbox, FocusMode::FOCUS_PREV, {GLFW_KEY_ENTER, GLFW_PRESS, 0, [&](){
-        return chatbox.typed.size() == 0;
+        return chatbox.typed.empty();
     }});
     focusManager.add_link(&chatbox, &noFocus, {GLFW_KEY_ESCAPE, GLFW_PRESS, 0});
     focusManager.add_link(&noFocus, &overheadCamera, {GLFW_KEY_G, GLFW_PRESS, 0});
@@ -45,6 +76,8 @@ uniqueIDGenerator(), clientID(uniqueIDGenerator.generate()) {
     focusManager.add_link(&flyCamera, &overheadCamera, {GLFW_KEY_G, GLFW_PRESS, 0});
     focusManager.add_link(&noFocus, &flyCamera, {GLFW_KEY_V, GLFW_PRESS, 0});
     overheadCamera.camera_focus_point = glm::vec3(0, 0, 0);
+
+    windowSize(800, 600);
 }
 
 void Game::windowSize(int new_width, int new_height) {
@@ -66,15 +99,15 @@ void Game::onMouse(int button, int action, int mods) {
             if (focusManager.get_focus() == &overheadCamera) {
                 if (action == GLFW_PRESS) {
                     bool foundUnit = false;
-                    int selected = select_units_click(foundUnit, !attack);
+                    int selected = findMouseOverUnits(foundUnit, !attack);
                     if(!attack) {
-                        drag_start = mouse;
+                        dragStart = mouse;
                         world.unitsSelected = {};
                         if (foundUnit) {
                             world.unitsSelected.insert(selected);
                         }
                     } else {
-                        UnitCommand command = {UnitCommand::NONE, mouse_world, selected};
+                        UnitCommand command = {UnitCommand::NONE, mouseWorld, selected};
                         if(foundUnit) {
                             command.type = UnitCommand::ATTACK;
                         } else {
@@ -87,7 +120,7 @@ void Game::onMouse(int button, int action, int mods) {
                 if (action == GLFW_RELEASE) {
                     if (!attack && drag) {
                         drag = false;
-                        select_units_drag();
+                        findMouseDragUnits();
                     }
                     attack = false;
                 }
@@ -95,7 +128,7 @@ void Game::onMouse(int button, int action, int mods) {
         }
         if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
             std::vector<int> ids;
-            UnitCommand command = {UnitCommand::MOVE, mouse_world};
+            UnitCommand command = {UnitCommand::MOVE, mouseWorld};
             world.local_command_units(team, std::vector<int>(world.unitsSelected.begin(), world.unitsSelected.end()),
                                       command);
         }
@@ -136,7 +169,7 @@ void Game::onChar(unsigned int codepoint) {
     focusManager.onChar(window, codepoint);
 }
 
-glm::vec3 Game::screen_space_to_overhead_dir(glm::vec2 screen) const {
+glm::vec3 Game::screenSpaceToOverheadDir(glm::vec2 screen) const {
     glm::vec4 screen_mouse((screen.x / (float) width * 2 - 1), (screen.y / (float) height * 2 - 1), 1.0f, 1);
     glm::vec4 near_point = screen_mouse;
     near_point.z = 0;
@@ -148,6 +181,8 @@ glm::vec3 Game::screen_space_to_overhead_dir(glm::vec2 screen) const {
 }
 
 void Game::run() {
+    networking.initSocket(3801, true);
+    serverAddress = getNetworkingAddress(3800, "127.0.0.1");
 
     Graphics::Text text = graphics.initText("arial", 20);
     text.text = "Isaac Huffman";
@@ -197,10 +232,6 @@ void Game::run() {
     selectionModel.color = glm::vec4(1, 1, 1, 1);
 
     world.local_create_worker(0, glm::vec2(0, 0));
-    //world.create_worker(0, glm::vec2(6, 0));
-    //world.create_worker(0, glm::vec2(6, 3));
-    //world.create_worker(0, glm::vec2(6, 6));
-    //world.create_worker(0, glm::vec2(9, 0));
 
     std::map<int, glm::vec4> teamColor = {
             {0, glm::vec4(1, 1, 1, 1)},
@@ -213,50 +244,46 @@ void Game::run() {
             {7, glm::vec4(1, 1, 1, 1)}
     };
 
-    std::unique_ptr<Packet> receive;
-
-    double current_time = glfwGetTime();
-    double last_time = current_time;
+    currentTime = glfwGetTime();
+    double lastTime = currentTime;
 
     while(!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        current_time = glfwGetTime();
-        double delta = std::min<double>(current_time - last_time, 0.1);
-        last_time = current_time;
-
-        ping_timer++;
-        while((receive = communication.listen.get()) != nullptr) {
-            std::cout << receive->message << std::endl;
-            command(receive->message);
-        }
+        currentTime = glfwGetTime();
+//        double delta = currentTime - lastTime;
+        double delta = std::min<double>(currentTime - lastTime, 0.1);
+        lastTime = currentTime;
 
         double m[2];
         glfwGetCursorPos(window, m, m + 1);
         mouse = {m[0], height - m[1]};
 
-        flyCamera.onMousePosition(mouse);
-        flyCamera.update(delta);
-
         focusManager.onMousePosition(window, mouse);
         focusManager.update(delta);
         if(focusManager.get_focus() == &overheadCamera) {
-            glm::vec3 dir = screen_space_to_overhead_dir(mouse);
+            glm::vec3 dir = screenSpaceToOverheadDir(mouse);
             glm::vec3 start = overheadCamera.camera_position;
             glm::vec3 plane_start = glm::vec3(0, 0, 0);
             glm::vec3 plane_norm = glm::vec3(0, 1, 0);
             glm::vec3 mouse3d = proj_line_plane(start, dir, plane_start, plane_norm);
-            mouse_world = glm::vec2(mouse3d.x, mouse3d.z);// - glm::vec2(overheadCamera.camera_position.x, overheadCamera.camera_position.z);
-            mouse_dir = dir;
+            mouseWorld = glm::vec2(mouse3d.x, mouse3d.z);// - glm::vec2(overheadCamera.camera_position.x, overheadCamera.camera_position.z);
+            mouseDir = dir;
         }
 
-        while(chatbox.user_input.size() > 0) {
+        while(!chatbox.user_input.empty()) {
             std::string input = chatbox.user_input.front();
             chatbox.user_input.erase(chatbox.user_input.begin());
-            if(input.size() > 0 && input[0] == '/') {
+            if(!input.empty() && input[0] == '/') {
                 command(input.substr(1, input.size() - 1));
             } else {
                 command("send say " + input);
             }
+        }
+
+        auto packets = networking.pollAndSend();
+        for(std::unique_ptr<Packet>& packet : packets) {
+            std::cout << packet->message << "\n";
+            command(packet->message);
         }
 
         world.update(delta);
@@ -265,19 +292,16 @@ void Game::run() {
         while(world.has_next_event()) {
             event = world.next_event();
             if(!world.root && event.type == WorldEvent::COMMAND) {
-                send_sync("command " + world.unit_command_string(event.command, event.command_ids));
+                send("command " + world.unit_command_string(event.command, event.command_ids));
             } else if(event.type == WorldEvent::UNIT_UPDATE) {
                 // do nothing
             }
         }
 
-        //rot += delta;
-
         glEnable(GL_DEPTH_TEST);
 
         plane1.setup = persp * view;
-        plane1.position = glm::vec3(mouse_world.x, 0.01, mouse_world.y);
-        //plane1.draw();
+        plane1.position = glm::vec3(mouseWorld.x, 0.01, mouseWorld.y);
 
         plane.setup = persp * view;
         plane.draw();
@@ -297,17 +321,17 @@ void Game::run() {
             const auto& unit = p.second;
             if(unit.alive) {
                 if (unit.type == Unit::WORKER) {
-                    Graphics::PlainModel &model = (Graphics::PlainModel &) *get_model_unit(unit);
+                    auto &model = (Graphics::PlainModel &) *getUnitModel(unit);
                     model.setup = persp * view;
                     model.color = teamColor[unit.team];
                     model.draw();
                 } else if (unit.type == Unit::BARRACKS) {
-                    Graphics::PlainModel &model = (Graphics::PlainModel &) *get_model_unit(unit);
+                    auto &model = (Graphics::PlainModel &) *getUnitModel(unit);
                     model.setup = persp * view;
                     model.color = teamColor[unit.team];
                     model.draw();
                 } else if(unit.type == Unit::SOLDIER) {
-                    Graphics::PlainModel &model = (Graphics::PlainModel&) *get_model_unit(unit);
+                    auto &model = (Graphics::PlainModel&) *getUnitModel(unit);
                     model.setup = persp * view;
                     model.color = teamColor[unit.team];
                     model.draw();
@@ -336,8 +360,8 @@ void Game::run() {
         }
 
         if(focusManager.get_focus() == &overheadCamera && drag) {
-            glm::vec2 center = (drag_start + mouse) * 1.0f / 2.0f;
-            glm::vec2 size = mouse - drag_start;
+            glm::vec2 center = (dragStart + mouse) * 1.0f / 2.0f;
+            glm::vec2 size = mouse - dragStart;
             rect.matrix = glm::scale(glm::translate(glm::mat4(1.0f), glm::vec3(center.x, center.y, 0)),
                                      glm::vec3(abs(size.x), abs(size.y), 0));
             rect.setup = ortho;
@@ -349,17 +373,15 @@ void Game::run() {
         glfwPollEvents();
         glfwSwapBuffers(window);
     }
+
+    networking.closeSocket();
 }
 
-void Game::send_async(const std::string &msg) {
-    communication.response.send_async(std::make_unique<Packet>(Packet(clientID.to_string() + " " + msg, server_address)));
+void Game::send(const std::string &msg) {
+    networking.send(std::make_unique<Packet>(Packet(clientID.to_string() + " " + msg, serverAddress)));
 }
 
-void Game::send_sync(const std::string &msg) {
-    communication.response.send_sync(std::make_unique<Packet>(Packet(clientID.to_string() + " " + msg, server_address)));
-}
-
-Graphics::Model* Game::get_model_unit(const Unit& unit) {
+Graphics::Model* Game::getUnitModel(const Unit& unit) {
     if (unit.type == Unit::WORKER) {
         workerModel.position = glm::vec3(unit.position.x, 1, unit.position.y);
         workerModel.scale = glm::vec3(1);
@@ -386,4 +408,8 @@ Graphics::Model* Game::get_model_unit(const Unit& unit) {
         return &soldierModel;
     }
     return nullptr;
+}
+
+Game::~Game() {
+    glfwTerminate();
 }
